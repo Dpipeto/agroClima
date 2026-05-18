@@ -1,0 +1,1905 @@
+Pais,Item,Year,Rendimiento_t_ha,Lluvia_mm,Temp_C,Fenomeno_ENSO
+Colombia,Maize,1990,4.431,2113.8,27.9,Normal
+Colombia,"Rice, paddy",1990,4.772,2113.8,27.9,Normal
+Colombia,"Coffee, green",1990,0.83,2113.8,27.9,Normal
+Colombia,Potatoes,1990,17.736,2113.8,27.9,Normal
+Colombia,Cassava,1990,8.397,2113.8,27.9,Normal
+Colombia,Bananas,1990,8.645,2113.8,27.9,Normal
+Colombia,Avocados,1990,9.648,2113.8,27.9,Normal
+Colombia,Maize,1991,4.516,2157.7,20.1,Normal
+Colombia,"Rice, paddy",1991,5.143,2157.7,20.1,Normal
+Colombia,"Coffee, green",1991,0.814,2157.7,20.1,Normal
+Colombia,Potatoes,1991,18.278,2157.7,20.1,Normal
+Colombia,Cassava,1991,9.215,2157.7,20.1,Normal
+Colombia,Bananas,1991,8.603,2157.7,20.1,Normal
+Colombia,Avocados,1991,9.188,2157.7,20.1,Normal
+Colombia,Maize,1992,3.797,1667.0,26.2,Normal
+Colombia,"Rice, paddy",1992,4.492,1667.0,26.2,Normal
+Colombia,"Coffee, green",1992,0.789,1667.0,26.2,Normal
+Colombia,Potatoes,1992,17.593,1667.0,26.2,Normal
+Colombia,Cassava,1992,9.769,1667.0,26.2,Normal
+Colombia,Bananas,1992,7.779,1667.0,26.2,Normal
+Colombia,Avocados,1992,8.699,1667.0,26.2,Normal
+Colombia,Maize,1993,4.587,2028.3,17.0,Normal
+Colombia,"Rice, paddy",1993,4.874,2028.3,17.0,Normal
+Colombia,"Coffee, green",1993,0.709,2028.3,17.0,Normal
+Colombia,Potatoes,1993,21.021,2028.3,17.0,Normal
+Colombia,Cassava,1993,8.05,2028.3,17.0,Normal
+Colombia,Bananas,1993,8.55,2028.3,17.0,Normal
+Colombia,Avocados,1993,8.072,2028.3,17.0,Normal
+Colombia,Maize,1994,4.146,899.7,26.6,Normal
+Colombia,"Rice, paddy",1994,4.066,899.7,26.6,Normal
+Colombia,"Coffee, green",1994,0.752,899.7,26.6,Normal
+Colombia,Potatoes,1994,18.779,899.7,26.6,Normal
+Colombia,Cassava,1994,9.056,899.7,26.6,Normal
+Colombia,Bananas,1994,7.736,899.7,26.6,Normal
+Colombia,Avocados,1994,9.072,899.7,26.6,Normal
+Colombia,Maize,1995,4.665,1511.0,24.3,Normal
+Colombia,"Rice, paddy",1995,4.408,1511.0,24.3,Normal
+Colombia,"Coffee, green",1995,0.722,1511.0,24.3,Normal
+Colombia,Potatoes,1995,18.113,1511.0,24.3,Normal
+Colombia,Cassava,1995,8.174,1511.0,24.3,Normal
+Colombia,Bananas,1995,7.934,1511.0,24.3,Normal
+Colombia,Avocados,1995,9.409,1511.0,24.3,Normal
+Colombia,Maize,1996,4.073,1468.5,20.5,Normal
+Colombia,"Rice, paddy",1996,4.384,1468.5,20.5,Normal
+Colombia,"Coffee, green",1996,0.779,1468.5,20.5,Normal
+Colombia,Potatoes,1996,19.49,1468.5,20.5,Normal
+Colombia,Cassava,1996,8.162,1468.5,20.5,Normal
+Colombia,Bananas,1996,9.365,1468.5,20.5,Normal
+Colombia,Avocados,1996,8.815,1468.5,20.5,Normal
+Colombia,Maize,1997,3.397,2127.1,17.6,El Niño
+Colombia,"Rice, paddy",1997,3.693,2127.1,17.6,El Niño
+Colombia,"Coffee, green",1997,0.645,2127.1,17.6,El Niño
+Colombia,Potatoes,1997,14.713,2127.1,17.6,El Niño
+Colombia,Cassava,1997,7.538,2127.1,17.6,El Niño
+Colombia,Bananas,1997,6.58,2127.1,17.6,El Niño
+Colombia,Avocados,1997,7.247,2127.1,17.6,El Niño
+Colombia,Maize,1998,3.22,2028.6,24.6,El Niño
+Colombia,"Rice, paddy",1998,3.405,2028.6,24.6,El Niño
+Colombia,"Coffee, green",1998,0.651,2028.6,24.6,El Niño
+Colombia,Potatoes,1998,14.338,2028.6,24.6,El Niño
+Colombia,Cassava,1998,7.0,2028.6,24.6,El Niño
+Colombia,Bananas,1998,5.756,2028.6,24.6,El Niño
+Colombia,Avocados,1998,6.798,2028.6,24.6,El Niño
+Colombia,Maize,1999,3.835,1777.4,23.0,La Niña
+Colombia,"Rice, paddy",1999,4.079,1777.4,23.0,La Niña
+Colombia,"Coffee, green",1999,0.695,1777.4,23.0,La Niña
+Colombia,Potatoes,1999,18.317,1777.4,23.0,La Niña
+Colombia,Cassava,1999,7.706,1777.4,23.0,La Niña
+Colombia,Bananas,1999,7.994,1777.4,23.0,La Niña
+Colombia,Avocados,1999,8.43,1777.4,23.0,La Niña
+Colombia,Maize,2000,3.631,2158.6,16.7,La Niña
+Colombia,"Rice, paddy",2000,4.516,2158.6,16.7,La Niña
+Colombia,"Coffee, green",2000,0.756,2158.6,16.7,La Niña
+Colombia,Potatoes,2000,16.045,2158.6,16.7,La Niña
+Colombia,Cassava,2000,9.183,2158.6,16.7,La Niña
+Colombia,Bananas,2000,8.006,2158.6,16.7,La Niña
+Colombia,Avocados,2000,8.204,2158.6,16.7,La Niña
+Colombia,Maize,2001,3.508,1246.4,26.3,La Niña
+Colombia,"Rice, paddy",2001,3.909,1246.4,26.3,La Niña
+Colombia,"Coffee, green",2001,0.661,1246.4,26.3,La Niña
+Colombia,Potatoes,2001,17.536,1246.4,26.3,La Niña
+Colombia,Cassava,2001,8.64,1246.4,26.3,La Niña
+Colombia,Bananas,2001,7.26,1246.4,26.3,La Niña
+Colombia,Avocados,2001,7.41,1246.4,26.3,La Niña
+Colombia,Maize,2002,2.885,1092.9,23.4,El Niño
+Colombia,"Rice, paddy",2002,3.769,1092.9,23.4,El Niño
+Colombia,"Coffee, green",2002,0.521,1092.9,23.4,El Niño
+Colombia,Potatoes,2002,12.273,1092.9,23.4,El Niño
+Colombia,Cassava,2002,5.883,1092.9,23.4,El Niño
+Colombia,Bananas,2002,6.654,1092.9,23.4,El Niño
+Colombia,Avocados,2002,6.765,1092.9,23.4,El Niño
+Colombia,Maize,2003,3.126,2140.8,20.0,El Niño
+Colombia,"Rice, paddy",2003,3.833,2140.8,20.0,El Niño
+Colombia,"Coffee, green",2003,0.635,2140.8,20.0,El Niño
+Colombia,Potatoes,2003,15.438,2140.8,20.0,El Niño
+Colombia,Cassava,2003,6.873,2140.8,20.0,El Niño
+Colombia,Bananas,2003,5.918,2140.8,20.0,El Niño
+Colombia,Avocados,2003,6.338,2140.8,20.0,El Niño
+Colombia,Maize,2004,4.935,1729.4,22.3,Normal
+Colombia,"Rice, paddy",2004,4.907,1729.4,22.3,Normal
+Colombia,"Coffee, green",2004,0.924,1729.4,22.3,Normal
+Colombia,Potatoes,2004,20.248,1729.4,22.3,Normal
+Colombia,Cassava,2004,8.793,1729.4,22.3,Normal
+Colombia,Bananas,2004,10.214,1729.4,22.3,Normal
+Colombia,Avocados,2004,9.764,1729.4,22.3,Normal
+Colombia,Maize,2005,4.451,1681.3,24.0,Normal
+Colombia,"Rice, paddy",2005,5.486,1681.3,24.0,Normal
+Colombia,"Coffee, green",2005,0.94,1681.3,24.0,Normal
+Colombia,Potatoes,2005,20.151,1681.3,24.0,Normal
+Colombia,Cassava,2005,10.149,1681.3,24.0,Normal
+Colombia,Bananas,2005,9.773,1681.3,24.0,Normal
+Colombia,Avocados,2005,9.053,1681.3,24.0,Normal
+Colombia,Maize,2006,4.594,1265.6,17.3,Normal
+Colombia,"Rice, paddy",2006,5.408,1265.6,17.3,Normal
+Colombia,"Coffee, green",2006,0.863,1265.6,17.3,Normal
+Colombia,Potatoes,2006,18.626,1265.6,17.3,Normal
+Colombia,Cassava,2006,9.634,1265.6,17.3,Normal
+Colombia,Bananas,2006,9.688,1265.6,17.3,Normal
+Colombia,Avocados,2006,9.077,1265.6,17.3,Normal
+Colombia,Maize,2007,4.217,1965.7,25.4,Normal
+Colombia,"Rice, paddy",2007,5.024,1965.7,25.4,Normal
+Colombia,"Coffee, green",2007,0.902,1965.7,25.4,Normal
+Colombia,Potatoes,2007,22.558,1965.7,25.4,Normal
+Colombia,Cassava,2007,11.048,1965.7,25.4,Normal
+Colombia,Bananas,2007,9.851,1965.7,25.4,Normal
+Colombia,Avocados,2007,9.833,1965.7,25.4,Normal
+Colombia,Maize,2008,4.144,1058.5,25.1,Normal
+Colombia,"Rice, paddy",2008,5.25,1058.5,25.1,Normal
+Colombia,"Coffee, green",2008,0.772,1058.5,25.1,Normal
+Colombia,Potatoes,2008,18.09,1058.5,25.1,Normal
+Colombia,Cassava,2008,8.906,1058.5,25.1,Normal
+Colombia,Bananas,2008,8.455,1058.5,25.1,Normal
+Colombia,Avocados,2008,9.807,1058.5,25.1,Normal
+Colombia,Maize,2009,3.264,1025.2,27.2,El Niño
+Colombia,"Rice, paddy",2009,3.617,1025.2,27.2,El Niño
+Colombia,"Coffee, green",2009,0.595,1025.2,27.2,El Niño
+Colombia,Potatoes,2009,14.73,1025.2,27.2,El Niño
+Colombia,Cassava,2009,6.062,1025.2,27.2,El Niño
+Colombia,Bananas,2009,7.202,1025.2,27.2,El Niño
+Colombia,Avocados,2009,6.941,1025.2,27.2,El Niño
+Colombia,Maize,2010,3.126,849.3,23.1,El Niño
+Colombia,"Rice, paddy",2010,3.163,849.3,23.1,El Niño
+Colombia,"Coffee, green",2010,0.656,849.3,23.1,El Niño
+Colombia,Potatoes,2010,12.606,849.3,23.1,El Niño
+Colombia,Cassava,2010,6.871,849.3,23.1,El Niño
+Colombia,Bananas,2010,7.052,849.3,23.1,El Niño
+Colombia,Avocados,2010,6.32,849.3,23.1,El Niño
+Colombia,Maize,2011,3.634,1155.9,16.0,La Niña
+Colombia,"Rice, paddy",2011,4.065,1155.9,16.0,La Niña
+Colombia,"Coffee, green",2011,0.819,1155.9,16.0,La Niña
+Colombia,Potatoes,2011,19.729,1155.9,16.0,La Niña
+Colombia,Cassava,2011,9.089,1155.9,16.0,La Niña
+Colombia,Bananas,2011,7.826,1155.9,16.0,La Niña
+Colombia,Avocados,2011,9.284,1155.9,16.0,La Niña
+Colombia,Maize,2012,4.172,1555.7,19.7,La Niña
+Colombia,"Rice, paddy",2012,4.268,1555.7,19.7,La Niña
+Colombia,"Coffee, green",2012,0.879,1555.7,19.7,La Niña
+Colombia,Potatoes,2012,19.604,1555.7,19.7,La Niña
+Colombia,Cassava,2012,9.5,1555.7,19.7,La Niña
+Colombia,Bananas,2012,8.83,1555.7,19.7,La Niña
+Colombia,Avocados,2012,9.363,1555.7,19.7,La Niña
+Colombia,Maize,2013,4.84,824.2,22.3,Normal
+Colombia,"Rice, paddy",2013,4.502,824.2,22.3,Normal
+Colombia,"Coffee, green",2013,0.935,824.2,22.3,Normal
+Colombia,Potatoes,2013,19.851,824.2,22.3,Normal
+Colombia,Cassava,2013,9.067,824.2,22.3,Normal
+Colombia,Bananas,2013,9.055,824.2,22.3,Normal
+Colombia,Avocados,2013,10.238,824.2,22.3,Normal
+Colombia,Maize,2014,4.85,1464.7,23.7,Normal
+Colombia,"Rice, paddy",2014,5.628,1464.7,23.7,Normal
+Colombia,"Coffee, green",2014,0.83,1464.7,23.7,Normal
+Colombia,Potatoes,2014,19.409,1464.7,23.7,Normal
+Colombia,Cassava,2014,9.408,1464.7,23.7,Normal
+Colombia,Bananas,2014,9.202,1464.7,23.7,Normal
+Colombia,Avocados,2014,9.696,1464.7,23.7,Normal
+Colombia,Maize,2015,3.176,1661.2,21.5,El Niño
+Colombia,"Rice, paddy",2015,3.569,1661.2,21.5,El Niño
+Colombia,"Coffee, green",2015,0.604,1661.2,21.5,El Niño
+Colombia,Potatoes,2015,15.505,1661.2,21.5,El Niño
+Colombia,Cassava,2015,6.69,1661.2,21.5,El Niño
+Colombia,Bananas,2015,7.133,1661.2,21.5,El Niño
+Colombia,Avocados,2015,7.336,1661.2,21.5,El Niño
+Colombia,Maize,2016,3.362,1577.6,24.6,El Niño
+Colombia,"Rice, paddy",2016,3.691,1577.6,24.6,El Niño
+Colombia,"Coffee, green",2016,0.635,1577.6,24.6,El Niño
+Colombia,Potatoes,2016,14.166,1577.6,24.6,El Niño
+Colombia,Cassava,2016,6.905,1577.6,24.6,El Niño
+Colombia,Bananas,2016,7.581,1577.6,24.6,El Niño
+Colombia,Avocados,2016,7.092,1577.6,24.6,El Niño
+Colombia,Maize,2017,5.564,2192.0,18.0,Normal
+Colombia,"Rice, paddy",2017,6.142,2192.0,18.0,Normal
+Colombia,"Coffee, green",2017,0.934,2192.0,18.0,Normal
+Colombia,Potatoes,2017,22.465,2192.0,18.0,Normal
+Colombia,Cassava,2017,11.226,2192.0,18.0,Normal
+Colombia,Bananas,2017,11.287,2192.0,18.0,Normal
+Colombia,Avocados,2017,10.756,2192.0,18.0,Normal
+Colombia,Maize,2018,4.371,885.7,20.5,Normal
+Colombia,"Rice, paddy",2018,5.846,885.7,20.5,Normal
+Colombia,"Coffee, green",2018,0.923,885.7,20.5,Normal
+Colombia,Potatoes,2018,18.875,885.7,20.5,Normal
+Colombia,Cassava,2018,9.494,885.7,20.5,Normal
+Colombia,Bananas,2018,8.387,885.7,20.5,Normal
+Colombia,Avocados,2018,10.781,885.7,20.5,Normal
+Colombia,Maize,2019,5.167,2068.8,17.3,Normal
+Colombia,"Rice, paddy",2019,6.509,2068.8,17.3,Normal
+Colombia,"Coffee, green",2019,0.899,2068.8,17.3,Normal
+Colombia,Potatoes,2019,22.413,2068.8,17.3,Normal
+Colombia,Cassava,2019,10.617,2068.8,17.3,Normal
+Colombia,Bananas,2019,9.302,2068.8,17.3,Normal
+Colombia,Avocados,2019,9.9,2068.8,17.3,Normal
+Colombia,Maize,2020,5.054,2133.9,22.9,Normal
+Colombia,"Rice, paddy",2020,5.788,2133.9,22.9,Normal
+Colombia,"Coffee, green",2020,1.045,2133.9,22.9,Normal
+Colombia,Potatoes,2020,23.084,2133.9,22.9,Normal
+Colombia,Cassava,2020,10.526,2133.9,22.9,Normal
+Colombia,Bananas,2020,9.586,2133.9,22.9,Normal
+Colombia,Avocados,2020,11.88,2133.9,22.9,Normal
+Colombia,Maize,2021,4.239,1052.8,16.8,La Niña
+Colombia,"Rice, paddy",2021,4.318,1052.8,16.8,La Niña
+Colombia,"Coffee, green",2021,0.899,1052.8,16.8,La Niña
+Colombia,Potatoes,2021,20.01,1052.8,16.8,La Niña
+Colombia,Cassava,2021,8.405,1052.8,16.8,La Niña
+Colombia,Bananas,2021,7.951,1052.8,16.8,La Niña
+Colombia,Avocados,2021,9.323,1052.8,16.8,La Niña
+Colombia,Maize,2022,4.505,1299.2,25.3,La Niña
+Colombia,"Rice, paddy",2022,4.933,1299.2,25.3,La Niña
+Colombia,"Coffee, green",2022,0.928,1299.2,25.3,La Niña
+Colombia,Potatoes,2022,19.527,1299.2,25.3,La Niña
+Colombia,Cassava,2022,9.244,1299.2,25.3,La Niña
+Colombia,Bananas,2022,9.267,1299.2,25.3,La Niña
+Colombia,Avocados,2022,10.173,1299.2,25.3,La Niña
+Colombia,Maize,2023,3.67,1676.7,24.4,El Niño
+Colombia,"Rice, paddy",2023,4.238,1676.7,24.4,El Niño
+Colombia,"Coffee, green",2023,0.658,1676.7,24.4,El Niño
+Colombia,Potatoes,2023,17.772,1676.7,24.4,El Niño
+Colombia,Cassava,2023,7.507,1676.7,24.4,El Niño
+Colombia,Bananas,2023,6.665,1676.7,24.4,El Niño
+Colombia,Avocados,2023,8.882,1676.7,24.4,El Niño
+Brasil,Maize,1990,4.241,1228.4,18.4,Normal
+Brasil,"Rice, paddy",1990,4.847,1228.4,18.4,Normal
+Brasil,"Coffee, green",1990,0.837,1228.4,18.4,Normal
+Brasil,Potatoes,1990,18.121,1228.4,18.4,Normal
+Brasil,Cassava,1990,8.519,1228.4,18.4,Normal
+Brasil,Bananas,1990,8.536,1228.4,18.4,Normal
+Brasil,Avocados,1990,9.076,1228.4,18.4,Normal
+Brasil,Maize,1991,4.174,964.7,20.9,Normal
+Brasil,"Rice, paddy",1991,4.389,964.7,20.9,Normal
+Brasil,"Coffee, green",1991,0.902,964.7,20.9,Normal
+Brasil,Potatoes,1991,21.644,964.7,20.9,Normal
+Brasil,Cassava,1991,8.701,964.7,20.9,Normal
+Brasil,Bananas,1991,8.092,964.7,20.9,Normal
+Brasil,Avocados,1991,9.46,964.7,20.9,Normal
+Brasil,Maize,1992,4.608,1683.1,27.5,Normal
+Brasil,"Rice, paddy",1992,5.493,1683.1,27.5,Normal
+Brasil,"Coffee, green",1992,0.971,1683.1,27.5,Normal
+Brasil,Potatoes,1992,21.109,1683.1,27.5,Normal
+Brasil,Cassava,1992,9.175,1683.1,27.5,Normal
+Brasil,Bananas,1992,9.217,1683.1,27.5,Normal
+Brasil,Avocados,1992,9.209,1683.1,27.5,Normal
+Brasil,Maize,1993,4.12,823.3,25.0,Normal
+Brasil,"Rice, paddy",1993,4.354,823.3,25.0,Normal
+Brasil,"Coffee, green",1993,0.898,823.3,25.0,Normal
+Brasil,Potatoes,1993,19.515,823.3,25.0,Normal
+Brasil,Cassava,1993,8.756,823.3,25.0,Normal
+Brasil,Bananas,1993,8.292,823.3,25.0,Normal
+Brasil,Avocados,1993,8.76,823.3,25.0,Normal
+Brasil,Maize,1994,4.215,1072.4,26.1,Normal
+Brasil,"Rice, paddy",1994,5.226,1072.4,26.1,Normal
+Brasil,"Coffee, green",1994,0.771,1072.4,26.1,Normal
+Brasil,Potatoes,1994,22.821,1072.4,26.1,Normal
+Brasil,Cassava,1994,9.968,1072.4,26.1,Normal
+Brasil,Bananas,1994,10.041,1072.4,26.1,Normal
+Brasil,Avocados,1994,9.489,1072.4,26.1,Normal
+Brasil,Maize,1995,5.198,1934.9,26.2,Normal
+Brasil,"Rice, paddy",1995,5.031,1934.9,26.2,Normal
+Brasil,"Coffee, green",1995,0.821,1934.9,26.2,Normal
+Brasil,Potatoes,1995,20.529,1934.9,26.2,Normal
+Brasil,Cassava,1995,9.566,1934.9,26.2,Normal
+Brasil,Bananas,1995,10.448,1934.9,26.2,Normal
+Brasil,Avocados,1995,10.676,1934.9,26.2,Normal
+Brasil,Maize,1996,4.459,1536.3,19.0,Normal
+Brasil,"Rice, paddy",1996,5.085,1536.3,19.0,Normal
+Brasil,"Coffee, green",1996,0.89,1536.3,19.0,Normal
+Brasil,Potatoes,1996,23.142,1536.3,19.0,Normal
+Brasil,Cassava,1996,9.724,1536.3,19.0,Normal
+Brasil,Bananas,1996,10.188,1536.3,19.0,Normal
+Brasil,Avocados,1996,10.311,1536.3,19.0,Normal
+Brasil,Maize,1997,3.61,2039.6,18.8,El Niño
+Brasil,"Rice, paddy",1997,3.712,2039.6,18.8,El Niño
+Brasil,"Coffee, green",1997,0.658,2039.6,18.8,El Niño
+Brasil,Potatoes,1997,16.465,2039.6,18.8,El Niño
+Brasil,Cassava,1997,8.196,2039.6,18.8,El Niño
+Brasil,Bananas,1997,6.776,2039.6,18.8,El Niño
+Brasil,Avocados,1997,7.237,2039.6,18.8,El Niño
+Brasil,Maize,1998,3.585,1684.2,20.6,El Niño
+Brasil,"Rice, paddy",1998,4.377,1684.2,20.6,El Niño
+Brasil,"Coffee, green",1998,0.675,1684.2,20.6,El Niño
+Brasil,Potatoes,1998,16.794,1684.2,20.6,El Niño
+Brasil,Cassava,1998,7.938,1684.2,20.6,El Niño
+Brasil,Bananas,1998,7.725,1684.2,20.6,El Niño
+Brasil,Avocados,1998,7.904,1684.2,20.6,El Niño
+Brasil,Maize,1999,4.593,890.7,20.1,La Niña
+Brasil,"Rice, paddy",1999,4.288,890.7,20.1,La Niña
+Brasil,"Coffee, green",1999,0.787,890.7,20.1,La Niña
+Brasil,Potatoes,1999,20.02,890.7,20.1,La Niña
+Brasil,Cassava,1999,8.916,890.7,20.1,La Niña
+Brasil,Bananas,1999,7.969,890.7,20.1,La Niña
+Brasil,Avocados,1999,7.855,890.7,20.1,La Niña
+Brasil,Maize,2000,4.82,1306.3,18.2,La Niña
+Brasil,"Rice, paddy",2000,5.134,1306.3,18.2,La Niña
+Brasil,"Coffee, green",2000,0.862,1306.3,18.2,La Niña
+Brasil,Potatoes,2000,19.229,1306.3,18.2,La Niña
+Brasil,Cassava,2000,8.359,1306.3,18.2,La Niña
+Brasil,Bananas,2000,8.194,1306.3,18.2,La Niña
+Brasil,Avocados,2000,8.69,1306.3,18.2,La Niña
+Brasil,Maize,2001,4.371,1481.5,21.5,La Niña
+Brasil,"Rice, paddy",2001,4.993,1481.5,21.5,La Niña
+Brasil,"Coffee, green",2001,0.93,1481.5,21.5,La Niña
+Brasil,Potatoes,2001,19.022,1481.5,21.5,La Niña
+Brasil,Cassava,2001,9.701,1481.5,21.5,La Niña
+Brasil,Bananas,2001,8.329,1481.5,21.5,La Niña
+Brasil,Avocados,2001,9.364,1481.5,21.5,La Niña
+Brasil,Maize,2002,3.329,1080.1,22.7,El Niño
+Brasil,"Rice, paddy",2002,3.528,1080.1,22.7,El Niño
+Brasil,"Coffee, green",2002,0.712,1080.1,22.7,El Niño
+Brasil,Potatoes,2002,14.459,1080.1,22.7,El Niño
+Brasil,Cassava,2002,7.259,1080.1,22.7,El Niño
+Brasil,Bananas,2002,7.017,1080.1,22.7,El Niño
+Brasil,Avocados,2002,7.375,1080.1,22.7,El Niño
+Brasil,Maize,2003,3.599,1815.9,23.2,El Niño
+Brasil,"Rice, paddy",2003,3.8,1815.9,23.2,El Niño
+Brasil,"Coffee, green",2003,0.755,1815.9,23.2,El Niño
+Brasil,Potatoes,2003,16.431,1815.9,23.2,El Niño
+Brasil,Cassava,2003,8.796,1815.9,23.2,El Niño
+Brasil,Bananas,2003,7.38,1815.9,23.2,El Niño
+Brasil,Avocados,2003,8.464,1815.9,23.2,El Niño
+Brasil,Maize,2004,5.286,2115.4,23.8,Normal
+Brasil,"Rice, paddy",2004,6.171,2115.4,23.8,Normal
+Brasil,"Coffee, green",2004,1.023,2115.4,23.8,Normal
+Brasil,Potatoes,2004,24.784,2115.4,23.8,Normal
+Brasil,Cassava,2004,10.498,2115.4,23.8,Normal
+Brasil,Bananas,2004,11.31,2115.4,23.8,Normal
+Brasil,Avocados,2004,10.493,2115.4,23.8,Normal
+Brasil,Maize,2005,4.41,820.5,23.5,Normal
+Brasil,"Rice, paddy",2005,5.818,820.5,23.5,Normal
+Brasil,"Coffee, green",2005,0.991,820.5,23.5,Normal
+Brasil,Potatoes,2005,24.186,820.5,23.5,Normal
+Brasil,Cassava,2005,10.727,820.5,23.5,Normal
+Brasil,Bananas,2005,9.671,820.5,23.5,Normal
+Brasil,Avocados,2005,9.954,820.5,23.5,Normal
+Brasil,Maize,2006,5.066,1487.3,18.3,Normal
+Brasil,"Rice, paddy",2006,6.223,1487.3,18.3,Normal
+Brasil,"Coffee, green",2006,0.919,1487.3,18.3,Normal
+Brasil,Potatoes,2006,22.317,1487.3,18.3,Normal
+Brasil,Cassava,2006,11.84,1487.3,18.3,Normal
+Brasil,Bananas,2006,9.701,1487.3,18.3,Normal
+Brasil,Avocados,2006,10.49,1487.3,18.3,Normal
+Brasil,Maize,2007,5.076,824.6,24.6,Normal
+Brasil,"Rice, paddy",2007,5.812,824.6,24.6,Normal
+Brasil,"Coffee, green",2007,0.862,824.6,24.6,Normal
+Brasil,Potatoes,2007,23.212,824.6,24.6,Normal
+Brasil,Cassava,2007,10.732,824.6,24.6,Normal
+Brasil,Bananas,2007,9.555,824.6,24.6,Normal
+Brasil,Avocados,2007,10.333,824.6,24.6,Normal
+Brasil,Maize,2008,5.568,1595.1,21.9,Normal
+Brasil,"Rice, paddy",2008,5.594,1595.1,21.9,Normal
+Brasil,"Coffee, green",2008,1.02,1595.1,21.9,Normal
+Brasil,Potatoes,2008,23.942,1595.1,21.9,Normal
+Brasil,Cassava,2008,11.336,1595.1,21.9,Normal
+Brasil,Bananas,2008,10.69,1595.1,21.9,Normal
+Brasil,Avocados,2008,12.49,1595.1,21.9,Normal
+Brasil,Maize,2009,4.209,1946.1,23.6,El Niño
+Brasil,"Rice, paddy",2009,4.008,1946.1,23.6,El Niño
+Brasil,"Coffee, green",2009,0.794,1946.1,23.6,El Niño
+Brasil,Potatoes,2009,17.947,1946.1,23.6,El Niño
+Brasil,Cassava,2009,8.131,1946.1,23.6,El Niño
+Brasil,Bananas,2009,7.311,1946.1,23.6,El Niño
+Brasil,Avocados,2009,7.636,1946.1,23.6,El Niño
+Brasil,Maize,2010,3.245,862.8,17.9,El Niño
+Brasil,"Rice, paddy",2010,4.344,862.8,17.9,El Niño
+Brasil,"Coffee, green",2010,0.644,862.8,17.9,El Niño
+Brasil,Potatoes,2010,15.939,862.8,17.9,El Niño
+Brasil,Cassava,2010,8.374,862.8,17.9,El Niño
+Brasil,Bananas,2010,6.638,862.8,17.9,El Niño
+Brasil,Avocados,2010,8.398,862.8,17.9,El Niño
+Brasil,Maize,2011,4.436,1695.4,20.1,La Niña
+Brasil,"Rice, paddy",2011,4.956,1695.4,20.1,La Niña
+Brasil,"Coffee, green",2011,0.88,1695.4,20.1,La Niña
+Brasil,Potatoes,2011,20.082,1695.4,20.1,La Niña
+Brasil,Cassava,2011,9.801,1695.4,20.1,La Niña
+Brasil,Bananas,2011,8.721,1695.4,20.1,La Niña
+Brasil,Avocados,2011,10.616,1695.4,20.1,La Niña
+Brasil,Maize,2012,4.309,1003.4,25.1,La Niña
+Brasil,"Rice, paddy",2012,5.57,1003.4,25.1,La Niña
+Brasil,"Coffee, green",2012,0.802,1003.4,25.1,La Niña
+Brasil,Potatoes,2012,21.9,1003.4,25.1,La Niña
+Brasil,Cassava,2012,9.426,1003.4,25.1,La Niña
+Brasil,Bananas,2012,9.427,1003.4,25.1,La Niña
+Brasil,Avocados,2012,8.733,1003.4,25.1,La Niña
+Brasil,Maize,2013,5.531,1493.3,17.8,Normal
+Brasil,"Rice, paddy",2013,5.706,1493.3,17.8,Normal
+Brasil,"Coffee, green",2013,1.025,1493.3,17.8,Normal
+Brasil,Potatoes,2013,22.638,1493.3,17.8,Normal
+Brasil,Cassava,2013,11.0,1493.3,17.8,Normal
+Brasil,Bananas,2013,11.352,1493.3,17.8,Normal
+Brasil,Avocados,2013,13.141,1493.3,17.8,Normal
+Brasil,Maize,2014,5.614,1428.9,24.2,Normal
+Brasil,"Rice, paddy",2014,6.254,1428.9,24.2,Normal
+Brasil,"Coffee, green",2014,0.934,1428.9,24.2,Normal
+Brasil,Potatoes,2014,22.889,1428.9,24.2,Normal
+Brasil,Cassava,2014,12.904,1428.9,24.2,Normal
+Brasil,Bananas,2014,10.882,1428.9,24.2,Normal
+Brasil,Avocados,2014,12.142,1428.9,24.2,Normal
+Brasil,Maize,2015,3.96,1539.5,20.5,El Niño
+Brasil,"Rice, paddy",2015,4.64,1539.5,20.5,El Niño
+Brasil,"Coffee, green",2015,0.697,1539.5,20.5,El Niño
+Brasil,Potatoes,2015,17.819,1539.5,20.5,El Niño
+Brasil,Cassava,2015,8.538,1539.5,20.5,El Niño
+Brasil,Bananas,2015,9.087,1539.5,20.5,El Niño
+Brasil,Avocados,2015,8.34,1539.5,20.5,El Niño
+Brasil,Maize,2016,3.717,1702.4,17.6,El Niño
+Brasil,"Rice, paddy",2016,5.085,1702.4,17.6,El Niño
+Brasil,"Coffee, green",2016,0.821,1702.4,17.6,El Niño
+Brasil,Potatoes,2016,17.855,1702.4,17.6,El Niño
+Brasil,Cassava,2016,8.828,1702.4,17.6,El Niño
+Brasil,Bananas,2016,7.574,1702.4,17.6,El Niño
+Brasil,Avocados,2016,9.256,1702.4,17.6,El Niño
+Brasil,Maize,2017,5.437,898.5,25.1,Normal
+Brasil,"Rice, paddy",2017,5.728,898.5,25.1,Normal
+Brasil,"Coffee, green",2017,1.096,898.5,25.1,Normal
+Brasil,Potatoes,2017,27.018,898.5,25.1,Normal
+Brasil,Cassava,2017,10.752,898.5,25.1,Normal
+Brasil,Bananas,2017,11.544,898.5,25.1,Normal
+Brasil,Avocados,2017,12.112,898.5,25.1,Normal
+Brasil,Maize,2018,5.886,1846.1,27.5,Normal
+Brasil,"Rice, paddy",2018,6.92,1846.1,27.5,Normal
+Brasil,"Coffee, green",2018,1.193,1846.1,27.5,Normal
+Brasil,Potatoes,2018,26.44,1846.1,27.5,Normal
+Brasil,Cassava,2018,12.491,1846.1,27.5,Normal
+Brasil,Bananas,2018,11.295,1846.1,27.5,Normal
+Brasil,Avocados,2018,13.393,1846.1,27.5,Normal
+Brasil,Maize,2019,5.799,1760.7,21.4,Normal
+Brasil,"Rice, paddy",2019,5.97,1760.7,21.4,Normal
+Brasil,"Coffee, green",2019,0.977,1760.7,21.4,Normal
+Brasil,Potatoes,2019,26.794,1760.7,21.4,Normal
+Brasil,Cassava,2019,12.317,1760.7,21.4,Normal
+Brasil,Bananas,2019,12.667,1760.7,21.4,Normal
+Brasil,Avocados,2019,12.694,1760.7,21.4,Normal
+Brasil,Maize,2020,6.803,2111.4,18.4,Normal
+Brasil,"Rice, paddy",2020,6.515,2111.4,18.4,Normal
+Brasil,"Coffee, green",2020,1.18,2111.4,18.4,Normal
+Brasil,Potatoes,2020,27.402,2111.4,18.4,Normal
+Brasil,Cassava,2020,12.498,2111.4,18.4,Normal
+Brasil,Bananas,2020,11.12,2111.4,18.4,Normal
+Brasil,Avocados,2020,11.801,2111.4,18.4,Normal
+Brasil,Maize,2021,5.876,1796.1,20.5,La Niña
+Brasil,"Rice, paddy",2021,5.703,1796.1,20.5,La Niña
+Brasil,"Coffee, green",2021,1.107,1796.1,20.5,La Niña
+Brasil,Potatoes,2021,22.124,1796.1,20.5,La Niña
+Brasil,Cassava,2021,10.171,1796.1,20.5,La Niña
+Brasil,Bananas,2021,10.105,1796.1,20.5,La Niña
+Brasil,Avocados,2021,12.283,1796.1,20.5,La Niña
+Brasil,Maize,2022,4.853,1530.6,17.6,La Niña
+Brasil,"Rice, paddy",2022,5.613,1530.6,17.6,La Niña
+Brasil,"Coffee, green",2022,1.001,1530.6,17.6,La Niña
+Brasil,Potatoes,2022,22.573,1530.6,17.6,La Niña
+Brasil,Cassava,2022,11.765,1530.6,17.6,La Niña
+Brasil,Bananas,2022,10.745,1530.6,17.6,La Niña
+Brasil,Avocados,2022,12.103,1530.6,17.6,La Niña
+Brasil,Maize,2023,4.808,1501.3,20.0,El Niño
+Brasil,"Rice, paddy",2023,4.666,1501.3,20.0,El Niño
+Brasil,"Coffee, green",2023,0.792,1501.3,20.0,El Niño
+Brasil,Potatoes,2023,20.767,1501.3,20.0,El Niño
+Brasil,Cassava,2023,8.228,1501.3,20.0,El Niño
+Brasil,Bananas,2023,8.358,1501.3,20.0,El Niño
+Brasil,Avocados,2023,8.222,1501.3,20.0,El Niño
+México,Maize,1990,3.091,995.0,16.1,Normal
+México,"Rice, paddy",1990,3.828,995.0,16.1,Normal
+México,"Coffee, green",1990,0.706,995.0,16.1,Normal
+México,Potatoes,1990,16.093,995.0,16.1,Normal
+México,Cassava,1990,7.685,995.0,16.1,Normal
+México,Bananas,1990,7.039,995.0,16.1,Normal
+México,Avocados,1990,8.016,995.0,16.1,Normal
+México,Maize,1991,4.139,2032.5,26.2,Normal
+México,"Rice, paddy",1991,4.002,2032.5,26.2,Normal
+México,"Coffee, green",1991,0.738,2032.5,26.2,Normal
+México,Potatoes,1991,17.671,2032.5,26.2,Normal
+México,Cassava,1991,8.238,2032.5,26.2,Normal
+México,Bananas,1991,7.667,2032.5,26.2,Normal
+México,Avocados,1991,7.376,2032.5,26.2,Normal
+México,Maize,1992,3.654,943.0,26.8,Normal
+México,"Rice, paddy",1992,3.759,943.0,26.8,Normal
+México,"Coffee, green",1992,0.629,943.0,26.8,Normal
+México,Potatoes,1992,16.367,943.0,26.8,Normal
+México,Cassava,1992,7.361,943.0,26.8,Normal
+México,Bananas,1992,6.987,943.0,26.8,Normal
+México,Avocados,1992,6.736,943.0,26.8,Normal
+México,Maize,1993,3.77,994.2,20.7,Normal
+México,"Rice, paddy",1993,3.608,994.2,20.7,Normal
+México,"Coffee, green",1993,0.648,994.2,20.7,Normal
+México,Potatoes,1993,16.946,994.2,20.7,Normal
+México,Cassava,1993,8.18,994.2,20.7,Normal
+México,Bananas,1993,6.66,994.2,20.7,Normal
+México,Avocados,1993,8.069,994.2,20.7,Normal
+México,Maize,1994,4.254,2137.6,26.9,Normal
+México,"Rice, paddy",1994,4.703,2137.6,26.9,Normal
+México,"Coffee, green",1994,0.698,2137.6,26.9,Normal
+México,Potatoes,1994,18.476,2137.6,26.9,Normal
+México,Cassava,1994,8.744,2137.6,26.9,Normal
+México,Bananas,1994,7.778,2137.6,26.9,Normal
+México,Avocados,1994,8.439,2137.6,26.9,Normal
+México,Maize,1995,3.73,1771.6,27.4,Normal
+México,"Rice, paddy",1995,4.145,1771.6,27.4,Normal
+México,"Coffee, green",1995,0.754,1771.6,27.4,Normal
+México,Potatoes,1995,16.09,1771.6,27.4,Normal
+México,Cassava,1995,8.502,1771.6,27.4,Normal
+México,Bananas,1995,7.072,1771.6,27.4,Normal
+México,Avocados,1995,8.318,1771.6,27.4,Normal
+México,Maize,1996,3.652,1668.6,16.8,Normal
+México,"Rice, paddy",1996,4.245,1668.6,16.8,Normal
+México,"Coffee, green",1996,0.713,1668.6,16.8,Normal
+México,Potatoes,1996,18.426,1668.6,16.8,Normal
+México,Cassava,1996,8.406,1668.6,16.8,Normal
+México,Bananas,1996,7.635,1668.6,16.8,Normal
+México,Avocados,1996,8.249,1668.6,16.8,Normal
+México,Maize,1997,2.33,818.2,25.2,El Niño
+México,"Rice, paddy",1997,3.179,818.2,25.2,El Niño
+México,"Coffee, green",1997,0.496,818.2,25.2,El Niño
+México,Potatoes,1997,11.864,818.2,25.2,El Niño
+México,Cassava,1997,5.838,818.2,25.2,El Niño
+México,Bananas,1997,5.69,818.2,25.2,El Niño
+México,Avocados,1997,6.156,818.2,25.2,El Niño
+México,Maize,1998,3.113,1560.7,17.8,El Niño
+México,"Rice, paddy",1998,2.857,1560.7,17.8,El Niño
+México,"Coffee, green",1998,0.575,1560.7,17.8,El Niño
+México,Potatoes,1998,13.399,1560.7,17.8,El Niño
+México,Cassava,1998,6.654,1560.7,17.8,El Niño
+México,Bananas,1998,6.252,1560.7,17.8,El Niño
+México,Avocados,1998,5.414,1560.7,17.8,El Niño
+México,Maize,1999,3.183,1653.2,17.5,La Niña
+México,"Rice, paddy",1999,3.935,1653.2,17.5,La Niña
+México,"Coffee, green",1999,0.6,1653.2,17.5,La Niña
+México,Potatoes,1999,16.81,1653.2,17.5,La Niña
+México,Cassava,1999,8.373,1653.2,17.5,La Niña
+México,Bananas,1999,7.202,1653.2,17.5,La Niña
+México,Avocados,1999,7.048,1653.2,17.5,La Niña
+México,Maize,2000,3.853,1980.5,26.2,La Niña
+México,"Rice, paddy",2000,4.219,1980.5,26.2,La Niña
+México,"Coffee, green",2000,0.745,1980.5,26.2,La Niña
+México,Potatoes,2000,15.096,1980.5,26.2,La Niña
+México,Cassava,2000,8.559,1980.5,26.2,La Niña
+México,Bananas,2000,8.082,1980.5,26.2,La Niña
+México,Avocados,2000,8.448,1980.5,26.2,La Niña
+México,Maize,2001,3.446,1150.9,26.3,La Niña
+México,"Rice, paddy",2001,3.967,1150.9,26.3,La Niña
+México,"Coffee, green",2001,0.699,1150.9,26.3,La Niña
+México,Potatoes,2001,13.763,1150.9,26.3,La Niña
+México,Cassava,2001,7.085,1150.9,26.3,La Niña
+México,Bananas,2001,7.418,1150.9,26.3,La Niña
+México,Avocados,2001,7.878,1150.9,26.3,La Niña
+México,Maize,2002,3.187,1988.2,18.0,El Niño
+México,"Rice, paddy",2002,3.126,1988.2,18.0,El Niño
+México,"Coffee, green",2002,0.608,1988.2,18.0,El Niño
+México,Potatoes,2002,12.829,1988.2,18.0,El Niño
+México,Cassava,2002,6.821,1988.2,18.0,El Niño
+México,Bananas,2002,6.008,1988.2,18.0,El Niño
+México,Avocados,2002,7.206,1988.2,18.0,El Niño
+México,Maize,2003,2.891,1611.9,23.6,El Niño
+México,"Rice, paddy",2003,3.547,1611.9,23.6,El Niño
+México,"Coffee, green",2003,0.559,1611.9,23.6,El Niño
+México,Potatoes,2003,11.88,1611.9,23.6,El Niño
+México,Cassava,2003,6.509,1611.9,23.6,El Niño
+México,Bananas,2003,6.444,1611.9,23.6,El Niño
+México,Avocados,2003,5.943,1611.9,23.6,El Niño
+México,Maize,2004,4.301,1109.5,23.3,Normal
+México,"Rice, paddy",2004,4.226,1109.5,23.3,Normal
+México,"Coffee, green",2004,0.827,1109.5,23.3,Normal
+México,Potatoes,2004,19.829,1109.5,23.3,Normal
+México,Cassava,2004,7.882,1109.5,23.3,Normal
+México,Bananas,2004,7.54,1109.5,23.3,Normal
+México,Avocados,2004,8.901,1109.5,23.3,Normal
+México,Maize,2005,4.299,2132.4,24.5,Normal
+México,"Rice, paddy",2005,4.512,2132.4,24.5,Normal
+México,"Coffee, green",2005,0.809,2132.4,24.5,Normal
+México,Potatoes,2005,20.108,2132.4,24.5,Normal
+México,Cassava,2005,8.883,2132.4,24.5,Normal
+México,Bananas,2005,8.735,2132.4,24.5,Normal
+México,Avocados,2005,8.437,2132.4,24.5,Normal
+México,Maize,2006,3.734,1433.1,17.1,Normal
+México,"Rice, paddy",2006,5.114,1433.1,17.1,Normal
+México,"Coffee, green",2006,0.729,1433.1,17.1,Normal
+México,Potatoes,2006,19.181,1433.1,17.1,Normal
+México,Cassava,2006,8.148,1433.1,17.1,Normal
+México,Bananas,2006,7.897,1433.1,17.1,Normal
+México,Avocados,2006,8.601,1433.1,17.1,Normal
+México,Maize,2007,4.408,1001.1,16.6,Normal
+México,"Rice, paddy",2007,4.015,1001.1,16.6,Normal
+México,"Coffee, green",2007,0.678,1001.1,16.6,Normal
+México,Potatoes,2007,19.521,1001.1,16.6,Normal
+México,Cassava,2007,8.14,1001.1,16.6,Normal
+México,Bananas,2007,8.516,1001.1,16.6,Normal
+México,Avocados,2007,7.86,1001.1,16.6,Normal
+México,Maize,2008,4.619,1132.2,22.9,Normal
+México,"Rice, paddy",2008,4.175,1132.2,22.9,Normal
+México,"Coffee, green",2008,0.757,1132.2,22.9,Normal
+México,Potatoes,2008,16.564,1132.2,22.9,Normal
+México,Cassava,2008,8.151,1132.2,22.9,Normal
+México,Bananas,2008,9.077,1132.2,22.9,Normal
+México,Avocados,2008,7.934,1132.2,22.9,Normal
+México,Maize,2009,3.49,1999.6,18.1,El Niño
+México,"Rice, paddy",2009,3.646,1999.6,18.1,El Niño
+México,"Coffee, green",2009,0.657,1999.6,18.1,El Niño
+México,Potatoes,2009,13.244,1999.6,18.1,El Niño
+México,Cassava,2009,7.254,1999.6,18.1,El Niño
+México,Bananas,2009,6.702,1999.6,18.1,El Niño
+México,Avocados,2009,6.895,1999.6,18.1,El Niño
+México,Maize,2010,3.515,1934.8,23.8,El Niño
+México,"Rice, paddy",2010,3.523,1934.8,23.8,El Niño
+México,"Coffee, green",2010,0.617,1934.8,23.8,El Niño
+México,Potatoes,2010,15.796,1934.8,23.8,El Niño
+México,Cassava,2010,6.381,1934.8,23.8,El Niño
+México,Bananas,2010,6.425,1934.8,23.8,El Niño
+México,Avocados,2010,7.607,1934.8,23.8,El Niño
+México,Maize,2011,3.702,1463.0,19.0,La Niña
+México,"Rice, paddy",2011,4.718,1463.0,19.0,La Niña
+México,"Coffee, green",2011,0.798,1463.0,19.0,La Niña
+México,Potatoes,2011,19.141,1463.0,19.0,La Niña
+México,Cassava,2011,8.547,1463.0,19.0,La Niña
+México,Bananas,2011,7.696,1463.0,19.0,La Niña
+México,Avocados,2011,7.537,1463.0,19.0,La Niña
+México,Maize,2012,3.257,972.5,16.7,La Niña
+México,"Rice, paddy",2012,4.519,972.5,16.7,La Niña
+México,"Coffee, green",2012,0.742,972.5,16.7,La Niña
+México,Potatoes,2012,16.843,972.5,16.7,La Niña
+México,Cassava,2012,8.763,972.5,16.7,La Niña
+México,Bananas,2012,8.167,972.5,16.7,La Niña
+México,Avocados,2012,8.118,972.5,16.7,La Niña
+México,Maize,2013,4.44,1450.4,17.8,Normal
+México,"Rice, paddy",2013,4.568,1450.4,17.8,Normal
+México,"Coffee, green",2013,0.809,1450.4,17.8,Normal
+México,Potatoes,2013,22.022,1450.4,17.8,Normal
+México,Cassava,2013,9.044,1450.4,17.8,Normal
+México,Bananas,2013,8.11,1450.4,17.8,Normal
+México,Avocados,2013,9.587,1450.4,17.8,Normal
+México,Maize,2014,4.195,1643.3,18.3,Normal
+México,"Rice, paddy",2014,5.688,1643.3,18.3,Normal
+México,"Coffee, green",2014,0.796,1643.3,18.3,Normal
+México,Potatoes,2014,22.011,1643.3,18.3,Normal
+México,Cassava,2014,9.545,1643.3,18.3,Normal
+México,Bananas,2014,8.907,1643.3,18.3,Normal
+México,Avocados,2014,9.141,1643.3,18.3,Normal
+México,Maize,2015,3.144,1883.4,26.6,El Niño
+México,"Rice, paddy",2015,3.388,1883.4,26.6,El Niño
+México,"Coffee, green",2015,0.571,1883.4,26.6,El Niño
+México,Potatoes,2015,16.065,1883.4,26.6,El Niño
+México,Cassava,2015,6.979,1883.4,26.6,El Niño
+México,Bananas,2015,6.082,1883.4,26.6,El Niño
+México,Avocados,2015,6.817,1883.4,26.6,El Niño
+México,Maize,2016,3.386,1519.9,26.2,El Niño
+México,"Rice, paddy",2016,3.398,1519.9,26.2,El Niño
+México,"Coffee, green",2016,0.564,1519.9,26.2,El Niño
+México,Potatoes,2016,14.426,1519.9,26.2,El Niño
+México,Cassava,2016,6.249,1519.9,26.2,El Niño
+México,Bananas,2016,6.951,1519.9,26.2,El Niño
+México,Avocados,2016,6.794,1519.9,26.2,El Niño
+México,Maize,2017,4.713,1280.2,22.1,Normal
+México,"Rice, paddy",2017,5.133,1280.2,22.1,Normal
+México,"Coffee, green",2017,0.903,1280.2,22.1,Normal
+México,Potatoes,2017,20.823,1280.2,22.1,Normal
+México,Cassava,2017,10.196,1280.2,22.1,Normal
+México,Bananas,2017,9.4,1280.2,22.1,Normal
+México,Avocados,2017,8.835,1280.2,22.1,Normal
+México,Maize,2018,4.78,873.3,26.8,Normal
+México,"Rice, paddy",2018,5.122,873.3,26.8,Normal
+México,"Coffee, green",2018,0.853,873.3,26.8,Normal
+México,Potatoes,2018,18.358,873.3,26.8,Normal
+México,Cassava,2018,9.269,873.3,26.8,Normal
+México,Bananas,2018,9.656,873.3,26.8,Normal
+México,Avocados,2018,9.96,873.3,26.8,Normal
+México,Maize,2019,4.512,1226.2,19.6,Normal
+México,"Rice, paddy",2019,4.979,1226.2,19.6,Normal
+México,"Coffee, green",2019,0.823,1226.2,19.6,Normal
+México,Potatoes,2019,21.004,1226.2,19.6,Normal
+México,Cassava,2019,8.497,1226.2,19.6,Normal
+México,Bananas,2019,9.632,1226.2,19.6,Normal
+México,Avocados,2019,10.18,1226.2,19.6,Normal
+México,Maize,2020,4.904,1962.5,26.1,Normal
+México,"Rice, paddy",2020,5.795,1962.5,26.1,Normal
+México,"Coffee, green",2020,0.903,1962.5,26.1,Normal
+México,Potatoes,2020,24.074,1962.5,26.1,Normal
+México,Cassava,2020,9.495,1962.5,26.1,Normal
+México,Bananas,2020,10.616,1962.5,26.1,Normal
+México,Avocados,2020,9.662,1962.5,26.1,Normal
+México,Maize,2021,4.026,943.8,21.3,La Niña
+México,"Rice, paddy",2021,4.123,943.8,21.3,La Niña
+México,"Coffee, green",2021,0.744,943.8,21.3,La Niña
+México,Potatoes,2021,18.933,943.8,21.3,La Niña
+México,Cassava,2021,7.84,943.8,21.3,La Niña
+México,Bananas,2021,7.987,943.8,21.3,La Niña
+México,Avocados,2021,8.005,943.8,21.3,La Niña
+México,Maize,2022,4.035,1541.7,24.0,La Niña
+México,"Rice, paddy",2022,5.267,1541.7,24.0,La Niña
+México,"Coffee, green",2022,0.797,1541.7,24.0,La Niña
+México,Potatoes,2022,20.298,1541.7,24.0,La Niña
+México,Cassava,2022,9.373,1541.7,24.0,La Niña
+México,Bananas,2022,9.078,1541.7,24.0,La Niña
+México,Avocados,2022,8.197,1541.7,24.0,La Niña
+México,Maize,2023,3.595,1111.6,21.8,El Niño
+México,"Rice, paddy",2023,3.459,1111.6,21.8,El Niño
+México,"Coffee, green",2023,0.692,1111.6,21.8,El Niño
+México,Potatoes,2023,13.585,1111.6,21.8,El Niño
+México,Cassava,2023,6.495,1111.6,21.8,El Niño
+México,Bananas,2023,6.101,1111.6,21.8,El Niño
+México,Avocados,2023,7.19,1111.6,21.8,El Niño
+Perú,Maize,1990,3.708,2084.6,19.1,Normal
+Perú,"Rice, paddy",1990,3.799,2084.6,19.1,Normal
+Perú,"Coffee, green",1990,0.708,2084.6,19.1,Normal
+Perú,Potatoes,1990,14.988,2084.6,19.1,Normal
+Perú,Cassava,1990,7.765,2084.6,19.1,Normal
+Perú,Bananas,1990,7.596,2084.6,19.1,Normal
+Perú,Avocados,1990,7.929,2084.6,19.1,Normal
+Perú,Maize,1991,3.52,996.0,17.9,Normal
+Perú,"Rice, paddy",1991,4.086,996.0,17.9,Normal
+Perú,"Coffee, green",1991,0.696,996.0,17.9,Normal
+Perú,Potatoes,1991,16.361,996.0,17.9,Normal
+Perú,Cassava,1991,8.003,996.0,17.9,Normal
+Perú,Bananas,1991,6.614,996.0,17.9,Normal
+Perú,Avocados,1991,6.894,996.0,17.9,Normal
+Perú,Maize,1992,3.464,839.5,21.4,Normal
+Perú,"Rice, paddy",1992,4.045,839.5,21.4,Normal
+Perú,"Coffee, green",1992,0.592,839.5,21.4,Normal
+Perú,Potatoes,1992,15.089,839.5,21.4,Normal
+Perú,Cassava,1992,7.378,839.5,21.4,Normal
+Perú,Bananas,1992,6.767,839.5,21.4,Normal
+Perú,Avocados,1992,6.717,839.5,21.4,Normal
+Perú,Maize,1993,4.084,1914.8,18.1,Normal
+Perú,"Rice, paddy",1993,4.643,1914.8,18.1,Normal
+Perú,"Coffee, green",1993,0.675,1914.8,18.1,Normal
+Perú,Potatoes,1993,16.254,1914.8,18.1,Normal
+Perú,Cassava,1993,8.372,1914.8,18.1,Normal
+Perú,Bananas,1993,7.367,1914.8,18.1,Normal
+Perú,Avocados,1993,7.015,1914.8,18.1,Normal
+Perú,Maize,1994,3.524,2087.8,21.2,Normal
+Perú,"Rice, paddy",1994,4.326,2087.8,21.2,Normal
+Perú,"Coffee, green",1994,0.663,2087.8,21.2,Normal
+Perú,Potatoes,1994,15.87,2087.8,21.2,Normal
+Perú,Cassava,1994,8.151,2087.8,21.2,Normal
+Perú,Bananas,1994,7.39,2087.8,21.2,Normal
+Perú,Avocados,1994,8.204,2087.8,21.2,Normal
+Perú,Maize,1995,3.395,2195.6,26.3,Normal
+Perú,"Rice, paddy",1995,3.865,2195.6,26.3,Normal
+Perú,"Coffee, green",1995,0.741,2195.6,26.3,Normal
+Perú,Potatoes,1995,17.852,2195.6,26.3,Normal
+Perú,Cassava,1995,8.925,2195.6,26.3,Normal
+Perú,Bananas,1995,7.939,2195.6,26.3,Normal
+Perú,Avocados,1995,7.648,2195.6,26.3,Normal
+Perú,Maize,1996,4.072,1455.9,25.7,Normal
+Perú,"Rice, paddy",1996,3.896,1455.9,25.7,Normal
+Perú,"Coffee, green",1996,0.7,1455.9,25.7,Normal
+Perú,Potatoes,1996,15.274,1455.9,25.7,Normal
+Perú,Cassava,1996,7.85,1455.9,25.7,Normal
+Perú,Bananas,1996,6.666,1455.9,25.7,Normal
+Perú,Avocados,1996,8.689,1455.9,25.7,Normal
+Perú,Maize,1997,3.06,1693.3,26.3,El Niño
+Perú,"Rice, paddy",1997,2.841,1693.3,26.3,El Niño
+Perú,"Coffee, green",1997,0.536,1693.3,26.3,El Niño
+Perú,Potatoes,1997,13.443,1693.3,26.3,El Niño
+Perú,Cassava,1997,5.915,1693.3,26.3,El Niño
+Perú,Bananas,1997,5.65,1693.3,26.3,El Niño
+Perú,Avocados,1997,5.68,1693.3,26.3,El Niño
+Perú,Maize,1998,2.751,1744.7,20.7,El Niño
+Perú,"Rice, paddy",1998,2.816,1744.7,20.7,El Niño
+Perú,"Coffee, green",1998,0.457,1744.7,20.7,El Niño
+Perú,Potatoes,1998,11.12,1744.7,20.7,El Niño
+Perú,Cassava,1998,5.445,1744.7,20.7,El Niño
+Perú,Bananas,1998,5.476,1744.7,20.7,El Niño
+Perú,Avocados,1998,5.203,1744.7,20.7,El Niño
+Perú,Maize,1999,3.398,1018.3,25.4,La Niña
+Perú,"Rice, paddy",1999,3.846,1018.3,25.4,La Niña
+Perú,"Coffee, green",1999,0.66,1018.3,25.4,La Niña
+Perú,Potatoes,1999,13.069,1018.3,25.4,La Niña
+Perú,Cassava,1999,6.243,1018.3,25.4,La Niña
+Perú,Bananas,1999,6.137,1018.3,25.4,La Niña
+Perú,Avocados,1999,7.469,1018.3,25.4,La Niña
+Perú,Maize,2000,3.127,1885.7,19.9,La Niña
+Perú,"Rice, paddy",2000,4.013,1885.7,19.9,La Niña
+Perú,"Coffee, green",2000,0.613,1885.7,19.9,La Niña
+Perú,Potatoes,2000,15.733,1885.7,19.9,La Niña
+Perú,Cassava,2000,8.156,1885.7,19.9,La Niña
+Perú,Bananas,2000,7.062,1885.7,19.9,La Niña
+Perú,Avocados,2000,8.125,1885.7,19.9,La Niña
+Perú,Maize,2001,3.679,1350.3,23.6,La Niña
+Perú,"Rice, paddy",2001,3.862,1350.3,23.6,La Niña
+Perú,"Coffee, green",2001,0.648,1350.3,23.6,La Niña
+Perú,Potatoes,2001,15.912,1350.3,23.6,La Niña
+Perú,Cassava,2001,7.798,1350.3,23.6,La Niña
+Perú,Bananas,2001,6.059,1350.3,23.6,La Niña
+Perú,Avocados,2001,6.864,1350.3,23.6,La Niña
+Perú,Maize,2002,3.078,1356.8,26.9,El Niño
+Perú,"Rice, paddy",2002,2.837,1356.8,26.9,El Niño
+Perú,"Coffee, green",2002,0.473,1356.8,26.9,El Niño
+Perú,Potatoes,2002,13.788,1356.8,26.9,El Niño
+Perú,Cassava,2002,5.607,1356.8,26.9,El Niño
+Perú,Bananas,2002,5.205,1356.8,26.9,El Niño
+Perú,Avocados,2002,5.239,1356.8,26.9,El Niño
+Perú,Maize,2003,2.703,1185.8,24.3,El Niño
+Perú,"Rice, paddy",2003,3.109,1185.8,24.3,El Niño
+Perú,"Coffee, green",2003,0.568,1185.8,24.3,El Niño
+Perú,Potatoes,2003,11.24,1185.8,24.3,El Niño
+Perú,Cassava,2003,5.247,1185.8,24.3,El Niño
+Perú,Bananas,2003,5.969,1185.8,24.3,El Niño
+Perú,Avocados,2003,6.234,1185.8,24.3,El Niño
+Perú,Maize,2004,3.672,1169.2,19.9,Normal
+Perú,"Rice, paddy",2004,4.481,1169.2,19.9,Normal
+Perú,"Coffee, green",2004,0.645,1169.2,19.9,Normal
+Perú,Potatoes,2004,17.267,1169.2,19.9,Normal
+Perú,Cassava,2004,7.456,1169.2,19.9,Normal
+Perú,Bananas,2004,8.284,1169.2,19.9,Normal
+Perú,Avocados,2004,7.94,1169.2,19.9,Normal
+Perú,Maize,2005,3.583,1538.6,16.4,Normal
+Perú,"Rice, paddy",2005,4.698,1538.6,16.4,Normal
+Perú,"Coffee, green",2005,0.799,1538.6,16.4,Normal
+Perú,Potatoes,2005,18.942,1538.6,16.4,Normal
+Perú,Cassava,2005,9.0,1538.6,16.4,Normal
+Perú,Bananas,2005,7.254,1538.6,16.4,Normal
+Perú,Avocados,2005,8.911,1538.6,16.4,Normal
+Perú,Maize,2006,4.098,1054.4,17.2,Normal
+Perú,"Rice, paddy",2006,4.748,1054.4,17.2,Normal
+Perú,"Coffee, green",2006,0.761,1054.4,17.2,Normal
+Perú,Potatoes,2006,18.644,1054.4,17.2,Normal
+Perú,Cassava,2006,9.17,1054.4,17.2,Normal
+Perú,Bananas,2006,7.043,1054.4,17.2,Normal
+Perú,Avocados,2006,9.118,1054.4,17.2,Normal
+Perú,Maize,2007,4.251,1641.7,25.8,Normal
+Perú,"Rice, paddy",2007,4.693,1641.7,25.8,Normal
+Perú,"Coffee, green",2007,0.807,1641.7,25.8,Normal
+Perú,Potatoes,2007,17.666,1641.7,25.8,Normal
+Perú,Cassava,2007,9.606,1641.7,25.8,Normal
+Perú,Bananas,2007,7.448,1641.7,25.8,Normal
+Perú,Avocados,2007,8.338,1641.7,25.8,Normal
+Perú,Maize,2008,3.559,843.6,19.3,Normal
+Perú,"Rice, paddy",2008,3.83,843.6,19.3,Normal
+Perú,"Coffee, green",2008,0.714,843.6,19.3,Normal
+Perú,Potatoes,2008,17.049,843.6,19.3,Normal
+Perú,Cassava,2008,7.29,843.6,19.3,Normal
+Perú,Bananas,2008,7.198,843.6,19.3,Normal
+Perú,Avocados,2008,8.994,843.6,19.3,Normal
+Perú,Maize,2009,2.498,955.0,19.7,El Niño
+Perú,"Rice, paddy",2009,2.896,955.0,19.7,El Niño
+Perú,"Coffee, green",2009,0.552,955.0,19.7,El Niño
+Perú,Potatoes,2009,12.246,955.0,19.7,El Niño
+Perú,Cassava,2009,5.905,955.0,19.7,El Niño
+Perú,Bananas,2009,5.16,955.0,19.7,El Niño
+Perú,Avocados,2009,6.235,955.0,19.7,El Niño
+Perú,Maize,2010,2.732,1852.1,18.2,El Niño
+Perú,"Rice, paddy",2010,3.104,1852.1,18.2,El Niño
+Perú,"Coffee, green",2010,0.597,1852.1,18.2,El Niño
+Perú,Potatoes,2010,12.595,1852.1,18.2,El Niño
+Perú,Cassava,2010,6.508,1852.1,18.2,El Niño
+Perú,Bananas,2010,5.623,1852.1,18.2,El Niño
+Perú,Avocados,2010,6.002,1852.1,18.2,El Niño
+Perú,Maize,2011,3.082,806.1,19.8,La Niña
+Perú,"Rice, paddy",2011,3.748,806.1,19.8,La Niña
+Perú,"Coffee, green",2011,0.656,806.1,19.8,La Niña
+Perú,Potatoes,2011,14.894,806.1,19.8,La Niña
+Perú,Cassava,2011,7.622,806.1,19.8,La Niña
+Perú,Bananas,2011,7.233,806.1,19.8,La Niña
+Perú,Avocados,2011,7.607,806.1,19.8,La Niña
+Perú,Maize,2012,3.578,2111.4,18.8,La Niña
+Perú,"Rice, paddy",2012,4.464,2111.4,18.8,La Niña
+Perú,"Coffee, green",2012,0.741,2111.4,18.8,La Niña
+Perú,Potatoes,2012,17.441,2111.4,18.8,La Niña
+Perú,Cassava,2012,7.239,2111.4,18.8,La Niña
+Perú,Bananas,2012,7.835,2111.4,18.8,La Niña
+Perú,Avocados,2012,9.069,2111.4,18.8,La Niña
+Perú,Maize,2013,4.021,1268.4,27.6,Normal
+Perú,"Rice, paddy",2013,4.28,1268.4,27.6,Normal
+Perú,"Coffee, green",2013,0.762,1268.4,27.6,Normal
+Perú,Potatoes,2013,18.714,1268.4,27.6,Normal
+Perú,Cassava,2013,9.123,1268.4,27.6,Normal
+Perú,Bananas,2013,8.338,1268.4,27.6,Normal
+Perú,Avocados,2013,8.926,1268.4,27.6,Normal
+Perú,Maize,2014,3.808,833.7,19.0,Normal
+Perú,"Rice, paddy",2014,5.012,833.7,19.0,Normal
+Perú,"Coffee, green",2014,0.711,833.7,19.0,Normal
+Perú,Potatoes,2014,19.659,833.7,19.0,Normal
+Perú,Cassava,2014,8.079,833.7,19.0,Normal
+Perú,Bananas,2014,7.205,833.7,19.0,Normal
+Perú,Avocados,2014,7.963,833.7,19.0,Normal
+Perú,Maize,2015,3.143,1182.0,27.7,El Niño
+Perú,"Rice, paddy",2015,3.746,1182.0,27.7,El Niño
+Perú,"Coffee, green",2015,0.611,1182.0,27.7,El Niño
+Perú,Potatoes,2015,13.833,1182.0,27.7,El Niño
+Perú,Cassava,2015,6.681,1182.0,27.7,El Niño
+Perú,Bananas,2015,6.215,1182.0,27.7,El Niño
+Perú,Avocados,2015,6.667,1182.0,27.7,El Niño
+Perú,Maize,2016,3.103,1170.7,20.9,El Niño
+Perú,"Rice, paddy",2016,3.035,1170.7,20.9,El Niño
+Perú,"Coffee, green",2016,0.567,1170.7,20.9,El Niño
+Perú,Potatoes,2016,14.84,1170.7,20.9,El Niño
+Perú,Cassava,2016,6.439,1170.7,20.9,El Niño
+Perú,Bananas,2016,6.148,1170.7,20.9,El Niño
+Perú,Avocados,2016,5.99,1170.7,20.9,El Niño
+Perú,Maize,2017,4.998,1912.1,20.3,Normal
+Perú,"Rice, paddy",2017,5.668,1912.1,20.3,Normal
+Perú,"Coffee, green",2017,0.929,1912.1,20.3,Normal
+Perú,Potatoes,2017,18.251,1912.1,20.3,Normal
+Perú,Cassava,2017,9.189,1912.1,20.3,Normal
+Perú,Bananas,2017,9.972,1912.1,20.3,Normal
+Perú,Avocados,2017,10.272,1912.1,20.3,Normal
+Perú,Maize,2018,4.561,2075.7,22.9,Normal
+Perú,"Rice, paddy",2018,4.668,2075.7,22.9,Normal
+Perú,"Coffee, green",2018,0.929,2075.7,22.9,Normal
+Perú,Potatoes,2018,21.833,2075.7,22.9,Normal
+Perú,Cassava,2018,8.706,2075.7,22.9,Normal
+Perú,Bananas,2018,8.525,2075.7,22.9,Normal
+Perú,Avocados,2018,9.871,2075.7,22.9,Normal
+Perú,Maize,2019,4.247,1758.2,17.7,Normal
+Perú,"Rice, paddy",2019,4.715,1758.2,17.7,Normal
+Perú,"Coffee, green",2019,0.791,1758.2,17.7,Normal
+Perú,Potatoes,2019,22.414,1758.2,17.7,Normal
+Perú,Cassava,2019,10.112,1758.2,17.7,Normal
+Perú,Bananas,2019,9.563,1758.2,17.7,Normal
+Perú,Avocados,2019,10.292,1758.2,17.7,Normal
+Perú,Maize,2020,4.898,1299.2,25.2,Normal
+Perú,"Rice, paddy",2020,5.179,1299.2,25.2,Normal
+Perú,"Coffee, green",2020,0.807,1299.2,25.2,Normal
+Perú,Potatoes,2020,20.8,1299.2,25.2,Normal
+Perú,Cassava,2020,10.235,1299.2,25.2,Normal
+Perú,Bananas,2020,8.005,1299.2,25.2,Normal
+Perú,Avocados,2020,8.811,1299.2,25.2,Normal
+Perú,Maize,2021,4.106,2087.0,27.4,La Niña
+Perú,"Rice, paddy",2021,4.498,2087.0,27.4,La Niña
+Perú,"Coffee, green",2021,0.733,2087.0,27.4,La Niña
+Perú,Potatoes,2021,18.543,2087.0,27.4,La Niña
+Perú,Cassava,2021,9.673,2087.0,27.4,La Niña
+Perú,Bananas,2021,7.551,2087.0,27.4,La Niña
+Perú,Avocados,2021,8.591,2087.0,27.4,La Niña
+Perú,Maize,2022,4.415,2076.3,20.2,La Niña
+Perú,"Rice, paddy",2022,4.543,2076.3,20.2,La Niña
+Perú,"Coffee, green",2022,0.835,2076.3,20.2,La Niña
+Perú,Potatoes,2022,20.823,2076.3,20.2,La Niña
+Perú,Cassava,2022,8.578,2076.3,20.2,La Niña
+Perú,Bananas,2022,8.984,2076.3,20.2,La Niña
+Perú,Avocados,2022,9.849,2076.3,20.2,La Niña
+Perú,Maize,2023,3.426,2177.4,21.2,El Niño
+Perú,"Rice, paddy",2023,3.685,2177.4,21.2,El Niño
+Perú,"Coffee, green",2023,0.616,2177.4,21.2,El Niño
+Perú,Potatoes,2023,15.441,2177.4,21.2,El Niño
+Perú,Cassava,2023,6.78,2177.4,21.2,El Niño
+Perú,Bananas,2023,7.223,2177.4,21.2,El Niño
+Perú,Avocados,2023,7.368,2177.4,21.2,El Niño
+Ecuador,Maize,1990,3.779,2057.3,25.7,Normal
+Ecuador,"Rice, paddy",1990,4.446,2057.3,25.7,Normal
+Ecuador,"Coffee, green",1990,0.785,2057.3,25.7,Normal
+Ecuador,Potatoes,1990,16.453,2057.3,25.7,Normal
+Ecuador,Cassava,1990,7.444,2057.3,25.7,Normal
+Ecuador,Bananas,1990,8.561,2057.3,25.7,Normal
+Ecuador,Avocados,1990,7.657,2057.3,25.7,Normal
+Ecuador,Maize,1991,3.942,2045.2,27.0,Normal
+Ecuador,"Rice, paddy",1991,4.807,2045.2,27.0,Normal
+Ecuador,"Coffee, green",1991,0.722,2045.2,27.0,Normal
+Ecuador,Potatoes,1991,19.448,2045.2,27.0,Normal
+Ecuador,Cassava,1991,9.115,2045.2,27.0,Normal
+Ecuador,Bananas,1991,7.154,2045.2,27.0,Normal
+Ecuador,Avocados,1991,8.624,2045.2,27.0,Normal
+Ecuador,Maize,1992,4.378,1696.0,16.0,Normal
+Ecuador,"Rice, paddy",1992,4.318,1696.0,16.0,Normal
+Ecuador,"Coffee, green",1992,0.739,1696.0,16.0,Normal
+Ecuador,Potatoes,1992,16.372,1696.0,16.0,Normal
+Ecuador,Cassava,1992,8.564,1696.0,16.0,Normal
+Ecuador,Bananas,1992,8.437,1696.0,16.0,Normal
+Ecuador,Avocados,1992,8.514,1696.0,16.0,Normal
+Ecuador,Maize,1993,3.763,1903.2,24.8,Normal
+Ecuador,"Rice, paddy",1993,4.448,1903.2,24.8,Normal
+Ecuador,"Coffee, green",1993,0.689,1903.2,24.8,Normal
+Ecuador,Potatoes,1993,16.084,1903.2,24.8,Normal
+Ecuador,Cassava,1993,7.639,1903.2,24.8,Normal
+Ecuador,Bananas,1993,8.884,1903.2,24.8,Normal
+Ecuador,Avocados,1993,9.526,1903.2,24.8,Normal
+Ecuador,Maize,1994,3.375,933.0,20.0,Normal
+Ecuador,"Rice, paddy",1994,4.519,933.0,20.0,Normal
+Ecuador,"Coffee, green",1994,0.697,933.0,20.0,Normal
+Ecuador,Potatoes,1994,17.221,933.0,20.0,Normal
+Ecuador,Cassava,1994,7.978,933.0,20.0,Normal
+Ecuador,Bananas,1994,7.813,933.0,20.0,Normal
+Ecuador,Avocados,1994,7.559,933.0,20.0,Normal
+Ecuador,Maize,1995,3.73,992.5,16.2,Normal
+Ecuador,"Rice, paddy",1995,4.667,992.5,16.2,Normal
+Ecuador,"Coffee, green",1995,0.675,992.5,16.2,Normal
+Ecuador,Potatoes,1995,15.765,992.5,16.2,Normal
+Ecuador,Cassava,1995,8.851,992.5,16.2,Normal
+Ecuador,Bananas,1995,6.842,992.5,16.2,Normal
+Ecuador,Avocados,1995,7.167,992.5,16.2,Normal
+Ecuador,Maize,1996,4.076,2031.2,24.4,Normal
+Ecuador,"Rice, paddy",1996,4.956,2031.2,24.4,Normal
+Ecuador,"Coffee, green",1996,0.824,2031.2,24.4,Normal
+Ecuador,Potatoes,1996,16.628,2031.2,24.4,Normal
+Ecuador,Cassava,1996,9.2,2031.2,24.4,Normal
+Ecuador,Bananas,1996,8.588,2031.2,24.4,Normal
+Ecuador,Avocados,1996,9.809,2031.2,24.4,Normal
+Ecuador,Maize,1997,3.103,2153.3,20.5,El Niño
+Ecuador,"Rice, paddy",1997,3.123,2153.3,20.5,El Niño
+Ecuador,"Coffee, green",1997,0.51,2153.3,20.5,El Niño
+Ecuador,Potatoes,1997,13.447,2153.3,20.5,El Niño
+Ecuador,Cassava,1997,6.748,2153.3,20.5,El Niño
+Ecuador,Bananas,1997,6.173,2153.3,20.5,El Niño
+Ecuador,Avocados,1997,6.345,2153.3,20.5,El Niño
+Ecuador,Maize,1998,3.194,1945.4,25.5,El Niño
+Ecuador,"Rice, paddy",1998,3.059,1945.4,25.5,El Niño
+Ecuador,"Coffee, green",1998,0.608,1945.4,25.5,El Niño
+Ecuador,Potatoes,1998,14.987,1945.4,25.5,El Niño
+Ecuador,Cassava,1998,5.75,1945.4,25.5,El Niño
+Ecuador,Bananas,1998,5.909,1945.4,25.5,El Niño
+Ecuador,Avocados,1998,7.184,1945.4,25.5,El Niño
+Ecuador,Maize,1999,3.371,1638.9,22.2,La Niña
+Ecuador,"Rice, paddy",1999,4.175,1638.9,22.2,La Niña
+Ecuador,"Coffee, green",1999,0.675,1638.9,22.2,La Niña
+Ecuador,Potatoes,1999,14.971,1638.9,22.2,La Niña
+Ecuador,Cassava,1999,7.697,1638.9,22.2,La Niña
+Ecuador,Bananas,1999,6.718,1638.9,22.2,La Niña
+Ecuador,Avocados,1999,8.193,1638.9,22.2,La Niña
+Ecuador,Maize,2000,3.93,2163.1,21.6,La Niña
+Ecuador,"Rice, paddy",2000,4.214,2163.1,21.6,La Niña
+Ecuador,"Coffee, green",2000,0.652,2163.1,21.6,La Niña
+Ecuador,Potatoes,2000,19.074,2163.1,21.6,La Niña
+Ecuador,Cassava,2000,7.374,2163.1,21.6,La Niña
+Ecuador,Bananas,2000,6.907,2163.1,21.6,La Niña
+Ecuador,Avocados,2000,8.014,2163.1,21.6,La Niña
+Ecuador,Maize,2001,3.461,1722.4,20.3,La Niña
+Ecuador,"Rice, paddy",2001,4.525,1722.4,20.3,La Niña
+Ecuador,"Coffee, green",2001,0.678,1722.4,20.3,La Niña
+Ecuador,Potatoes,2001,15.581,1722.4,20.3,La Niña
+Ecuador,Cassava,2001,7.683,1722.4,20.3,La Niña
+Ecuador,Bananas,2001,6.961,1722.4,20.3,La Niña
+Ecuador,Avocados,2001,7.977,1722.4,20.3,La Niña
+Ecuador,Maize,2002,2.883,1735.6,25.6,El Niño
+Ecuador,"Rice, paddy",2002,3.193,1735.6,25.6,El Niño
+Ecuador,"Coffee, green",2002,0.512,1735.6,25.6,El Niño
+Ecuador,Potatoes,2002,12.977,1735.6,25.6,El Niño
+Ecuador,Cassava,2002,5.807,1735.6,25.6,El Niño
+Ecuador,Bananas,2002,5.941,1735.6,25.6,El Niño
+Ecuador,Avocados,2002,5.998,1735.6,25.6,El Niño
+Ecuador,Maize,2003,2.782,1611.9,20.6,El Niño
+Ecuador,"Rice, paddy",2003,3.385,1611.9,20.6,El Niño
+Ecuador,"Coffee, green",2003,0.538,1611.9,20.6,El Niño
+Ecuador,Potatoes,2003,14.472,1611.9,20.6,El Niño
+Ecuador,Cassava,2003,6.337,1611.9,20.6,El Niño
+Ecuador,Bananas,2003,5.643,1611.9,20.6,El Niño
+Ecuador,Avocados,2003,6.314,1611.9,20.6,El Niño
+Ecuador,Maize,2004,4.608,1114.1,25.5,Normal
+Ecuador,"Rice, paddy",2004,4.116,1114.1,25.5,Normal
+Ecuador,"Coffee, green",2004,0.809,1114.1,25.5,Normal
+Ecuador,Potatoes,2004,17.527,1114.1,25.5,Normal
+Ecuador,Cassava,2004,7.861,1114.1,25.5,Normal
+Ecuador,Bananas,2004,7.295,1114.1,25.5,Normal
+Ecuador,Avocados,2004,9.576,1114.1,25.5,Normal
+Ecuador,Maize,2005,4.179,1295.0,27.9,Normal
+Ecuador,"Rice, paddy",2005,4.41,1295.0,27.9,Normal
+Ecuador,"Coffee, green",2005,0.847,1295.0,27.9,Normal
+Ecuador,Potatoes,2005,21.021,1295.0,27.9,Normal
+Ecuador,Cassava,2005,9.687,1295.0,27.9,Normal
+Ecuador,Bananas,2005,8.974,1295.0,27.9,Normal
+Ecuador,Avocados,2005,8.648,1295.0,27.9,Normal
+Ecuador,Maize,2006,4.031,890.3,18.4,Normal
+Ecuador,"Rice, paddy",2006,5.097,890.3,18.4,Normal
+Ecuador,"Coffee, green",2006,0.807,890.3,18.4,Normal
+Ecuador,Potatoes,2006,19.823,890.3,18.4,Normal
+Ecuador,Cassava,2006,8.213,890.3,18.4,Normal
+Ecuador,Bananas,2006,8.527,890.3,18.4,Normal
+Ecuador,Avocados,2006,9.432,890.3,18.4,Normal
+Ecuador,Maize,2007,4.601,1471.2,21.2,Normal
+Ecuador,"Rice, paddy",2007,4.988,1471.2,21.2,Normal
+Ecuador,"Coffee, green",2007,0.917,1471.2,21.2,Normal
+Ecuador,Potatoes,2007,19.317,1471.2,21.2,Normal
+Ecuador,Cassava,2007,8.566,1471.2,21.2,Normal
+Ecuador,Bananas,2007,8.684,1471.2,21.2,Normal
+Ecuador,Avocados,2007,8.699,1471.2,21.2,Normal
+Ecuador,Maize,2008,4.925,1585.8,17.5,Normal
+Ecuador,"Rice, paddy",2008,5.433,1585.8,17.5,Normal
+Ecuador,"Coffee, green",2008,0.765,1585.8,17.5,Normal
+Ecuador,Potatoes,2008,18.43,1585.8,17.5,Normal
+Ecuador,Cassava,2008,9.474,1585.8,17.5,Normal
+Ecuador,Bananas,2008,9.473,1585.8,17.5,Normal
+Ecuador,Avocados,2008,8.809,1585.8,17.5,Normal
+Ecuador,Maize,2009,3.146,885.4,22.5,El Niño
+Ecuador,"Rice, paddy",2009,3.176,885.4,22.5,El Niño
+Ecuador,"Coffee, green",2009,0.596,885.4,22.5,El Niño
+Ecuador,Potatoes,2009,14.997,885.4,22.5,El Niño
+Ecuador,Cassava,2009,5.834,885.4,22.5,El Niño
+Ecuador,Bananas,2009,6.031,885.4,22.5,El Niño
+Ecuador,Avocados,2009,5.711,885.4,22.5,El Niño
+Ecuador,Maize,2010,3.035,1089.3,17.1,El Niño
+Ecuador,"Rice, paddy",2010,3.764,1089.3,17.1,El Niño
+Ecuador,"Coffee, green",2010,0.593,1089.3,17.1,El Niño
+Ecuador,Potatoes,2010,13.05,1089.3,17.1,El Niño
+Ecuador,Cassava,2010,5.873,1089.3,17.1,El Niño
+Ecuador,Bananas,2010,6.293,1089.3,17.1,El Niño
+Ecuador,Avocados,2010,6.02,1089.3,17.1,El Niño
+Ecuador,Maize,2011,4.279,1279.8,22.1,La Niña
+Ecuador,"Rice, paddy",2011,3.948,1279.8,22.1,La Niña
+Ecuador,"Coffee, green",2011,0.761,1279.8,22.1,La Niña
+Ecuador,Potatoes,2011,15.507,1279.8,22.1,La Niña
+Ecuador,Cassava,2011,8.548,1279.8,22.1,La Niña
+Ecuador,Bananas,2011,7.898,1279.8,22.1,La Niña
+Ecuador,Avocados,2011,8.91,1279.8,22.1,La Niña
+Ecuador,Maize,2012,3.772,1544.3,20.2,La Niña
+Ecuador,"Rice, paddy",2012,4.072,1544.3,20.2,La Niña
+Ecuador,"Coffee, green",2012,0.76,1544.3,20.2,La Niña
+Ecuador,Potatoes,2012,19.777,1544.3,20.2,La Niña
+Ecuador,Cassava,2012,8.573,1544.3,20.2,La Niña
+Ecuador,Bananas,2012,8.502,1544.3,20.2,La Niña
+Ecuador,Avocados,2012,8.13,1544.3,20.2,La Niña
+Ecuador,Maize,2013,4.132,1427.4,19.9,Normal
+Ecuador,"Rice, paddy",2013,5.027,1427.4,19.9,Normal
+Ecuador,"Coffee, green",2013,0.909,1427.4,19.9,Normal
+Ecuador,Potatoes,2013,20.0,1427.4,19.9,Normal
+Ecuador,Cassava,2013,10.038,1427.4,19.9,Normal
+Ecuador,Bananas,2013,9.685,1427.4,19.9,Normal
+Ecuador,Avocados,2013,9.276,1427.4,19.9,Normal
+Ecuador,Maize,2014,4.48,1916.5,20.1,Normal
+Ecuador,"Rice, paddy",2014,4.997,1916.5,20.1,Normal
+Ecuador,"Coffee, green",2014,0.828,1916.5,20.1,Normal
+Ecuador,Potatoes,2014,22.633,1916.5,20.1,Normal
+Ecuador,Cassava,2014,11.053,1916.5,20.1,Normal
+Ecuador,Bananas,2014,8.902,1916.5,20.1,Normal
+Ecuador,Avocados,2014,9.106,1916.5,20.1,Normal
+Ecuador,Maize,2015,3.172,1239.3,23.9,El Niño
+Ecuador,"Rice, paddy",2015,3.729,1239.3,23.9,El Niño
+Ecuador,"Coffee, green",2015,0.65,1239.3,23.9,El Niño
+Ecuador,Potatoes,2015,14.417,1239.3,23.9,El Niño
+Ecuador,Cassava,2015,7.796,1239.3,23.9,El Niño
+Ecuador,Bananas,2015,6.234,1239.3,23.9,El Niño
+Ecuador,Avocados,2015,7.76,1239.3,23.9,El Niño
+Ecuador,Maize,2016,3.443,1084.2,17.3,El Niño
+Ecuador,"Rice, paddy",2016,3.831,1084.2,17.3,El Niño
+Ecuador,"Coffee, green",2016,0.654,1084.2,17.3,El Niño
+Ecuador,Potatoes,2016,14.064,1084.2,17.3,El Niño
+Ecuador,Cassava,2016,7.614,1084.2,17.3,El Niño
+Ecuador,Bananas,2016,5.901,1084.2,17.3,El Niño
+Ecuador,Avocados,2016,6.122,1084.2,17.3,El Niño
+Ecuador,Maize,2017,4.799,1220.8,25.6,Normal
+Ecuador,"Rice, paddy",2017,5.105,1220.8,25.6,Normal
+Ecuador,"Coffee, green",2017,0.813,1220.8,25.6,Normal
+Ecuador,Potatoes,2017,18.543,1220.8,25.6,Normal
+Ecuador,Cassava,2017,9.41,1220.8,25.6,Normal
+Ecuador,Bananas,2017,9.128,1220.8,25.6,Normal
+Ecuador,Avocados,2017,10.232,1220.8,25.6,Normal
+Ecuador,Maize,2018,4.368,1704.4,27.4,Normal
+Ecuador,"Rice, paddy",2018,5.221,1704.4,27.4,Normal
+Ecuador,"Coffee, green",2018,0.902,1704.4,27.4,Normal
+Ecuador,Potatoes,2018,22.63,1704.4,27.4,Normal
+Ecuador,Cassava,2018,10.255,1704.4,27.4,Normal
+Ecuador,Bananas,2018,10.619,1704.4,27.4,Normal
+Ecuador,Avocados,2018,10.534,1704.4,27.4,Normal
+Ecuador,Maize,2019,4.752,855.5,17.4,Normal
+Ecuador,"Rice, paddy",2019,5.301,855.5,17.4,Normal
+Ecuador,"Coffee, green",2019,0.77,855.5,17.4,Normal
+Ecuador,Potatoes,2019,18.024,855.5,17.4,Normal
+Ecuador,Cassava,2019,9.699,855.5,17.4,Normal
+Ecuador,Bananas,2019,9.251,855.5,17.4,Normal
+Ecuador,Avocados,2019,8.686,855.5,17.4,Normal
+Ecuador,Maize,2020,5.31,1463.1,19.7,Normal
+Ecuador,"Rice, paddy",2020,5.048,1463.1,19.7,Normal
+Ecuador,"Coffee, green",2020,0.953,1463.1,19.7,Normal
+Ecuador,Potatoes,2020,21.746,1463.1,19.7,Normal
+Ecuador,Cassava,2020,9.026,1463.1,19.7,Normal
+Ecuador,Bananas,2020,9.662,1463.1,19.7,Normal
+Ecuador,Avocados,2020,9.242,1463.1,19.7,Normal
+Ecuador,Maize,2021,3.838,1722.7,22.8,La Niña
+Ecuador,"Rice, paddy",2021,4.545,1722.7,22.8,La Niña
+Ecuador,"Coffee, green",2021,0.869,1722.7,22.8,La Niña
+Ecuador,Potatoes,2021,18.516,1722.7,22.8,La Niña
+Ecuador,Cassava,2021,9.239,1722.7,22.8,La Niña
+Ecuador,Bananas,2021,8.305,1722.7,22.8,La Niña
+Ecuador,Avocados,2021,10.176,1722.7,22.8,La Niña
+Ecuador,Maize,2022,3.892,1551.2,24.4,La Niña
+Ecuador,"Rice, paddy",2022,4.328,1551.2,24.4,La Niña
+Ecuador,"Coffee, green",2022,0.764,1551.2,24.4,La Niña
+Ecuador,Potatoes,2022,18.569,1551.2,24.4,La Niña
+Ecuador,Cassava,2022,9.603,1551.2,24.4,La Niña
+Ecuador,Bananas,2022,8.792,1551.2,24.4,La Niña
+Ecuador,Avocados,2022,8.913,1551.2,24.4,La Niña
+Ecuador,Maize,2023,3.228,1715.8,18.0,El Niño
+Ecuador,"Rice, paddy",2023,4.402,1715.8,18.0,El Niño
+Ecuador,"Coffee, green",2023,0.687,1715.8,18.0,El Niño
+Ecuador,Potatoes,2023,16.809,1715.8,18.0,El Niño
+Ecuador,Cassava,2023,7.309,1715.8,18.0,El Niño
+Ecuador,Bananas,2023,6.991,1715.8,18.0,El Niño
+Ecuador,Avocados,2023,6.895,1715.8,18.0,El Niño
+Argentina,Maize,1990,4.025,1999.8,23.1,Normal
+Argentina,"Rice, paddy",1990,5.398,1999.8,23.1,Normal
+Argentina,"Coffee, green",1990,0.827,1999.8,23.1,Normal
+Argentina,Potatoes,1990,21.403,1999.8,23.1,Normal
+Argentina,Cassava,1990,8.391,1999.8,23.1,Normal
+Argentina,Bananas,1990,7.932,1999.8,23.1,Normal
+Argentina,Avocados,1990,8.752,1999.8,23.1,Normal
+Argentina,Maize,1991,4.406,1095.3,25.2,Normal
+Argentina,"Rice, paddy",1991,4.854,1095.3,25.2,Normal
+Argentina,"Coffee, green",1991,0.86,1095.3,25.2,Normal
+Argentina,Potatoes,1991,17.742,1095.3,25.2,Normal
+Argentina,Cassava,1991,9.785,1095.3,25.2,Normal
+Argentina,Bananas,1991,9.22,1095.3,25.2,Normal
+Argentina,Avocados,1991,8.779,1095.3,25.2,Normal
+Argentina,Maize,1992,3.991,932.1,24.7,Normal
+Argentina,"Rice, paddy",1992,5.004,932.1,24.7,Normal
+Argentina,"Coffee, green",1992,0.716,932.1,24.7,Normal
+Argentina,Potatoes,1992,18.869,932.1,24.7,Normal
+Argentina,Cassava,1992,8.844,932.1,24.7,Normal
+Argentina,Bananas,1992,7.511,932.1,24.7,Normal
+Argentina,Avocados,1992,8.537,932.1,24.7,Normal
+Argentina,Maize,1993,4.527,918.7,21.6,Normal
+Argentina,"Rice, paddy",1993,4.446,918.7,21.6,Normal
+Argentina,"Coffee, green",1993,0.834,918.7,21.6,Normal
+Argentina,Potatoes,1993,17.394,918.7,21.6,Normal
+Argentina,Cassava,1993,9.26,918.7,21.6,Normal
+Argentina,Bananas,1993,9.201,918.7,21.6,Normal
+Argentina,Avocados,1993,8.514,918.7,21.6,Normal
+Argentina,Maize,1994,4.445,2060.6,22.1,Normal
+Argentina,"Rice, paddy",1994,5.728,2060.6,22.1,Normal
+Argentina,"Coffee, green",1994,0.774,2060.6,22.1,Normal
+Argentina,Potatoes,1994,18.552,2060.6,22.1,Normal
+Argentina,Cassava,1994,10.117,2060.6,22.1,Normal
+Argentina,Bananas,1994,9.961,2060.6,22.1,Normal
+Argentina,Avocados,1994,10.476,2060.6,22.1,Normal
+Argentina,Maize,1995,4.46,911.3,27.4,Normal
+Argentina,"Rice, paddy",1995,5.299,911.3,27.4,Normal
+Argentina,"Coffee, green",1995,0.765,911.3,27.4,Normal
+Argentina,Potatoes,1995,20.026,911.3,27.4,Normal
+Argentina,Cassava,1995,9.817,911.3,27.4,Normal
+Argentina,Bananas,1995,8.261,911.3,27.4,Normal
+Argentina,Avocados,1995,10.044,911.3,27.4,Normal
+Argentina,Maize,1996,4.866,1171.0,19.8,Normal
+Argentina,"Rice, paddy",1996,5.533,1171.0,19.8,Normal
+Argentina,"Coffee, green",1996,0.786,1171.0,19.8,Normal
+Argentina,Potatoes,1996,18.154,1171.0,19.8,Normal
+Argentina,Cassava,1996,9.976,1171.0,19.8,Normal
+Argentina,Bananas,1996,9.752,1171.0,19.8,Normal
+Argentina,Avocados,1996,9.619,1171.0,19.8,Normal
+Argentina,Maize,1997,3.074,1688.3,25.2,El Niño
+Argentina,"Rice, paddy",1997,4.202,1688.3,25.2,El Niño
+Argentina,"Coffee, green",1997,0.608,1688.3,25.2,El Niño
+Argentina,Potatoes,1997,15.556,1688.3,25.2,El Niño
+Argentina,Cassava,1997,7.073,1688.3,25.2,El Niño
+Argentina,Bananas,1997,6.656,1688.3,25.2,El Niño
+Argentina,Avocados,1997,7.473,1688.3,25.2,El Niño
+Argentina,Maize,1998,3.736,2192.5,23.9,El Niño
+Argentina,"Rice, paddy",1998,3.481,2192.5,23.9,El Niño
+Argentina,"Coffee, green",1998,0.703,2192.5,23.9,El Niño
+Argentina,Potatoes,1998,14.95,2192.5,23.9,El Niño
+Argentina,Cassava,1998,6.751,2192.5,23.9,El Niño
+Argentina,Bananas,1998,6.332,2192.5,23.9,El Niño
+Argentina,Avocados,1998,7.736,2192.5,23.9,El Niño
+Argentina,Maize,1999,4.057,2196.7,24.0,La Niña
+Argentina,"Rice, paddy",1999,4.495,2196.7,24.0,La Niña
+Argentina,"Coffee, green",1999,0.812,2196.7,24.0,La Niña
+Argentina,Potatoes,1999,17.338,2196.7,24.0,La Niña
+Argentina,Cassava,1999,8.921,2196.7,24.0,La Niña
+Argentina,Bananas,1999,8.947,2196.7,24.0,La Niña
+Argentina,Avocados,1999,10.168,2196.7,24.0,La Niña
+Argentina,Maize,2000,4.421,1395.9,18.4,La Niña
+Argentina,"Rice, paddy",2000,4.893,1395.9,18.4,La Niña
+Argentina,"Coffee, green",2000,0.837,1395.9,18.4,La Niña
+Argentina,Potatoes,2000,17.221,1395.9,18.4,La Niña
+Argentina,Cassava,2000,8.53,1395.9,18.4,La Niña
+Argentina,Bananas,2000,9.166,1395.9,18.4,La Niña
+Argentina,Avocados,2000,8.013,1395.9,18.4,La Niña
+Argentina,Maize,2001,4.253,1740.0,18.8,La Niña
+Argentina,"Rice, paddy",2001,5.13,1740.0,18.8,La Niña
+Argentina,"Coffee, green",2001,0.795,1740.0,18.8,La Niña
+Argentina,Potatoes,2001,20.542,1740.0,18.8,La Niña
+Argentina,Cassava,2001,8.878,1740.0,18.8,La Niña
+Argentina,Bananas,2001,9.526,1740.0,18.8,La Niña
+Argentina,Avocados,2001,8.899,1740.0,18.8,La Niña
+Argentina,Maize,2002,3.478,1009.1,20.8,El Niño
+Argentina,"Rice, paddy",2002,4.006,1009.1,20.8,El Niño
+Argentina,"Coffee, green",2002,0.61,1009.1,20.8,El Niño
+Argentina,Potatoes,2002,15.123,1009.1,20.8,El Niño
+Argentina,Cassava,2002,7.561,1009.1,20.8,El Niño
+Argentina,Bananas,2002,7.067,1009.1,20.8,El Niño
+Argentina,Avocados,2002,7.248,1009.1,20.8,El Niño
+Argentina,Maize,2003,3.157,1941.0,22.9,El Niño
+Argentina,"Rice, paddy",2003,3.588,1941.0,22.9,El Niño
+Argentina,"Coffee, green",2003,0.749,1941.0,22.9,El Niño
+Argentina,Potatoes,2003,14.752,1941.0,22.9,El Niño
+Argentina,Cassava,2003,7.44,1941.0,22.9,El Niño
+Argentina,Bananas,2003,7.913,1941.0,22.9,El Niño
+Argentina,Avocados,2003,7.058,1941.0,22.9,El Niño
+Argentina,Maize,2004,5.617,1981.3,25.8,Normal
+Argentina,"Rice, paddy",2004,5.362,1981.3,25.8,Normal
+Argentina,"Coffee, green",2004,0.901,1981.3,25.8,Normal
+Argentina,Potatoes,2004,24.821,1981.3,25.8,Normal
+Argentina,Cassava,2004,10.006,1981.3,25.8,Normal
+Argentina,Bananas,2004,10.175,1981.3,25.8,Normal
+Argentina,Avocados,2004,11.22,1981.3,25.8,Normal
+Argentina,Maize,2005,4.954,1180.6,27.3,Normal
+Argentina,"Rice, paddy",2005,4.777,1180.6,27.3,Normal
+Argentina,"Coffee, green",2005,0.815,1180.6,27.3,Normal
+Argentina,Potatoes,2005,19.848,1180.6,27.3,Normal
+Argentina,Cassava,2005,9.505,1180.6,27.3,Normal
+Argentina,Bananas,2005,10.056,1180.6,27.3,Normal
+Argentina,Avocados,2005,9.125,1180.6,27.3,Normal
+Argentina,Maize,2006,4.92,1290.8,26.9,Normal
+Argentina,"Rice, paddy",2006,5.153,1290.8,26.9,Normal
+Argentina,"Coffee, green",2006,1.01,1290.8,26.9,Normal
+Argentina,Potatoes,2006,20.502,1290.8,26.9,Normal
+Argentina,Cassava,2006,11.317,1290.8,26.9,Normal
+Argentina,Bananas,2006,10.234,1290.8,26.9,Normal
+Argentina,Avocados,2006,10.91,1290.8,26.9,Normal
+Argentina,Maize,2007,5.501,1870.9,22.1,Normal
+Argentina,"Rice, paddy",2007,6.218,1870.9,22.1,Normal
+Argentina,"Coffee, green",2007,0.927,1870.9,22.1,Normal
+Argentina,Potatoes,2007,22.466,1870.9,22.1,Normal
+Argentina,Cassava,2007,11.883,1870.9,22.1,Normal
+Argentina,Bananas,2007,10.29,1870.9,22.1,Normal
+Argentina,Avocados,2007,11.826,1870.9,22.1,Normal
+Argentina,Maize,2008,4.515,1677.5,23.1,Normal
+Argentina,"Rice, paddy",2008,5.419,1677.5,23.1,Normal
+Argentina,"Coffee, green",2008,0.954,1677.5,23.1,Normal
+Argentina,Potatoes,2008,23.374,1677.5,23.1,Normal
+Argentina,Cassava,2008,11.15,1677.5,23.1,Normal
+Argentina,Bananas,2008,10.703,1677.5,23.1,Normal
+Argentina,Avocados,2008,11.217,1677.5,23.1,Normal
+Argentina,Maize,2009,3.895,1988.0,19.5,El Niño
+Argentina,"Rice, paddy",2009,3.782,1988.0,19.5,El Niño
+Argentina,"Coffee, green",2009,0.703,1988.0,19.5,El Niño
+Argentina,Potatoes,2009,16.01,1988.0,19.5,El Niño
+Argentina,Cassava,2009,7.777,1988.0,19.5,El Niño
+Argentina,Bananas,2009,7.272,1988.0,19.5,El Niño
+Argentina,Avocados,2009,7.161,1988.0,19.5,El Niño
+Argentina,Maize,2010,3.48,1453.3,27.9,El Niño
+Argentina,"Rice, paddy",2010,4.347,1453.3,27.9,El Niño
+Argentina,"Coffee, green",2010,0.693,1453.3,27.9,El Niño
+Argentina,Potatoes,2010,15.763,1453.3,27.9,El Niño
+Argentina,Cassava,2010,7.005,1453.3,27.9,El Niño
+Argentina,Bananas,2010,6.814,1453.3,27.9,El Niño
+Argentina,Avocados,2010,8.295,1453.3,27.9,El Niño
+Argentina,Maize,2011,4.219,1190.6,17.7,La Niña
+Argentina,"Rice, paddy",2011,5.046,1190.6,17.7,La Niña
+Argentina,"Coffee, green",2011,0.865,1190.6,17.7,La Niña
+Argentina,Potatoes,2011,19.25,1190.6,17.7,La Niña
+Argentina,Cassava,2011,9.338,1190.6,17.7,La Niña
+Argentina,Bananas,2011,8.698,1190.6,17.7,La Niña
+Argentina,Avocados,2011,8.242,1190.6,17.7,La Niña
+Argentina,Maize,2012,4.574,1353.8,23.0,La Niña
+Argentina,"Rice, paddy",2012,5.364,1353.8,23.0,La Niña
+Argentina,"Coffee, green",2012,0.878,1353.8,23.0,La Niña
+Argentina,Potatoes,2012,19.159,1353.8,23.0,La Niña
+Argentina,Cassava,2012,8.999,1353.8,23.0,La Niña
+Argentina,Bananas,2012,8.92,1353.8,23.0,La Niña
+Argentina,Avocados,2012,10.094,1353.8,23.0,La Niña
+Argentina,Maize,2013,4.975,931.4,27.4,Normal
+Argentina,"Rice, paddy",2013,5.283,931.4,27.4,Normal
+Argentina,"Coffee, green",2013,0.966,931.4,27.4,Normal
+Argentina,Potatoes,2013,19.739,931.4,27.4,Normal
+Argentina,Cassava,2013,10.425,931.4,27.4,Normal
+Argentina,Bananas,2013,9.816,931.4,27.4,Normal
+Argentina,Avocados,2013,9.615,931.4,27.4,Normal
+Argentina,Maize,2014,4.976,1972.3,25.6,Normal
+Argentina,"Rice, paddy",2014,5.908,1972.3,25.6,Normal
+Argentina,"Coffee, green",2014,0.92,1972.3,25.6,Normal
+Argentina,Potatoes,2014,26.472,1972.3,25.6,Normal
+Argentina,Cassava,2014,11.047,1972.3,25.6,Normal
+Argentina,Bananas,2014,10.699,1972.3,25.6,Normal
+Argentina,Avocados,2014,11.048,1972.3,25.6,Normal
+Argentina,Maize,2015,3.943,1234.0,25.0,El Niño
+Argentina,"Rice, paddy",2015,4.205,1234.0,25.0,El Niño
+Argentina,"Coffee, green",2015,0.724,1234.0,25.0,El Niño
+Argentina,Potatoes,2015,16.796,1234.0,25.0,El Niño
+Argentina,Cassava,2015,7.014,1234.0,25.0,El Niño
+Argentina,Bananas,2015,6.669,1234.0,25.0,El Niño
+Argentina,Avocados,2015,7.689,1234.0,25.0,El Niño
+Argentina,Maize,2016,3.492,1849.6,27.0,El Niño
+Argentina,"Rice, paddy",2016,4.288,1849.6,27.0,El Niño
+Argentina,"Coffee, green",2016,0.689,1849.6,27.0,El Niño
+Argentina,Potatoes,2016,19.052,1849.6,27.0,El Niño
+Argentina,Cassava,2016,9.058,1849.6,27.0,El Niño
+Argentina,Bananas,2016,7.317,1849.6,27.0,El Niño
+Argentina,Avocados,2016,8.787,1849.6,27.0,El Niño
+Argentina,Maize,2017,5.41,1824.5,18.1,Normal
+Argentina,"Rice, paddy",2017,6.363,1824.5,18.1,Normal
+Argentina,"Coffee, green",2017,0.914,1824.5,18.1,Normal
+Argentina,Potatoes,2017,24.172,1824.5,18.1,Normal
+Argentina,Cassava,2017,10.715,1824.5,18.1,Normal
+Argentina,Bananas,2017,11.105,1824.5,18.1,Normal
+Argentina,Avocados,2017,12.643,1824.5,18.1,Normal
+Argentina,Maize,2018,4.811,1534.7,16.4,Normal
+Argentina,"Rice, paddy",2018,6.256,1534.7,16.4,Normal
+Argentina,"Coffee, green",2018,0.975,1534.7,16.4,Normal
+Argentina,Potatoes,2018,24.831,1534.7,16.4,Normal
+Argentina,Cassava,2018,10.595,1534.7,16.4,Normal
+Argentina,Bananas,2018,11.568,1534.7,16.4,Normal
+Argentina,Avocados,2018,12.523,1534.7,16.4,Normal
+Argentina,Maize,2019,5.872,2044.9,19.6,Normal
+Argentina,"Rice, paddy",2019,6.023,2044.9,19.6,Normal
+Argentina,"Coffee, green",2019,1.127,2044.9,19.6,Normal
+Argentina,Potatoes,2019,23.125,2044.9,19.6,Normal
+Argentina,Cassava,2019,12.772,2044.9,19.6,Normal
+Argentina,Bananas,2019,11.144,2044.9,19.6,Normal
+Argentina,Avocados,2019,13.04,2044.9,19.6,Normal
+Argentina,Maize,2020,6.165,1834.5,20.5,Normal
+Argentina,"Rice, paddy",2020,5.994,1834.5,20.5,Normal
+Argentina,"Coffee, green",2020,1.172,1834.5,20.5,Normal
+Argentina,Potatoes,2020,26.914,1834.5,20.5,Normal
+Argentina,Cassava,2020,13.35,1834.5,20.5,Normal
+Argentina,Bananas,2020,10.038,1834.5,20.5,Normal
+Argentina,Avocados,2020,11.296,1834.5,20.5,Normal
+Argentina,Maize,2021,4.419,1837.8,27.1,La Niña
+Argentina,"Rice, paddy",2021,4.932,1837.8,27.1,La Niña
+Argentina,"Coffee, green",2021,0.88,1837.8,27.1,La Niña
+Argentina,Potatoes,2021,24.318,1837.8,27.1,La Niña
+Argentina,Cassava,2021,11.266,1837.8,27.1,La Niña
+Argentina,Bananas,2021,9.582,1837.8,27.1,La Niña
+Argentina,Avocados,2021,9.322,1837.8,27.1,La Niña
+Argentina,Maize,2022,5.216,1576.6,18.9,La Niña
+Argentina,"Rice, paddy",2022,5.47,1576.6,18.9,La Niña
+Argentina,"Coffee, green",2022,0.963,1576.6,18.9,La Niña
+Argentina,Potatoes,2022,24.04,1576.6,18.9,La Niña
+Argentina,Cassava,2022,10.557,1576.6,18.9,La Niña
+Argentina,Bananas,2022,9.464,1576.6,18.9,La Niña
+Argentina,Avocados,2022,11.144,1576.6,18.9,La Niña
+Argentina,Maize,2023,3.513,1171.3,26.7,El Niño
+Argentina,"Rice, paddy",2023,4.76,1171.3,26.7,El Niño
+Argentina,"Coffee, green",2023,0.662,1171.3,26.7,El Niño
+Argentina,Potatoes,2023,15.746,1171.3,26.7,El Niño
+Argentina,Cassava,2023,8.049,1171.3,26.7,El Niño
+Argentina,Bananas,2023,8.691,1171.3,26.7,El Niño
+Argentina,Avocados,2023,9.288,1171.3,26.7,El Niño
+Venezuela,Maize,1990,2.894,1082.9,17.8,Normal
+Venezuela,"Rice, paddy",1990,3.243,1082.9,17.8,Normal
+Venezuela,"Coffee, green",1990,0.598,1082.9,17.8,Normal
+Venezuela,Potatoes,1990,13.32,1082.9,17.8,Normal
+Venezuela,Cassava,1990,6.804,1082.9,17.8,Normal
+Venezuela,Bananas,1990,6.359,1082.9,17.8,Normal
+Venezuela,Avocados,1990,6.496,1082.9,17.8,Normal
+Venezuela,Maize,1991,2.988,1966.9,18.3,Normal
+Venezuela,"Rice, paddy",1991,3.879,1966.9,18.3,Normal
+Venezuela,"Coffee, green",1991,0.572,1966.9,18.3,Normal
+Venezuela,Potatoes,1991,12.888,1966.9,18.3,Normal
+Venezuela,Cassava,1991,7.594,1966.9,18.3,Normal
+Venezuela,Bananas,1991,6.696,1966.9,18.3,Normal
+Venezuela,Avocados,1991,6.819,1966.9,18.3,Normal
+Venezuela,Maize,1992,3.604,1816.0,20.0,Normal
+Venezuela,"Rice, paddy",1992,3.278,1816.0,20.0,Normal
+Venezuela,"Coffee, green",1992,0.63,1816.0,20.0,Normal
+Venezuela,Potatoes,1992,15.598,1816.0,20.0,Normal
+Venezuela,Cassava,1992,6.855,1816.0,20.0,Normal
+Venezuela,Bananas,1992,6.897,1816.0,20.0,Normal
+Venezuela,Avocados,1992,7.614,1816.0,20.0,Normal
+Venezuela,Maize,1993,3.333,1841.6,19.7,Normal
+Venezuela,"Rice, paddy",1993,4.06,1841.6,19.7,Normal
+Venezuela,"Coffee, green",1993,0.608,1841.6,19.7,Normal
+Venezuela,Potatoes,1993,15.423,1841.6,19.7,Normal
+Venezuela,Cassava,1993,6.921,1841.6,19.7,Normal
+Venezuela,Bananas,1993,5.971,1841.6,19.7,Normal
+Venezuela,Avocados,1993,6.239,1841.6,19.7,Normal
+Venezuela,Maize,1994,3.051,2133.2,23.4,Normal
+Venezuela,"Rice, paddy",1994,4.119,2133.2,23.4,Normal
+Venezuela,"Coffee, green",1994,0.636,2133.2,23.4,Normal
+Venezuela,Potatoes,1994,16.164,2133.2,23.4,Normal
+Venezuela,Cassava,1994,6.523,2133.2,23.4,Normal
+Venezuela,Bananas,1994,7.402,2133.2,23.4,Normal
+Venezuela,Avocados,1994,7.321,2133.2,23.4,Normal
+Venezuela,Maize,1995,3.192,1833.6,16.4,Normal
+Venezuela,"Rice, paddy",1995,3.548,1833.6,16.4,Normal
+Venezuela,"Coffee, green",1995,0.694,1833.6,16.4,Normal
+Venezuela,Potatoes,1995,13.895,1833.6,16.4,Normal
+Venezuela,Cassava,1995,7.45,1833.6,16.4,Normal
+Venezuela,Bananas,1995,5.947,1833.6,16.4,Normal
+Venezuela,Avocados,1995,6.582,1833.6,16.4,Normal
+Venezuela,Maize,1996,3.449,1274.0,25.5,Normal
+Venezuela,"Rice, paddy",1996,4.022,1274.0,25.5,Normal
+Venezuela,"Coffee, green",1996,0.665,1274.0,25.5,Normal
+Venezuela,Potatoes,1996,13.054,1274.0,25.5,Normal
+Venezuela,Cassava,1996,7.395,1274.0,25.5,Normal
+Venezuela,Bananas,1996,6.374,1274.0,25.5,Normal
+Venezuela,Avocados,1996,7.454,1274.0,25.5,Normal
+Venezuela,Maize,1997,2.069,925.0,25.9,El Niño
+Venezuela,"Rice, paddy",1997,2.434,925.0,25.9,El Niño
+Venezuela,"Coffee, green",1997,0.375,925.0,25.9,El Niño
+Venezuela,Potatoes,1997,9.224,925.0,25.9,El Niño
+Venezuela,Cassava,1997,4.726,925.0,25.9,El Niño
+Venezuela,Bananas,1997,4.851,925.0,25.9,El Niño
+Venezuela,Avocados,1997,5.103,925.0,25.9,El Niño
+Venezuela,Maize,1998,2.266,1129.4,17.8,El Niño
+Venezuela,"Rice, paddy",1998,2.859,1129.4,17.8,El Niño
+Venezuela,"Coffee, green",1998,0.394,1129.4,17.8,El Niño
+Venezuela,Potatoes,1998,10.582,1129.4,17.8,El Niño
+Venezuela,Cassava,1998,4.458,1129.4,17.8,El Niño
+Venezuela,Bananas,1998,4.622,1129.4,17.8,El Niño
+Venezuela,Avocados,1998,4.503,1129.4,17.8,El Niño
+Venezuela,Maize,1999,2.632,912.5,18.3,La Niña
+Venezuela,"Rice, paddy",1999,2.977,912.5,18.3,La Niña
+Venezuela,"Coffee, green",1999,0.543,912.5,18.3,La Niña
+Venezuela,Potatoes,1999,11.239,912.5,18.3,La Niña
+Venezuela,Cassava,1999,5.344,912.5,18.3,La Niña
+Venezuela,Bananas,1999,5.174,912.5,18.3,La Niña
+Venezuela,Avocados,1999,6.472,912.5,18.3,La Niña
+Venezuela,Maize,2000,2.939,1680.0,24.8,La Niña
+Venezuela,"Rice, paddy",2000,3.178,1680.0,24.8,La Niña
+Venezuela,"Coffee, green",2000,0.506,1680.0,24.8,La Niña
+Venezuela,Potatoes,2000,13.614,1680.0,24.8,La Niña
+Venezuela,Cassava,2000,6.562,1680.0,24.8,La Niña
+Venezuela,Bananas,2000,6.645,1680.0,24.8,La Niña
+Venezuela,Avocados,2000,7.038,1680.0,24.8,La Niña
+Venezuela,Maize,2001,2.748,1394.6,21.1,La Niña
+Venezuela,"Rice, paddy",2001,3.169,1394.6,21.1,La Niña
+Venezuela,"Coffee, green",2001,0.618,1394.6,21.1,La Niña
+Venezuela,Potatoes,2001,12.301,1394.6,21.1,La Niña
+Venezuela,Cassava,2001,7.071,1394.6,21.1,La Niña
+Venezuela,Bananas,2001,5.989,1394.6,21.1,La Niña
+Venezuela,Avocados,2001,6.29,1394.6,21.1,La Niña
+Venezuela,Maize,2002,2.36,1044.5,23.9,El Niño
+Venezuela,"Rice, paddy",2002,2.598,1044.5,23.9,El Niño
+Venezuela,"Coffee, green",2002,0.422,1044.5,23.9,El Niño
+Venezuela,Potatoes,2002,9.609,1044.5,23.9,El Niño
+Venezuela,Cassava,2002,5.088,1044.5,23.9,El Niño
+Venezuela,Bananas,2002,4.552,1044.5,23.9,El Niño
+Venezuela,Avocados,2002,5.317,1044.5,23.9,El Niño
+Venezuela,Maize,2003,2.671,1812.9,20.0,El Niño
+Venezuela,"Rice, paddy",2003,2.721,1812.9,20.0,El Niño
+Venezuela,"Coffee, green",2003,0.508,1812.9,20.0,El Niño
+Venezuela,Potatoes,2003,10.21,1812.9,20.0,El Niño
+Venezuela,Cassava,2003,4.999,1812.9,20.0,El Niño
+Venezuela,Bananas,2003,4.82,1812.9,20.0,El Niño
+Venezuela,Avocados,2003,5.812,1812.9,20.0,El Niño
+Venezuela,Maize,2004,3.189,892.9,18.3,Normal
+Venezuela,"Rice, paddy",2004,3.276,892.9,18.3,Normal
+Venezuela,"Coffee, green",2004,0.658,892.9,18.3,Normal
+Venezuela,Potatoes,2004,15.069,892.9,18.3,Normal
+Venezuela,Cassava,2004,7.689,892.9,18.3,Normal
+Venezuela,Bananas,2004,5.859,892.9,18.3,Normal
+Venezuela,Avocados,2004,6.63,892.9,18.3,Normal
+Venezuela,Maize,2005,3.402,1823.8,24.1,Normal
+Venezuela,"Rice, paddy",2005,4.172,1823.8,24.1,Normal
+Venezuela,"Coffee, green",2005,0.728,1823.8,24.1,Normal
+Venezuela,Potatoes,2005,14.487,1823.8,24.1,Normal
+Venezuela,Cassava,2005,8.106,1823.8,24.1,Normal
+Venezuela,Bananas,2005,6.819,1823.8,24.1,Normal
+Venezuela,Avocados,2005,8.532,1823.8,24.1,Normal
+Venezuela,Maize,2006,3.501,1553.5,16.4,Normal
+Venezuela,"Rice, paddy",2006,4.484,1553.5,16.4,Normal
+Venezuela,"Coffee, green",2006,0.709,1553.5,16.4,Normal
+Venezuela,Potatoes,2006,15.357,1553.5,16.4,Normal
+Venezuela,Cassava,2006,7.754,1553.5,16.4,Normal
+Venezuela,Bananas,2006,7.339,1553.5,16.4,Normal
+Venezuela,Avocados,2006,6.745,1553.5,16.4,Normal
+Venezuela,Maize,2007,3.366,1050.4,22.6,Normal
+Venezuela,"Rice, paddy",2007,3.589,1050.4,22.6,Normal
+Venezuela,"Coffee, green",2007,0.689,1050.4,22.6,Normal
+Venezuela,Potatoes,2007,15.47,1050.4,22.6,Normal
+Venezuela,Cassava,2007,6.99,1050.4,22.6,Normal
+Venezuela,Bananas,2007,6.334,1050.4,22.6,Normal
+Venezuela,Avocados,2007,7.52,1050.4,22.6,Normal
+Venezuela,Maize,2008,3.441,1732.8,24.0,Normal
+Venezuela,"Rice, paddy",2008,4.245,1732.8,24.0,Normal
+Venezuela,"Coffee, green",2008,0.759,1732.8,24.0,Normal
+Venezuela,Potatoes,2008,16.014,1732.8,24.0,Normal
+Venezuela,Cassava,2008,7.294,1732.8,24.0,Normal
+Venezuela,Bananas,2008,7.859,1732.8,24.0,Normal
+Venezuela,Avocados,2008,7.231,1732.8,24.0,Normal
+Venezuela,Maize,2009,2.407,1155.2,17.2,El Niño
+Venezuela,"Rice, paddy",2009,2.806,1155.2,17.2,El Niño
+Venezuela,"Coffee, green",2009,0.428,1155.2,17.2,El Niño
+Venezuela,Potatoes,2009,12.496,1155.2,17.2,El Niño
+Venezuela,Cassava,2009,5.435,1155.2,17.2,El Niño
+Venezuela,Bananas,2009,5.207,1155.2,17.2,El Niño
+Venezuela,Avocados,2009,5.25,1155.2,17.2,El Niño
+Venezuela,Maize,2010,2.867,1737.8,21.2,El Niño
+Venezuela,"Rice, paddy",2010,3.269,1737.8,21.2,El Niño
+Venezuela,"Coffee, green",2010,0.527,1737.8,21.2,El Niño
+Venezuela,Potatoes,2010,12.116,1737.8,21.2,El Niño
+Venezuela,Cassava,2010,6.122,1737.8,21.2,El Niño
+Venezuela,Bananas,2010,5.389,1737.8,21.2,El Niño
+Venezuela,Avocados,2010,5.199,1737.8,21.2,El Niño
+Venezuela,Maize,2011,2.883,962.9,27.4,La Niña
+Venezuela,"Rice, paddy",2011,3.746,962.9,27.4,La Niña
+Venezuela,"Coffee, green",2011,0.545,962.9,27.4,La Niña
+Venezuela,Potatoes,2011,13.698,962.9,27.4,La Niña
+Venezuela,Cassava,2011,6.822,962.9,27.4,La Niña
+Venezuela,Bananas,2011,5.684,962.9,27.4,La Niña
+Venezuela,Avocados,2011,6.952,962.9,27.4,La Niña
+Venezuela,Maize,2012,3.407,1765.9,22.5,La Niña
+Venezuela,"Rice, paddy",2012,3.417,1765.9,22.5,La Niña
+Venezuela,"Coffee, green",2012,0.619,1765.9,22.5,La Niña
+Venezuela,Potatoes,2012,13.597,1765.9,22.5,La Niña
+Venezuela,Cassava,2012,6.799,1765.9,22.5,La Niña
+Venezuela,Bananas,2012,7.353,1765.9,22.5,La Niña
+Venezuela,Avocados,2012,7.255,1765.9,22.5,La Niña
+Venezuela,Maize,2013,3.576,1839.8,22.9,Normal
+Venezuela,"Rice, paddy",2013,4.44,1839.8,22.9,Normal
+Venezuela,"Coffee, green",2013,0.768,1839.8,22.9,Normal
+Venezuela,Potatoes,2013,15.86,1839.8,22.9,Normal
+Venezuela,Cassava,2013,8.825,1839.8,22.9,Normal
+Venezuela,Bananas,2013,7.821,1839.8,22.9,Normal
+Venezuela,Avocados,2013,7.225,1839.8,22.9,Normal
+Venezuela,Maize,2014,3.617,1527.7,20.7,Normal
+Venezuela,"Rice, paddy",2014,4.556,1527.7,20.7,Normal
+Venezuela,"Coffee, green",2014,0.781,1527.7,20.7,Normal
+Venezuela,Potatoes,2014,18.189,1527.7,20.7,Normal
+Venezuela,Cassava,2014,8.752,1527.7,20.7,Normal
+Venezuela,Bananas,2014,8.351,1527.7,20.7,Normal
+Venezuela,Avocados,2014,8.88,1527.7,20.7,Normal
+Venezuela,Maize,2015,2.296,960.5,21.5,El Niño
+Venezuela,"Rice, paddy",2015,2.939,960.5,21.5,El Niño
+Venezuela,"Coffee, green",2015,0.539,960.5,21.5,El Niño
+Venezuela,Potatoes,2015,10.891,960.5,21.5,El Niño
+Venezuela,Cassava,2015,5.729,960.5,21.5,El Niño
+Venezuela,Bananas,2015,5.398,960.5,21.5,El Niño
+Venezuela,Avocados,2015,5.091,960.5,21.5,El Niño
+Venezuela,Maize,2016,2.48,1133.9,21.5,El Niño
+Venezuela,"Rice, paddy",2016,3.077,1133.9,21.5,El Niño
+Venezuela,"Coffee, green",2016,0.501,1133.9,21.5,El Niño
+Venezuela,Potatoes,2016,12.118,1133.9,21.5,El Niño
+Venezuela,Cassava,2016,5.196,1133.9,21.5,El Niño
+Venezuela,Bananas,2016,5.383,1133.9,21.5,El Niño
+Venezuela,Avocados,2016,5.08,1133.9,21.5,El Niño
+Venezuela,Maize,2017,4.367,2034.1,20.1,Normal
+Venezuela,"Rice, paddy",2017,4.744,2034.1,20.1,Normal
+Venezuela,"Coffee, green",2017,0.802,2034.1,20.1,Normal
+Venezuela,Potatoes,2017,17.296,2034.1,20.1,Normal
+Venezuela,Cassava,2017,7.989,2034.1,20.1,Normal
+Venezuela,Bananas,2017,7.865,2034.1,20.1,Normal
+Venezuela,Avocados,2017,7.572,2034.1,20.1,Normal
+Venezuela,Maize,2018,4.541,2086.3,20.6,Normal
+Venezuela,"Rice, paddy",2018,4.859,2086.3,20.6,Normal
+Venezuela,"Coffee, green",2018,0.685,2086.3,20.6,Normal
+Venezuela,Potatoes,2018,18.991,2086.3,20.6,Normal
+Venezuela,Cassava,2018,8.161,2086.3,20.6,Normal
+Venezuela,Bananas,2018,7.628,2086.3,20.6,Normal
+Venezuela,Avocados,2018,8.131,2086.3,20.6,Normal
+Venezuela,Maize,2019,4.259,2082.5,22.0,Normal
+Venezuela,"Rice, paddy",2019,4.362,2082.5,22.0,Normal
+Venezuela,"Coffee, green",2019,0.772,2082.5,22.0,Normal
+Venezuela,Potatoes,2019,17.753,2082.5,22.0,Normal
+Venezuela,Cassava,2019,8.323,2082.5,22.0,Normal
+Venezuela,Bananas,2019,7.688,2082.5,22.0,Normal
+Venezuela,Avocados,2019,8.506,2082.5,22.0,Normal
+Venezuela,Maize,2020,4.479,1724.0,18.7,Normal
+Venezuela,"Rice, paddy",2020,4.124,1724.0,18.7,Normal
+Venezuela,"Coffee, green",2020,0.752,1724.0,18.7,Normal
+Venezuela,Potatoes,2020,16.325,1724.0,18.7,Normal
+Venezuela,Cassava,2020,7.581,1724.0,18.7,Normal
+Venezuela,Bananas,2020,8.876,1724.0,18.7,Normal
+Venezuela,Avocados,2020,9.2,1724.0,18.7,Normal
+Venezuela,Maize,2021,3.843,1771.8,26.4,La Niña
+Venezuela,"Rice, paddy",2021,4.173,1771.8,26.4,La Niña
+Venezuela,"Coffee, green",2021,0.728,1771.8,26.4,La Niña
+Venezuela,Potatoes,2021,15.699,1771.8,26.4,La Niña
+Venezuela,Cassava,2021,7.709,1771.8,26.4,La Niña
+Venezuela,Bananas,2021,7.64,1771.8,26.4,La Niña
+Venezuela,Avocados,2021,6.854,1771.8,26.4,La Niña
+Venezuela,Maize,2022,3.981,2002.1,17.9,La Niña
+Venezuela,"Rice, paddy",2022,3.932,2002.1,17.9,La Niña
+Venezuela,"Coffee, green",2022,0.658,2002.1,17.9,La Niña
+Venezuela,Potatoes,2022,14.79,2002.1,17.9,La Niña
+Venezuela,Cassava,2022,8.5,2002.1,17.9,La Niña
+Venezuela,Bananas,2022,6.75,2002.1,17.9,La Niña
+Venezuela,Avocados,2022,8.022,2002.1,17.9,La Niña
+Venezuela,Maize,2023,3.303,1701.6,19.4,El Niño
+Venezuela,"Rice, paddy",2023,2.98,1701.6,19.4,El Niño
+Venezuela,"Coffee, green",2023,0.569,1701.6,19.4,El Niño
+Venezuela,Potatoes,2023,13.246,1701.6,19.4,El Niño
+Venezuela,Cassava,2023,5.902,1701.6,19.4,El Niño
+Venezuela,Bananas,2023,5.438,1701.6,19.4,El Niño
+Venezuela,Avocados,2023,6.643,1701.6,19.4,El Niño
+Bolivia,Maize,1990,3.161,2082.8,17.3,Normal
+Bolivia,"Rice, paddy",1990,4.286,2082.8,17.3,Normal
+Bolivia,"Coffee, green",1990,0.565,2082.8,17.3,Normal
+Bolivia,Potatoes,1990,15.383,2082.8,17.3,Normal
+Bolivia,Cassava,1990,7.278,2082.8,17.3,Normal
+Bolivia,Bananas,1990,6.436,2082.8,17.3,Normal
+Bolivia,Avocados,1990,7.534,2082.8,17.3,Normal
+Bolivia,Maize,1991,3.657,2122.9,21.4,Normal
+Bolivia,"Rice, paddy",1991,4.018,2122.9,21.4,Normal
+Bolivia,"Coffee, green",1991,0.643,2122.9,21.4,Normal
+Bolivia,Potatoes,1991,13.849,2122.9,21.4,Normal
+Bolivia,Cassava,1991,7.757,2122.9,21.4,Normal
+Bolivia,Bananas,1991,6.674,2122.9,21.4,Normal
+Bolivia,Avocados,1991,6.847,2122.9,21.4,Normal
+Bolivia,Maize,1992,3.868,2127.6,25.3,Normal
+Bolivia,"Rice, paddy",1992,3.688,2127.6,25.3,Normal
+Bolivia,"Coffee, green",1992,0.706,2127.6,25.3,Normal
+Bolivia,Potatoes,1992,16.074,2127.6,25.3,Normal
+Bolivia,Cassava,1992,8.254,2127.6,25.3,Normal
+Bolivia,Bananas,1992,7.71,2127.6,25.3,Normal
+Bolivia,Avocados,1992,8.239,2127.6,25.3,Normal
+Bolivia,Maize,1993,3.717,2132.5,16.1,Normal
+Bolivia,"Rice, paddy",1993,3.737,2132.5,16.1,Normal
+Bolivia,"Coffee, green",1993,0.691,2132.5,16.1,Normal
+Bolivia,Potatoes,1993,17.636,2132.5,16.1,Normal
+Bolivia,Cassava,1993,6.641,2132.5,16.1,Normal
+Bolivia,Bananas,1993,7.141,2132.5,16.1,Normal
+Bolivia,Avocados,1993,7.888,2132.5,16.1,Normal
+Bolivia,Maize,1994,2.946,1154.7,18.7,Normal
+Bolivia,"Rice, paddy",1994,3.344,1154.7,18.7,Normal
+Bolivia,"Coffee, green",1994,0.641,1154.7,18.7,Normal
+Bolivia,Potatoes,1994,14.837,1154.7,18.7,Normal
+Bolivia,Cassava,1994,6.209,1154.7,18.7,Normal
+Bolivia,Bananas,1994,7.328,1154.7,18.7,Normal
+Bolivia,Avocados,1994,7.26,1154.7,18.7,Normal
+Bolivia,Maize,1995,3.564,1521.7,19.3,Normal
+Bolivia,"Rice, paddy",1995,3.737,1521.7,19.3,Normal
+Bolivia,"Coffee, green",1995,0.675,1521.7,19.3,Normal
+Bolivia,Potatoes,1995,16.128,1521.7,19.3,Normal
+Bolivia,Cassava,1995,6.583,1521.7,19.3,Normal
+Bolivia,Bananas,1995,7.541,1521.7,19.3,Normal
+Bolivia,Avocados,1995,7.273,1521.7,19.3,Normal
+Bolivia,Maize,1996,3.363,1350.1,27.5,Normal
+Bolivia,"Rice, paddy",1996,4.044,1350.1,27.5,Normal
+Bolivia,"Coffee, green",1996,0.664,1350.1,27.5,Normal
+Bolivia,Potatoes,1996,14.127,1350.1,27.5,Normal
+Bolivia,Cassava,1996,8.109,1350.1,27.5,Normal
+Bolivia,Bananas,1996,6.768,1350.1,27.5,Normal
+Bolivia,Avocados,1996,7.071,1350.1,27.5,Normal
+Bolivia,Maize,1997,2.74,2087.5,22.4,El Niño
+Bolivia,"Rice, paddy",1997,3.183,2087.5,22.4,El Niño
+Bolivia,"Coffee, green",1997,0.459,2087.5,22.4,El Niño
+Bolivia,Potatoes,1997,10.821,2087.5,22.4,El Niño
+Bolivia,Cassava,1997,4.976,2087.5,22.4,El Niño
+Bolivia,Bananas,1997,5.722,2087.5,22.4,El Niño
+Bolivia,Avocados,1997,5.151,2087.5,22.4,El Niño
+Bolivia,Maize,1998,2.356,1230.9,19.4,El Niño
+Bolivia,"Rice, paddy",1998,2.893,1230.9,19.4,El Niño
+Bolivia,"Coffee, green",1998,0.514,1230.9,19.4,El Niño
+Bolivia,Potatoes,1998,10.67,1230.9,19.4,El Niño
+Bolivia,Cassava,1998,5.137,1230.9,19.4,El Niño
+Bolivia,Bananas,1998,5.266,1230.9,19.4,El Niño
+Bolivia,Avocados,1998,5.168,1230.9,19.4,El Niño
+Bolivia,Maize,1999,3.129,2096.5,22.0,La Niña
+Bolivia,"Rice, paddy",1999,4.068,2096.5,22.0,La Niña
+Bolivia,"Coffee, green",1999,0.598,2096.5,22.0,La Niña
+Bolivia,Potatoes,1999,13.673,2096.5,22.0,La Niña
+Bolivia,Cassava,1999,6.368,2096.5,22.0,La Niña
+Bolivia,Bananas,1999,7.268,2096.5,22.0,La Niña
+Bolivia,Avocados,1999,7.321,2096.5,22.0,La Niña
+Bolivia,Maize,2000,3.148,1372.1,25.9,La Niña
+Bolivia,"Rice, paddy",2000,3.348,1372.1,25.9,La Niña
+Bolivia,"Coffee, green",2000,0.618,1372.1,25.9,La Niña
+Bolivia,Potatoes,2000,14.834,1372.1,25.9,La Niña
+Bolivia,Cassava,2000,6.615,1372.1,25.9,La Niña
+Bolivia,Bananas,2000,5.546,1372.1,25.9,La Niña
+Bolivia,Avocados,2000,5.943,1372.1,25.9,La Niña
+Bolivia,Maize,2001,3.404,1904.2,25.9,La Niña
+Bolivia,"Rice, paddy",2001,3.971,1904.2,25.9,La Niña
+Bolivia,"Coffee, green",2001,0.644,1904.2,25.9,La Niña
+Bolivia,Potatoes,2001,16.089,1904.2,25.9,La Niña
+Bolivia,Cassava,2001,6.355,1904.2,25.9,La Niña
+Bolivia,Bananas,2001,6.353,1904.2,25.9,La Niña
+Bolivia,Avocados,2001,6.877,1904.2,25.9,La Niña
+Bolivia,Maize,2002,2.804,1216.7,24.7,El Niño
+Bolivia,"Rice, paddy",2002,2.81,1216.7,24.7,El Niño
+Bolivia,"Coffee, green",2002,0.529,1216.7,24.7,El Niño
+Bolivia,Potatoes,2002,11.529,1216.7,24.7,El Niño
+Bolivia,Cassava,2002,5.452,1216.7,24.7,El Niño
+Bolivia,Bananas,2002,5.226,1216.7,24.7,El Niño
+Bolivia,Avocados,2002,5.121,1216.7,24.7,El Niño
+Bolivia,Maize,2003,2.878,1336.7,22.6,El Niño
+Bolivia,"Rice, paddy",2003,3.027,1336.7,22.6,El Niño
+Bolivia,"Coffee, green",2003,0.468,1336.7,22.6,El Niño
+Bolivia,Potatoes,2003,10.332,1336.7,22.6,El Niño
+Bolivia,Cassava,2003,6.168,1336.7,22.6,El Niño
+Bolivia,Bananas,2003,5.195,1336.7,22.6,El Niño
+Bolivia,Avocados,2003,6.11,1336.7,22.6,El Niño
+Bolivia,Maize,2004,3.902,1569.1,23.3,Normal
+Bolivia,"Rice, paddy",2004,3.998,1569.1,23.3,Normal
+Bolivia,"Coffee, green",2004,0.729,1569.1,23.3,Normal
+Bolivia,Potatoes,2004,16.817,1569.1,23.3,Normal
+Bolivia,Cassava,2004,8.217,1569.1,23.3,Normal
+Bolivia,Bananas,2004,8.025,1569.1,23.3,Normal
+Bolivia,Avocados,2004,7.293,1569.1,23.3,Normal
+Bolivia,Maize,2005,3.408,1659.0,16.6,Normal
+Bolivia,"Rice, paddy",2005,4.417,1659.0,16.6,Normal
+Bolivia,"Coffee, green",2005,0.634,1659.0,16.6,Normal
+Bolivia,Potatoes,2005,17.344,1659.0,16.6,Normal
+Bolivia,Cassava,2005,7.469,1659.0,16.6,Normal
+Bolivia,Bananas,2005,7.182,1659.0,16.6,Normal
+Bolivia,Avocados,2005,7.295,1659.0,16.6,Normal
+Bolivia,Maize,2006,3.755,1148.1,25.9,Normal
+Bolivia,"Rice, paddy",2006,4.529,1148.1,25.9,Normal
+Bolivia,"Coffee, green",2006,0.608,1148.1,25.9,Normal
+Bolivia,Potatoes,2006,17.5,1148.1,25.9,Normal
+Bolivia,Cassava,2006,8.091,1148.1,25.9,Normal
+Bolivia,Bananas,2006,6.851,1148.1,25.9,Normal
+Bolivia,Avocados,2006,8.147,1148.1,25.9,Normal
+Bolivia,Maize,2007,4.041,1803.2,21.5,Normal
+Bolivia,"Rice, paddy",2007,4.292,1803.2,21.5,Normal
+Bolivia,"Coffee, green",2007,0.696,1803.2,21.5,Normal
+Bolivia,Potatoes,2007,17.258,1803.2,21.5,Normal
+Bolivia,Cassava,2007,8.995,1803.2,21.5,Normal
+Bolivia,Bananas,2007,7.518,1803.2,21.5,Normal
+Bolivia,Avocados,2007,8.026,1803.2,21.5,Normal
+Bolivia,Maize,2008,4.073,1651.8,25.0,Normal
+Bolivia,"Rice, paddy",2008,3.838,1651.8,25.0,Normal
+Bolivia,"Coffee, green",2008,0.755,1651.8,25.0,Normal
+Bolivia,Potatoes,2008,17.145,1651.8,25.0,Normal
+Bolivia,Cassava,2008,8.241,1651.8,25.0,Normal
+Bolivia,Bananas,2008,7.826,1651.8,25.0,Normal
+Bolivia,Avocados,2008,8.649,1651.8,25.0,Normal
+Bolivia,Maize,2009,2.9,1963.9,23.8,El Niño
+Bolivia,"Rice, paddy",2009,3.116,1963.9,23.8,El Niño
+Bolivia,"Coffee, green",2009,0.489,1963.9,23.8,El Niño
+Bolivia,Potatoes,2009,14.268,1963.9,23.8,El Niño
+Bolivia,Cassava,2009,6.014,1963.9,23.8,El Niño
+Bolivia,Bananas,2009,5.803,1963.9,23.8,El Niño
+Bolivia,Avocados,2009,6.435,1963.9,23.8,El Niño
+Bolivia,Maize,2010,2.806,895.8,26.3,El Niño
+Bolivia,"Rice, paddy",2010,3.141,895.8,26.3,El Niño
+Bolivia,"Coffee, green",2010,0.435,895.8,26.3,El Niño
+Bolivia,Potatoes,2010,11.863,895.8,26.3,El Niño
+Bolivia,Cassava,2010,4.971,895.8,26.3,El Niño
+Bolivia,Bananas,2010,5.303,895.8,26.3,El Niño
+Bolivia,Avocados,2010,5.858,895.8,26.3,El Niño
+Bolivia,Maize,2011,3.218,970.6,24.3,La Niña
+Bolivia,"Rice, paddy",2011,3.938,970.6,24.3,La Niña
+Bolivia,"Coffee, green",2011,0.616,970.6,24.3,La Niña
+Bolivia,Potatoes,2011,14.081,970.6,24.3,La Niña
+Bolivia,Cassava,2011,6.643,970.6,24.3,La Niña
+Bolivia,Bananas,2011,7.136,970.6,24.3,La Niña
+Bolivia,Avocados,2011,6.843,970.6,24.3,La Niña
+Bolivia,Maize,2012,3.309,1368.1,16.5,La Niña
+Bolivia,"Rice, paddy",2012,4.17,1368.1,16.5,La Niña
+Bolivia,"Coffee, green",2012,0.681,1368.1,16.5,La Niña
+Bolivia,Potatoes,2012,14.359,1368.1,16.5,La Niña
+Bolivia,Cassava,2012,7.116,1368.1,16.5,La Niña
+Bolivia,Bananas,2012,6.342,1368.1,16.5,La Niña
+Bolivia,Avocados,2012,8.06,1368.1,16.5,La Niña
+Bolivia,Maize,2013,4.206,1637.4,25.1,Normal
+Bolivia,"Rice, paddy",2013,4.905,1637.4,25.1,Normal
+Bolivia,"Coffee, green",2013,0.831,1637.4,25.1,Normal
+Bolivia,Potatoes,2013,15.983,1637.4,25.1,Normal
+Bolivia,Cassava,2013,9.472,1637.4,25.1,Normal
+Bolivia,Bananas,2013,8.713,1637.4,25.1,Normal
+Bolivia,Avocados,2013,8.263,1637.4,25.1,Normal
+Bolivia,Maize,2014,4.412,1971.9,24.8,Normal
+Bolivia,"Rice, paddy",2014,4.326,1971.9,24.8,Normal
+Bolivia,"Coffee, green",2014,0.8,1971.9,24.8,Normal
+Bolivia,Potatoes,2014,16.437,1971.9,24.8,Normal
+Bolivia,Cassava,2014,9.49,1971.9,24.8,Normal
+Bolivia,Bananas,2014,9.135,1971.9,24.8,Normal
+Bolivia,Avocados,2014,9.099,1971.9,24.8,Normal
+Bolivia,Maize,2015,2.776,1517.7,24.7,El Niño
+Bolivia,"Rice, paddy",2015,3.358,1517.7,24.7,El Niño
+Bolivia,"Coffee, green",2015,0.572,1517.7,24.7,El Niño
+Bolivia,Potatoes,2015,11.919,1517.7,24.7,El Niño
+Bolivia,Cassava,2015,5.624,1517.7,24.7,El Niño
+Bolivia,Bananas,2015,6.095,1517.7,24.7,El Niño
+Bolivia,Avocados,2015,6.055,1517.7,24.7,El Niño
+Bolivia,Maize,2016,2.692,2044.9,19.7,El Niño
+Bolivia,"Rice, paddy",2016,3.525,2044.9,19.7,El Niño
+Bolivia,"Coffee, green",2016,0.592,2044.9,19.7,El Niño
+Bolivia,Potatoes,2016,13.786,2044.9,19.7,El Niño
+Bolivia,Cassava,2016,6.71,2044.9,19.7,El Niño
+Bolivia,Bananas,2016,6.084,2044.9,19.7,El Niño
+Bolivia,Avocados,2016,6.724,2044.9,19.7,El Niño
+Bolivia,Maize,2017,3.55,861.5,20.4,Normal
+Bolivia,"Rice, paddy",2017,3.879,861.5,20.4,Normal
+Bolivia,"Coffee, green",2017,0.67,861.5,20.4,Normal
+Bolivia,Potatoes,2017,15.894,861.5,20.4,Normal
+Bolivia,Cassava,2017,9.026,861.5,20.4,Normal
+Bolivia,Bananas,2017,7.238,861.5,20.4,Normal
+Bolivia,Avocados,2017,7.583,861.5,20.4,Normal
+Bolivia,Maize,2018,4.163,1968.8,21.0,Normal
+Bolivia,"Rice, paddy",2018,4.709,1968.8,21.0,Normal
+Bolivia,"Coffee, green",2018,0.78,1968.8,21.0,Normal
+Bolivia,Potatoes,2018,18.298,1968.8,21.0,Normal
+Bolivia,Cassava,2018,8.554,1968.8,21.0,Normal
+Bolivia,Bananas,2018,9.263,1968.8,21.0,Normal
+Bolivia,Avocados,2018,8.284,1968.8,21.0,Normal
+Bolivia,Maize,2019,3.816,1053.5,22.9,Normal
+Bolivia,"Rice, paddy",2019,4.376,1053.5,22.9,Normal
+Bolivia,"Coffee, green",2019,0.798,1053.5,22.9,Normal
+Bolivia,Potatoes,2019,19.568,1053.5,22.9,Normal
+Bolivia,Cassava,2019,9.012,1053.5,22.9,Normal
+Bolivia,Bananas,2019,7.424,1053.5,22.9,Normal
+Bolivia,Avocados,2019,9.395,1053.5,22.9,Normal
+Bolivia,Maize,2020,4.097,1308.4,18.0,Normal
+Bolivia,"Rice, paddy",2020,4.859,1308.4,18.0,Normal
+Bolivia,"Coffee, green",2020,0.692,1308.4,18.0,Normal
+Bolivia,Potatoes,2020,19.035,1308.4,18.0,Normal
+Bolivia,Cassava,2020,9.456,1308.4,18.0,Normal
+Bolivia,Bananas,2020,7.727,1308.4,18.0,Normal
+Bolivia,Avocados,2020,9.112,1308.4,18.0,Normal
+Bolivia,Maize,2021,3.457,1359.9,21.0,La Niña
+Bolivia,"Rice, paddy",2021,4.227,1359.9,21.0,La Niña
+Bolivia,"Coffee, green",2021,0.661,1359.9,21.0,La Niña
+Bolivia,Potatoes,2021,17.722,1359.9,21.0,La Niña
+Bolivia,Cassava,2021,8.614,1359.9,21.0,La Niña
+Bolivia,Bananas,2021,8.059,1359.9,21.0,La Niña
+Bolivia,Avocados,2021,7.126,1359.9,21.0,La Niña
+Bolivia,Maize,2022,3.648,819.9,21.3,La Niña
+Bolivia,"Rice, paddy",2022,4.336,819.9,21.3,La Niña
+Bolivia,"Coffee, green",2022,0.692,819.9,21.3,La Niña
+Bolivia,Potatoes,2022,15.861,819.9,21.3,La Niña
+Bolivia,Cassava,2022,6.512,819.9,21.3,La Niña
+Bolivia,Bananas,2022,7.456,819.9,21.3,La Niña
+Bolivia,Avocados,2022,6.778,819.9,21.3,La Niña
+Bolivia,Maize,2023,2.918,877.8,26.2,El Niño
+Bolivia,"Rice, paddy",2023,2.943,877.8,26.2,El Niño
+Bolivia,"Coffee, green",2023,0.524,877.8,26.2,El Niño
+Bolivia,Potatoes,2023,11.64,877.8,26.2,El Niño
+Bolivia,Cassava,2023,6.306,877.8,26.2,El Niño
+Bolivia,Bananas,2023,5.445,877.8,26.2,El Niño
+Bolivia,Avocados,2023,6.64,877.8,26.2,El Niño

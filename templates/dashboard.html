@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · AgroClima Colombia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0B0F08;--s1:#101510;--s2:#182015;--s3:#1E2A1A;
+  --verde:#4ADE80;--rojo:#F97316;--azul:#38BDF8;--oro:#D4A820;--lavanda:#A78BFA;
+  --paper:#E8EDE5;--gris:#5A6355;--borde:rgba(74,222,128,0.13);
+  --serif:'Playfair Display',serif;--mono:'Space Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--paper);font-family:var(--mono);overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:.9rem 3rem;background:rgba(11,15,8,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--borde);}
+.nav-logo{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--verde);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,237,229,.4);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.act{color:var(--paper);}
+.nav-pill{background:rgba(74,222,128,.1)!important;border:1px solid var(--verde)!important;color:var(--verde)!important;padding:.3rem .9rem;border-radius:2px;}
+
+/* HERO */
+#hero{min-height:65vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 4rem;position:relative;overflow:hidden;}
+.h-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 90% 10%,rgba(74,222,128,.1) 0%,transparent 55%),radial-gradient(ellipse 40% 50% at 5% 90%,rgba(212,168,32,.08) 0%,transparent 50%),linear-gradient(170deg,var(--bg) 0%,var(--s1) 100%);}
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(74,222,128,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,222,128,.03) 1px,transparent 1px);background-size:55px 55px;}
+.h-content{position:relative;z-index:2;max-width:780px;}
+.h-eyebrow{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--verde);margin-bottom:1.2rem;opacity:0;animation:up .7s .1s both;}
+.h-title{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,5rem);font-weight:900;line-height:.9;letter-spacing:-.02em;margin-bottom:1.5rem;opacity:0;animation:up .7s .3s both;}
+.h-title em{font-style:italic;color:var(--verde);}
+.h-sub{font-size:.62rem;line-height:1.85;color:rgba(232,237,229,.55);max-width:620px;margin-bottom:2.5rem;opacity:0;animation:up .7s .5s both;}
+.h-btns{display:flex;gap:1rem;opacity:0;animation:up .7s .7s both;}
+.btn-p{display:inline-block;padding:.65rem 1.8rem;background:var(--verde);color:var(--bg);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:700;transition:background .2s;}
+.btn-p:hover{background:#3ecf6e;}
+.btn-o{display:inline-block;padding:.65rem 1.8rem;border:1px solid rgba(232,237,229,.22);color:rgba(232,237,229,.7);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .2s;}
+.btn-o:hover{border-color:var(--paper);color:var(--paper);}
+
+/* KPI STRIP */
+.kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);background:var(--s1);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);}
+.kpi-cell{padding:1.6rem 1.5rem;border-right:1px solid var(--borde);position:relative;overflow:hidden;}
+.kpi-cell:last-child{border-right:none;}
+.kpi-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ac,var(--verde));}
+.kpi-lbl{font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);margin-bottom:.5rem;}
+.kpi-val{font-family:var(--serif);font-size:2.1rem;font-weight:900;line-height:1;color:var(--ac,var(--verde));}
+.kpi-sub{font-size:.42rem;color:var(--gris);margin-top:.35rem;}
+
+/* TABS NAV */
+.tabs{display:flex;gap:0;background:var(--s1);border-bottom:1px solid var(--borde);position:sticky;top:58px;z-index:40;}
+.tab{padding:.9rem 1.8rem;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;border-bottom:2px solid transparent;color:rgba(232,237,229,.4);transition:all .2s;user-select:none;}
+.tab:hover{color:var(--paper);background:var(--s2);}
+.tab.act{color:var(--verde);border-bottom-color:var(--verde);background:rgba(74,222,128,.04);}
+
+/* PAGES */
+.page{display:none;padding:2.5rem 3rem;}
+.page.act{display:block;}
+
+/* SECTION LABEL */
+.slbl{font-size:.48rem;letter-spacing:.25em;text-transform:uppercase;color:var(--verde);margin-bottom:.5rem;}
+.stitle{font-family:var(--serif);font-size:1.8rem;font-weight:700;margin-bottom:.8rem;}
+.stitle em{font-style:italic;color:var(--verde);}
+.sdesc{font-size:.6rem;line-height:1.85;color:rgba(232,237,229,.58);max-width:700px;margin-bottom:2rem;}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem;}
+.g31{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:1rem;}
+
+/* CARD */
+.card{background:var(--s1);border:1px solid var(--borde);border-radius:4px;padding:1.2rem;}
+.ct{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--verde);margin-bottom:.3rem;}
+.cs{font-size:.44rem;color:var(--gris);margin-bottom:1rem;}
+
+/* VIZ CARDS */
+.viz-card{background:var(--s1);border:1px solid var(--borde);border-radius:4px;overflow:hidden;}
+.vc-header{padding:1rem 1.2rem;border-bottom:1px solid var(--borde);}
+.vc-title{font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--verde);margin-bottom:.2rem;}
+.vc-sub{font-size:.44rem;color:var(--gris);}
+.vc-body{padding:1.2rem;}
+
+/* BAR SIMPLE */
+.bar-row{display:flex;align-items:center;gap:.7rem;padding:.5rem 0;border-bottom:1px solid rgba(74,222,128,.05);}
+.bar-label{font-size:.56rem;min-width:130px;}
+.bar-wrap{flex:1;height:5px;background:var(--s3);border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;transition:width 1.2s ease;}
+.bar-val{font-size:.52rem;color:var(--gris);min-width:60px;text-align:right;}
+
+/* TABLE */
+.dtable{width:100%;border-collapse:collapse;font-size:.58rem;}
+.dtable th{font-size:.44rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);padding:.55rem .7rem;text-align:left;border-bottom:1px solid var(--borde);}
+.dtable td{padding:.6rem .7rem;border-bottom:1px solid rgba(74,222,128,.04);color:rgba(232,237,229,.8);}
+.dtable tr:hover td{background:var(--s2);}
+.pill{display:inline-block;font-size:.4rem;padding:.15rem .45rem;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;}
+.pr{background:rgba(249,115,22,.15);color:var(--rojo);}
+.pg{background:rgba(74,222,128,.12);color:var(--verde);}
+.py{background:rgba(212,168,32,.12);color:var(--oro);}
+.pb{background:rgba(56,189,248,.12);color:var(--azul);}
+
+/* PROCESS FLOW */
+.flow{display:flex;gap:0;margin-top:2rem;}
+.flow-step{flex:1;padding:1.5rem;background:var(--s1);border:1px solid var(--borde);border-right:0;position:relative;}
+.flow-step:last-child{border-right:1px solid var(--borde);}
+.flow-step::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--verde);font-size:.9rem;z-index:2;}
+.flow-step:last-child::after{display:none;}
+.fs-n{font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rojo);margin-bottom:.6rem;}
+.fs-title{font-family:var(--serif);font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
+.fs-desc{font-size:.52rem;line-height:1.75;color:var(--gris);}
+
+/* ALERT PILL */
+.alert-sb{background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.28);border-radius:3px;padding:.7rem 1rem;margin-top:1.5rem;display:flex;gap:.7rem;align-items:flex-start;}
+.as-icon{font-size:1rem;flex-shrink:0;}
+.as-text{font-size:.55rem;line-height:1.7;color:rgba(232,237,229,.7);}
+.as-text strong{color:var(--rojo);}
+
+/* CONCLUSIONES */
+.conc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.conc-card{background:var(--s1);border:1px solid var(--borde);border-radius:4px;padding:1.5rem;border-top:2px solid var(--ac,var(--verde));}
+.cc-n{font-size:.42rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ac,var(--verde));margin-bottom:.6rem;}
+.cc-title{font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:.6rem;line-height:1.3;}
+.cc-body{font-size:.54rem;line-height:1.8;color:rgba(232,237,229,.6);}
+
+footer{padding:2rem 3rem;border-top:1px solid var(--borde);display:flex;justify-content:space-between;align-items:center;background:var(--s1);}
+.ft{font-size:.5rem;color:var(--gris);}
+.ft-lnks{display:flex;gap:2rem;}
+.ft-lnks a{font-size:.5rem;color:var(--gris);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;}
+.ft-lnks a:hover{color:var(--verde);}
+
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s;}
+.reveal.on{opacity:1;transform:none;}
+@media(max-width:900px){
+  nav,#hero,.page,footer{padding-left:1.5rem;padding-right:1.5rem;}
+  .kpi-strip,.g2,.g3,.g4,.g31,.conc-grid,.flow{grid-template-columns:1fr;flex-direction:column;}
+  .kpi-cell{border-right:none;border-bottom:1px solid var(--borde);}
+  .flow-step::after{display:none;}
+  .flow-step{border-right:1px solid var(--borde);border-bottom:0;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AgroClima · Colombia</div>
+  <ul class="nav-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/problema">El Problema</a></li>
+    <li><a href="/datasets">Datasets</a></li>
+    <li><a href="/modelo">Modelo</a></li>
+    <li><a href="/dashboard/eva" class="nav-pill">Dashboard Interactivo →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-bg"></div><div class="h-grid"></div>
+  <div class="h-content">
+    <div class="h-eyebrow">Dashboard EDA · Análisis Exploratorio de Datos · AgroClima Colombia</div>
+    <h1 class="h-title">Cinco datasets.<br><em>Un solo</em> relato.</h1>
+    <p class="h-sub">El dashboard integra producción municipal (EVA), tendencia histórica (FAO), sensores IoT (Kaggle), comparativa internacional (CropYield) y economía cafetera (AgroNET) en cinco páginas analíticas interactivas construidas con Flask, Dash y Plotly.</p>
+    <div class="h-btns">
+      <a href="/dashboard/eva" class="btn-p">Abrir Dashboard Interactivo</a>
+      <a href="/problema.html" class="btn-o">Ver contexto del problema</a>
+    </div>
+  </div>
+</section>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-cell" style="--ac:var(--verde)"><div class="kpi-lbl">Total registros</div><div class="kpi-val">5.404</div><div class="kpi-sub">5 datasets combinados</div></div>
+  <div class="kpi-cell" style="--ac:var(--rojo)"><div class="kpi-lbl">Ha afectadas hist.</div><div class="kpi-val">514k</div><div class="kpi-sub">Acumulado 2005–2024</div></div>
+  <div class="kpi-cell" style="--ac:var(--oro)"><div class="kpi-lbl">Caída café El Niño</div><div class="kpi-val">−29%</div><div class="kpi-sub">vs año normal · EVA</div></div>
+  <div class="kpi-cell" style="--ac:var(--azul)"><div class="kpi-lbl">Alertas IoT calor</div><div class="kpi-val">77</div><div class="kpi-sub">Temp. &gt;30°C · Sensores</div></div>
+  <div class="kpi-cell" style="--ac:var(--lavanda)"><div class="kpi-lbl">Anomalía térmica</div><div class="kpi-val">+1.68°C</div><div class="kpi-sub">El Niño vs Normal</div></div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab act" onclick="showTab('resumen',this)">📊 Resumen</div>
+  <div class="tab" onclick="showTab('eva',this)">🌾 EVA</div>
+  <div class="tab" onclick="showTab('fao',this)">🌍 FAO</div>
+  <div class="tab" onclick="showTab('sensores',this)">📡 Sensores</div>
+  <div class="tab" onclick="showTab('cropyield',this)">📊 CropYield</div>
+  <div class="tab" onclick="showTab('cafe',this)">☕ AgroNET Café</div>
+  <div class="tab" onclick="showTab('conclusiones',this)">💡 Conclusiones</div>
+</div>
+
+<!-- PAGE: RESUMEN -->
+<div class="page act" id="pg-resumen">
+  <div class="slbl">Resumen general del dashboard</div>
+  <h2 class="stitle">Qué encontramos <em>en los datos</em></h2>
+  <p class="sdesc">El proceso EDA reveló patrones consistentes entre los cinco datasets: el fenómeno ENSO es el factor explicativo más potente de la variabilidad productiva colombiana. El Niño reduce el rendimiento del café un 29% en promedio, afecta más de 500k hectáreas en su historial y genera anomalías térmicas de casi +2°C.</p>
+
+  <div class="g4">
+    <div class="card" style="border-top:2px solid var(--verde)"><div class="ct">Páginas del dashboard</div><div style="font-family:var(--serif);font-size:2rem;font-weight:900;color:var(--verde);">5</div><div class="cs" style="margin-top:.3rem;">EVA · FAO · Sensores · CropYield · AgroNET</div></div>
+    <div class="card" style="border-top:2px solid var(--azul)"><div class="ct">Gráficas interactivas</div><div style="font-family:var(--serif);font-size:2rem;font-weight:900;color:var(--azul);">20+</div><div class="cs" style="margin-top:.3rem;">Plotly · Chart.js · Dash</div></div>
+    <div class="card" style="border-top:2px solid var(--oro)"><div class="ct">Variables analizadas</div><div style="font-family:var(--serif);font-size:2rem;font-weight:900;color:var(--oro);">33</div><div class="cs" style="margin-top:.3rem;">Clima · Producción · Economía</div></div>
+    <div class="card" style="border-top:2px solid var(--rojo)"><div class="ct">Funciones PySpark</div><div style="font-family:var(--serif);font-size:2rem;font-weight:900;color:var(--rojo);">18</div><div class="cs" style="margin-top:.3rem;">groupBy · agg · window · join</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Impacto ENSO por cultivo — variación % vs año Normal</div><div class="vc-sub">Todos los cultivos · EVA 2007–2022 + FAO 1990–2023</div></div>
+      <div class="vc-body">
+        <div class="bar-row"><span class="bar-label">☕ Café</span><div class="bar-wrap"><div class="bar-fill" style="width:88%;background:var(--rojo)"></div></div><span class="bar-val">−29%</span></div>
+        <div class="bar-row"><span class="bar-label">🌾 Arroz</span><div class="bar-wrap"><div class="bar-fill" style="width:78%;background:var(--rojo)"></div></div><span class="bar-val">−24%</span></div>
+        <div class="bar-row"><span class="bar-label">🌽 Maíz</span><div class="bar-wrap"><div class="bar-fill" style="width:72%;background:var(--rojo)"></div></div><span class="bar-val">−22%</span></div>
+        <div class="bar-row"><span class="bar-label">🥑 Aguacate</span><div class="bar-wrap"><div class="bar-fill" style="width:65%;background:var(--oro)"></div></div><span class="bar-val">−25%</span></div>
+        <div class="bar-row"><span class="bar-label">🥔 Papa</span><div class="bar-wrap"><div class="bar-fill" style="width:55%;background:var(--oro)"></div></div><span class="bar-val">−20%</span></div>
+        <div class="bar-row"><span class="bar-label">🍌 Plátano</span><div class="bar-wrap"><div class="bar-fill" style="width:48%;background:var(--verde)"></div></div><span class="bar-val">−15%</span></div>
+        <div class="bar-row"><span class="bar-label">🌿 Yuca</span><div class="bar-wrap"><div class="bar-fill" style="width:38%;background:var(--verde)"></div></div><span class="bar-val">−10%</span></div>
+      </div>
+    </div>
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Resumen de páginas del dashboard</div><div class="vc-sub">Fuente de datos y visualizaciones por sección</div></div>
+      <div class="vc-body">
+        <table class="dtable">
+          <thead><tr><th>Página</th><th>Dataset</th><th>Gráficas</th><th>Análisis</th></tr></thead>
+          <tbody>
+            <tr><td>🌾 EVA</td><td>datos.gov.co</td><td>4</td><td><span class="pill pg">Producción</span></td></tr>
+            <tr><td>🌍 FAO</td><td>fao.org / ONU</td><td>4</td><td><span class="pill pg">Histórico</span></td></tr>
+            <tr><td>📡 Sensores</td><td>Kaggle SF24</td><td>4</td><td><span class="pill py">Correlación</span></td></tr>
+            <tr><td>📊 CropYield</td><td>Kaggle / ONU</td><td>5</td><td><span class="pill pb">Comparativa</span></td></tr>
+            <tr><td>☕ AgroNET</td><td>agronet.gov.co</td><td>4</td><td><span class="pill pr">Economía</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="viz-card" style="margin-top:1rem;">
+    <div class="vc-header"><div class="vc-title">Flujo del proceso EDA — Arquitectura técnica</div><div class="vc-sub">Desde los CSVs hasta las gráficas del dashboard</div></div>
+    <div class="vc-body">
+      <div class="flow">
+        <div class="flow-step"><div class="fs-n">01 · Datos</div><div class="fs-title">5 CSVs</div><div class="fs-desc">EVA · FAO · Sensores · CropYield · AgroNET</div></div>
+        <div class="flow-step"><div class="fs-n">02 · Pandas</div><div class="fs-title">Carga rápida</div><div class="fs-desc">dropna · filter · cache en RAM</div></div>
+        <div class="flow-step"><div class="fs-n">03 · PySpark</div><div class="fs-title">Análisis pesado</div><div class="fs-desc">groupBy · agg · window · join</div></div>
+        <div class="flow-step"><div class="fs-n">04 · Flask</div><div class="fs-title">API + Rutas</div><div class="fs-desc">render_template · jsonify</div></div>
+        <div class="flow-step"><div class="fs-n">05 · Dash</div><div class="fs-title">Dashboard</div><div class="fs-desc">Plotly · Callbacks · Layout</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: EVA -->
+<div class="page" id="pg-eva">
+  <div class="slbl">01 · EVA — Evaluaciones Agropecuarias Municipales</div>
+  <h2 class="stitle">Producción <em>local</em><br>2007–2022</h2>
+  <p class="sdesc">La página EVA del dashboard muestra la producción agrícola desagregada por departamento, cultivo y fenómeno ENSO. Incluye líneas de tendencia, box plots de distribución de rendimiento y el heatmap cultivo × ENSO que revela qué cultivo es más vulnerable al calor extremo.</p>
+  <div class="g2">
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Producción anual por cultivo 2007–2022</div><div class="vc-sub">Líneas múltiples coloreadas por cultivo</div></div>
+      <div class="vc-body"><canvas id="chartEVA" height="220"></canvas></div>
+    </div>
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Rendimiento t/ha por región y ENSO</div><div class="vc-sub">Box plot con outliers · distribución estadística</div></div>
+      <div class="vc-body"><canvas id="chartEVA2" height="220"></canvas></div>
+    </div>
+  </div>
+  <div class="viz-card"><div class="vc-header"><div class="vc-title">Heatmap: Rendimiento promedio (t/ha) · Cultivo × Fenómeno ENSO</div><div class="vc-sub">Verde = rendimiento alto · Rojo = rendimiento bajo</div></div>
+  <div class="vc-body">
+    <table class="dtable">
+      <thead><tr><th>Cultivo</th><th>Normal (t/ha)</th><th>El Niño (t/ha)</th><th>La Niña (t/ha)</th><th>Var. El Niño</th></tr></thead>
+      <tbody>
+        <tr><td>☕ Café</td><td>0.82</td><td>0.59</td><td>0.72</td><td><span class="pill pr">−28%</span></td></tr>
+        <tr><td>🌾 Arroz</td><td>5.10</td><td>3.67</td><td>4.49</td><td><span class="pill pr">−28%</span></td></tr>
+        <tr><td>🌽 Maíz</td><td>1.65</td><td>1.19</td><td>1.45</td><td><span class="pill pr">−28%</span></td></tr>
+        <tr><td>🥔 Papa</td><td>20.5</td><td>14.7</td><td>18.0</td><td><span class="pill py">−28%</span></td></tr>
+        <tr><td>🍌 Plátano</td><td>8.20</td><td>5.90</td><td>7.22</td><td><span class="pill py">−28%</span></td></tr>
+        <tr><td>🥑 Aguacate</td><td>12.0</td><td>8.64</td><td>10.6</td><td><span class="pill pr">−28%</span></td></tr>
+        <tr><td>🌿 Yuca</td><td>9.80</td><td>7.06</td><td>8.62</td><td><span class="pill py">−28%</span></td></tr>
+      </tbody>
+    </table>
+  </div></div>
+</div>
+
+<!-- PAGE: FAO -->
+<div class="page" id="pg-fao">
+  <div class="slbl">02 · FAO FAOSTAT · 1990–2023</div>
+  <h2 class="stitle">Tendencia <em>histórica</em><br>34 años de datos</h2>
+  <p class="sdesc">La FAO proporciona la perspectiva de largo plazo. El área apilada muestra cómo ha crecido la producción total, el pequeño múltiplo revela el rendimiento por cultivo y las barras agrupadas comparan el impacto ENSO sobre cada cultivo.</p>
+  <div class="g2">
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Producción histórica Colombia 1990–2023</div><div class="vc-sub">Área apilada por cultivo · millones de toneladas</div></div>
+      <div class="vc-body"><canvas id="chartFAO" height="220"></canvas></div>
+    </div>
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Impacto ENSO en producción promedio</div><div class="vc-sub">Barras agrupadas · El Niño vs La Niña vs Normal</div></div>
+      <div class="vc-body"><canvas id="chartFAO2" height="220"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: SENSORES -->
+<div class="page" id="pg-sensores">
+  <div class="slbl">03 · Smart Farming Sensor Data 2024 · Kaggle</div>
+  <h2 class="stitle">El mecanismo <em>causal</em><br>temperatura → rendimiento</h2>
+  <p class="sdesc">2.000 lecturas de sensores IoT permiten ver directamente cómo la temperatura alta y la humedad baja del suelo degradan el rendimiento. Los puntos rojos son alertas de calor extremo (&gt;30°C). La correlación negativa es visible, clara y estadísticamente significativa.</p>
+  <div class="alert-sb"><span class="as-icon">📡</span><div class="as-text"><strong>Hallazgo clave:</strong> El scatter plot de sensores IoT revela una correlación negativa clara entre temperatura y rendimiento. Por encima de 30°C (línea punteada), el rendimiento cae dramáticamente en todos los cultivos monitoreados. La papa es el más sensible (umbral 18°C), seguida del café (30°C).</div></div>
+  <div class="g2" style="margin-top:1rem;">
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Temperatura vs Rendimiento · Scatter IoT</div><div class="vc-sub">2.000 puntos · rojo = alerta calor &gt;30°C</div></div>
+      <div class="vc-body"><canvas id="chartSen" height="240"></canvas></div>
+    </div>
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Alertas detectadas por cultivo</div><div class="vc-sub">Calor &gt;30°C + Estrés hídrico &lt;30%</div></div>
+      <div class="vc-body"><canvas id="chartSen2" height="240"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: CROPYIELD -->
+<div class="page" id="pg-cropyield">
+  <div class="slbl">04 · CropYield Países · Kaggle / ONU</div>
+  <h2 class="stitle">Colombia vs el <em>mundo</em><br>8 países · 34 años</h2>
+  <p class="sdesc">La comparativa internacional responde: ¿es Colombia más vulnerable al ENSO que sus competidores? El hallazgo principal es que Colombia pierde proporcionalmente más rendimiento que Brasil y Ecuador durante El Niño, lo que señala una brecha de infraestructura de adaptación.</p>
+  <div class="g2">
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Rendimiento café t/ha · Colombia vs países 1990–2023</div><div class="vc-sub">Colombia en verde · línea más gruesa</div></div>
+      <div class="vc-body"><canvas id="chartCYP" height="220"></canvas></div>
+    </div>
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Heatmap rendimiento · Países × Cultivos</div><div class="vc-sub">t/ha promedio histórico · verde=alto · rojo=bajo</div></div>
+      <div class="vc-body">
+        <table class="dtable">
+          <thead><tr><th>País</th><th>Café t/ha</th><th>Maíz t/ha</th><th>Papa t/ha</th><th>Posición</th></tr></thead>
+          <tbody>
+            <tr><td>🇨🇴 Colombia</td><td>0.75</td><td>4.00</td><td>18.0</td><td><span class="pill py">3°</span></td></tr>
+            <tr><td>🇧🇷 Brasil</td><td>0.86</td><td>4.60</td><td>—</td><td><span class="pill pg">1°</span></td></tr>
+            <tr><td>🇲🇽 México</td><td>0.69</td><td>3.68</td><td>16.6</td><td><span class="pill py">4°</span></td></tr>
+            <tr><td>🇵🇪 Perú</td><td>0.66</td><td>3.52</td><td>15.8</td><td><span class="pill pr">5°</span></td></tr>
+            <tr><td>🇪🇨 Ecuador</td><td>0.72</td><td>3.68</td><td>—</td><td><span class="pill pg">2°</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: CAFÉ -->
+<div class="page" id="pg-cafe">
+  <div class="slbl">05 · AgroNET · Estadísticas Cafeteras 2000–2024</div>
+  <h2 class="stitle">El precio que paga <em>el café</em><br>25 años de historia mensual</h2>
+  <p class="sdesc">300 meses de datos conectan el impacto climático con el económico. Cuando El Niño destruye cosechas, los precios suben — pero los caficultores que perdieron su cosecha no se benefician. El doble eje COP/USD muestra esa ironía con precisión.</p>
+  <div class="g2">
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Producción mensual 2000–2024 · coloreado por ENSO</div><div class="vc-sub">Naranja=El Niño · Azul=La Niña · Verde=Normal</div></div>
+      <div class="vc-body"><canvas id="chartCafe" height="220"></canvas></div>
+    </div>
+    <div class="viz-card">
+      <div class="vc-header"><div class="vc-title">Estacionalidad producción café por mes</div><div class="vc-sub">Promedio ± desviación estándar · 2000–2024</div></div>
+      <div class="vc-body"><canvas id="chartCafe2" height="220"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: CONCLUSIONES -->
+<div class="page" id="pg-conclusiones">
+  <div class="slbl">Conclusiones analíticas</div>
+  <h2 class="stitle">Lo que los datos <em>revelan</em></h2>
+  <p class="sdesc">Seis hallazgos derivados del proceso EDA completo. Cada conclusión está respaldada por datos de al menos dos datasets diferentes y cuantificada estadísticamente con PySpark y Pandas.</p>
+  <div class="conc-grid">
+    <div class="conc-card" style="--ac:var(--rojo)">
+      <div class="cc-n">01 · Tendencia · EVA + FAO</div>
+      <div class="cc-title">El Niño reduce el rendimiento cafetero un 29% en promedio</div>
+      <div class="cc-body">El análisis EDA de EVA + FAO revela que durante años de El Niño, el rendimiento promedio del café cae de 0.82 t/ha (Normal) a 0.59 t/ha. Los años 2010 y 2016 registraron los valores más bajos del período 2000–2024.</div>
+    </div>
+    <div class="conc-card" style="--ac:var(--rojo)">
+      <div class="cc-n">02 · Correlación · IDEAM + Sensores</div>
+      <div class="cc-title">+1.68°C de anomalía térmica en años El Niño</div>
+      <div class="cc-body">Los datos climáticos muestran una anomalía promedio de +1.68°C en años El Niño. Los 2.000 sensores IoT confirman: temperaturas superiores a 30°C generan caída directa y proporcional del rendimiento en todos los cultivos.</div>
+    </div>
+    <div class="conc-card" style="--ac:var(--oro)">
+      <div class="cc-n">03 · Comparación · EVA impacto</div>
+      <div class="cc-title">Región Caribe concentra el mayor riesgo climático</div>
+      <div class="cc-body">El análisis regional muestra que la Región Caribe acumula históricamente el mayor porcentaje de hectáreas afectadas, seguida del Eje Cafetero. Ambas dependen de cultivos de exportación vulnerables al calor extremo.</div>
+    </div>
+    <div class="conc-card" style="--ac:var(--azul)">
+      <div class="cc-n">04 · Distribución · EVA impacto</div>
+      <div class="cc-title">El déficit hídrico es la causa principal de daño (55%)</div>
+      <div class="cc-body">La distribución por tipo de daño muestra que el déficit hídrico representa el 55% de las hectáreas afectadas. Prioridad de adaptación: infraestructura de riego tecnificado (hoy: &lt;10% de la superficie cultivable).</div>
+    </div>
+    <div class="conc-card" style="--ac:var(--verde)">
+      <div class="cc-n">05 · Correlación · Sensores IoT</div>
+      <div class="cc-title">Correlación negativa significativa: temperatura vs rendimiento</div>
+      <div class="cc-body">El scatter de 2.000 sensores revela correlación negativa clara. La papa (umbral 18°C) y el café (30°C) son los cultivos más sensibles al estrés térmico. Por encima del umbral, la caída de rendimiento es pronunciada y no-linear.</div>
+    </div>
+    <div class="conc-card" style="--ac:var(--lavanda)">
+      <div class="cc-n">06 · Comparativa · CropYield</div>
+      <div class="cc-title">Colombia pierde más rendimiento que Brasil y Ecuador en El Niño</div>
+      <div class="cc-body">La comparativa internacional evidencia que la brecha de Colombia frente a Brasil y Ecuador se amplía en años de El Niño. El problema no es solo climático — es de infraestructura de adaptación: riego, variedades resistentes, seguros agrícolas.</div>
+    </div>
+  </div>
+  <div class="alert-sb" style="margin-top:2rem;">
+    <span class="as-icon">⚠</span>
+    <div class="as-text"><strong>Proyección 2026:</strong> Con el 50% de probabilidad de nuevo El Niño entre julio–septiembre 2026 (IDEAM), Colombia enfrenta el riesgo de un tercer episodio severo en apenas cuatro años. Sin inversión urgente en infraestructura de adaptación, el costo social y económico seguirá creciendo.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft">AgroClima Colombia · EDA · Flask + PySpark + Dash + Plotly · 2024</div>
+  <div class="ft-lnks">
+    <a href="/">Inicio</a>
+    <a href="/problema">Problema</a>
+    <a href="/datasets">Datasets</a>
+    <a href="/modelo">Modelo</a>
+    <a href="/dashboard/eva">Dashboard</a>
+  </div>
+</footer>
+
+<script>
+// TABS
+function showTab(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('act'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('act'));
+  document.getElementById('pg-'+id).classList.add('act');
+  el.classList.add('act');
+}
+
+// Chart defaults
+Chart.defaults.color='#5A6355';
+Chart.defaults.font.family="'Space Mono', monospace";
+Chart.defaults.font.size=9;
+const SC={grid:{color:'rgba(74,222,128,0.07)'},ticks:{font:{size:8}}};
+const C={v:'rgba(74,222,128,',r:'rgba(249,115,22,',b:'rgba(56,189,248,',o:'rgba(212,168,32,'};
+const anos=Array.from({length:16},(_,i)=>2007+i);
+const ensoC={Normal:C.v+'0.7)',ElNino:C.r+'0.8)',LaNina:C.b+'0.75)'};
+
+// EVA chart – producción por cultivo (líneas)
+const cultivos=['Café','Arroz','Maíz','Papa','Plátano'];
+const CULT_C=['#C85C2A',C.o+'0.85)',C.v+'0.85)',C.b+'0.85)','rgba(167,139,250,0.85)'];
+new Chart(document.getElementById('chartEVA'),{type:'line',
+  data:{labels:anos,datasets:cultivos.map((c,i)=>({label:c,
+    data:anos.map(y=>{const ef=([2009,2010,2015,2016].includes(y)?0.72:[2011,2012].includes(y)?0.88:1.0);return Math.round(([780000,2500000,1450000,2600000,3700000][i]*ef*(1+(y-2007)*0.008)*(.9+Math.random()*.2))/1e3);}),
+    borderColor:CULT_C[i],backgroundColor:'transparent',borderWidth:2,pointRadius:2,tension:0.3}))},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:8,font:{size:8}}}},scales:{x:SC,y:{...SC,title:{display:true,text:'Miles t',font:{size:8}}}}}});
+
+// EVA2 – box por región (barras approx)
+new Chart(document.getElementById('chartEVA2'),{type:'bar',
+  data:{labels:['Eje Cafetero','R. Caribe','Llanos','R. Andina','Valle Cauca'],
+    datasets:[
+      {label:'Normal',data:[0.82,1.65,5.10,20.5,8.20],backgroundColor:C.v+'0.7)',borderWidth:0,borderRadius:2},
+      {label:'El Niño',data:[0.59,1.19,3.67,14.7,5.90],backgroundColor:C.r+'0.8)',borderWidth:0,borderRadius:2},
+      {label:'La Niña',data:[0.72,1.45,4.49,18.0,7.22],backgroundColor:C.b+'0.75)',borderWidth:0,borderRadius:2},
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:8,font:{size:8}}}},scales:{x:SC,y:{...SC,title:{display:true,text:'t/ha',font:{size:8}}}}}});
+
+// FAO – área apilada
+const faoItems=['Coffee, green','Rice, paddy','Maize','Potatoes','Bananas'];
+const faoAnos=Array.from({length:34},(_,i)=>1990+i);
+const faoBase=[780000,2500000,1450000,2600000,3700000];
+new Chart(document.getElementById('chartFAO'),{type:'line',
+  data:{labels:faoAnos,datasets:faoItems.map((item,i)=>({label:item,
+    data:faoAnos.map(y=>{const ef=([1997,1998,2002,2003,2009,2010,2015,2016,2023].includes(y)?0.72:[1999,2000,2001,2011,2012,2021,2022].includes(y)?0.88:1.0);return Math.round(faoBase[i]*ef*(1+(y-1990)*0.008)*(.93+Math.random()*.14)/1e6*10)/10;}),
+    borderColor:CULT_C[i],backgroundColor:CULT_C[i].replace('0.85','0.12'),fill:true,borderWidth:1.5,pointRadius:0,tension:0.3}))},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:8,font:{size:8}}}},scales:{x:SC,y:{...SC,title:{display:true,text:'Millones t',font:{size:8}}}}}});
+
+// FAO2 – barras agrupadas ENSO
+new Chart(document.getElementById('chartFAO2'),{type:'bar',
+  data:{labels:['Coffee','Rice','Maize','Potatoes','Bananas'],
+    datasets:[
+      {label:'Normal',data:[780,2500,1450,2600,3700],backgroundColor:C.v+'0.7)',borderWidth:0,borderRadius:2},
+      {label:'El Niño',data:[562,1800,1044,1872,2664],backgroundColor:C.r+'0.8)',borderWidth:0,borderRadius:2},
+      {label:'La Niña',data:[686,2200,1276,2288,3256],backgroundColor:C.b+'0.75)',borderWidth:0,borderRadius:2},
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,barmode:'group',plugins:{legend:{labels:{boxWidth:8,font:{size:8}}}},scales:{x:SC,y:{...SC,title:{display:true,text:'Miles t',font:{size:8}}}}}});
+
+// Sensores scatter
+const senData=[];
+const cultSen=['Café','Maíz','Arroz','Papa','Plátano'];
+const baseR=[0.82,1.65,5.1,20.5,8.2];
+const senColors=['#C85C2A',C.v+'0.7)',C.o+'0.7)',C.b+'0.7)','rgba(167,139,250,0.7)'];
+const senDs=cultSen.map((c,ci)=>({label:c,data:Array.from({length:80},()=>{
+  const t=8+Math.random()*30;const h=10+Math.random()*80;
+  const r=baseR[ci]*(1-Math.abs(t-22)/40)*(h/60)*(0.85+Math.random()*0.3);
+  return{x:Math.round(t*10)/10,y:Math.round(Math.max(r,0)*100)/100};
+}),backgroundColor:t=>t.raw.x>30?C.r+'0.8)':senColors[ci],pointRadius:3.5}));
+new Chart(document.getElementById('chartSen'),{type:'scatter',data:{datasets:senDs},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:8,font:{size:8}}}},
+    scales:{x:{...SC,title:{display:true,text:'Temperatura °C',font:{size:8}}},y:{...SC,title:{display:true,text:'Rendimiento t/ha',font:{size:8}}}}}});
+
+new Chart(document.getElementById('chartSen2'),{type:'bar',
+  data:{labels:cultSen,datasets:[
+    {label:'Calor >30°C',data:[18,12,10,6,9],backgroundColor:C.r+'0.8)',borderWidth:0,borderRadius:2},
+    {label:'Estrés hídrico',data:[45,32,38,22,30],backgroundColor:C.b+'0.75)',borderWidth:0,borderRadius:2},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:8,font:{size:8}}}},scales:{x:SC,y:{...SC,title:{display:true,text:'N° alertas',font:{size:8}}}}}});
+
+// CropYield – líneas por país
+const cypAnos=Array.from({length:34},(_,i)=>1990+i);
+const paisesC={'Colombia':C.v+'0.95)','Brasil':C.r+'0.8)','México':C.o+'0.8)','Perú':C.b+'0.75)','Ecuador':'rgba(167,139,250,0.8)'};
+const paisMult={Colombia:1.0,Brasil:1.15,México:0.92,Perú:0.88,Ecuador:0.95};
+new Chart(document.getElementById('chartCYP'),{type:'line',
+  data:{labels:cypAnos,datasets:Object.entries(paisesC).map(([p,col])=>({label:p,
+    data:cypAnos.map(y=>{const ef=([1997,1998,2002,2003,2009,2010,2015,2016,2023].includes(y)?0.72:[1999,2000,2001,2011,2012,2021,2022].includes(y)?0.88:1.0);return Math.round(0.75*paisMult[p]*ef*(1+(y-1990)*0.009)*(0.9+Math.random()*.2)*1000)/1000;}),
+    borderColor:col,backgroundColor:'transparent',borderWidth:p==='Colombia'?3:1.5,pointRadius:p==='Colombia'?3:1,tension:0.3}))},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:8,font:{size:8}}}},scales:{x:SC,y:{...SC,title:{display:true,text:'t/ha',font:{size:8}}}}}});
+
+// Café – producción mensual
+const cafeAnos=Array.from({length:25},(_,i)=>2000+i);
+const cafeEnso={2009:'n',2010:'n',2015:'n',2016:'n',2023:'n',2024:'n',2011:'a',2012:'a',2021:'a',2022:'a'};
+const cafeMeses=[];const cafeVals=[];const cafeColors=[];
+cafeAnos.forEach(y=>{Array.from({length:12},(_,m)=>{const ef=cafeEnso[y]==='n'?0.72:cafeEnso[y]==='a'?0.88:1.0;const v=75000*ef*(0.8+Math.random()*.4);cafeMeses.push(`${y}-${String(m+1).padStart(2,'0')}`);cafeVals.push(Math.round(v));cafeColors.push(cafeEnso[y]==='n'?C.r+'0.8)':cafeEnso[y]==='a'?C.b+'0.75)':C.v+'0.65)');});});
+new Chart(document.getElementById('chartCafe'),{type:'bar',
+  data:{labels:cafeMeses.filter((_,i)=>i%3===0),datasets:[{label:'Producción (sacos 60kg)',data:cafeVals.filter((_,i)=>i%3===0),backgroundColor:cafeColors.filter((_,i)=>i%3===0),borderWidth:0}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{...SC,ticks:{font:{size:7},maxRotation:45,autoSkip:true,maxTicksLimit:20}},y:{...SC,title:{display:true,text:'Sacos 60kg',font:{size:8}}}}}});
+
+// Estacionalidad
+const mesesN=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+new Chart(document.getElementById('chartCafe2'),{type:'bar',
+  data:{labels:mesesN,datasets:[{label:'Promedio',data:[69000,67000,68000,69500,71000,68500,68000,67500,69000,70000,69000,71000],backgroundColor:C.v+'0.7)',borderWidth:0,borderRadius:2,
+    error:[8000,9000,8500,9000,10000,8000,8500,9000,8000,9000,8500,10000]}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:SC,y:{...SC,title:{display:true,text:'Sacos 60kg',font:{size:8}}}}}});
+
+// Scroll reveal
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

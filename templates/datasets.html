@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datasets · AgroClima Colombia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0F08;--s1:#101510;--s2:#182015;--s3:#1E2A1A;
+  --verde:#4ADE80;--rojo:#F97316;--azul:#38BDF8;--oro:#D4A820;--lavanda:#A78BFA;
+  --paper:#E8EDE5;--gris:#5A6355;--borde:rgba(74,222,128,0.13);
+  --serif:'Playfair Display',serif;--mono:'Space Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--paper);font-family:var(--mono);overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:.9rem 3rem;background:rgba(11,15,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--borde);}
+.nav-logo{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--verde);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,237,229,.4);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.act{color:var(--paper);}
+.nav-pill{background:rgba(74,222,128,.1)!important;border:1px solid var(--verde)!important;color:var(--verde)!important;padding:.3rem .9rem;border-radius:2px;}
+
+/* HERO DATASETS */
+#hero-ds{
+  min-height:65vh;display:flex;align-items:flex-end;
+  padding:0 3rem 4rem;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,var(--bg) 0%,var(--s1) 60%,var(--s2) 100%);
+}
+.hds-line{position:absolute;left:3rem;top:50%;transform:translateY(-50%);width:1px;height:50%;background:linear-gradient(to bottom,transparent,var(--verde),transparent);opacity:.3;}
+.hds-content{position:relative;z-index:2;}
+.hds-eyebrow{font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--verde);margin-bottom:1.2rem;opacity:0;animation:up .7s .1s both;}
+.hds-title{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:900;line-height:.92;letter-spacing:-.02em;margin-bottom:1.5rem;opacity:0;animation:up .7s .3s both;}
+.hds-title em{font-style:italic;color:var(--verde);}
+.hds-sub{font-size:.62rem;line-height:1.85;color:rgba(232,237,229,.55);max-width:580px;opacity:0;animation:up .7s .5s both;}
+
+/* OVERVIEW BAR */
+.overview{display:grid;grid-template-columns:repeat(5,1fr);background:var(--s1);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);}
+.ov-cell{padding:1.4rem 1.8rem;border-right:1px solid var(--borde);cursor:pointer;transition:background .2s;text-decoration:none;display:block;}
+.ov-cell:last-child{border-right:none;}
+.ov-cell:hover,.ov-cell.act{background:var(--s2);}
+.ov-n{font-size:.42rem;letter-spacing:.2em;color:var(--gris);margin-bottom:.4rem;}
+.ov-name{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--paper);margin-bottom:.2rem;}
+.ov-rows{font-size:.48rem;color:var(--verde);}
+
+/* DATASET SECTIONS */
+.ds-section{padding:5rem 3rem;border-bottom:1px solid var(--borde);}
+.ds-section:nth-child(even){background:var(--s1);}
+
+.ds-header{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;margin-bottom:3rem;}
+.ds-num-big{font-family:var(--serif);font-size:5rem;font-weight:900;color:rgba(74,222,128,.08);line-height:1;flex-shrink:0;}
+.ds-title-group{
+    font-variant: none;
+}
+.ds-badge-row{display:flex;gap:.5rem;margin-bottom:.8rem;flex-wrap:wrap;}
+.badge{font-size:.42rem;padding:.18rem .55rem;border-radius:2px;letter-spacing:.08em;text-transform:uppercase;}
+.bg{background:rgba(74,222,128,.12);color:var(--verde);}
+.br{background:rgba(249,115,22,.12);color:var(--rojo);}
+.bb{background:rgba(56,189,248,.12);color:var(--azul);}
+.bo{background:rgba(212,168,32,.12);color:var(--oro);}
+.bl{background:rgba(167,139,250,.12);color:var(--lavanda);}
+.ds-main-title{font-family:var(--serif);font-size:2rem;font-weight:700;line-height:1.1;margin-bottom:.3rem;}
+.ds-source-line{font-size:.52rem;color:var(--verde);letter-spacing:.1em;}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;}
+
+.sec-label{font-size:.48rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gris);margin-bottom:.7rem;}
+.content-block{font-size:.6rem;line-height:1.9;color:rgba(232,237,229,.62);}
+.content-block p+p{margin-top:.8rem;}
+.content-block strong{color:var(--paper);}
+
+/* STATS MINI */
+.stats-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;}
+.sm-cell{background:var(--bg);border:1px solid var(--borde);border-radius:3px;padding:1rem;}
+.sm-val{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--verde);line-height:1;}
+.sm-lbl{font-size:.44rem;color:var(--gris);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem;}
+
+/* SCHEMA / COLUMNAS */
+.schema-box{background:var(--bg);border:1px solid var(--borde);border-radius:4px;overflow:hidden;}
+.schema-header{background:var(--s3);padding:.8rem 1rem;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--verde);}
+.schema-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 1rem;border-bottom:1px solid rgba(74,222,128,.06);}
+.schema-row:last-child{border-bottom:none;}
+.sr-left{display:flex;align-items:center;gap:.6rem;}
+.sr-icon{font-size:.7rem;width:16px;text-align:center;flex-shrink:0;}
+.sr-name{font-size:.58rem;color:var(--paper);}
+.sr-type{font-size:.45rem;color:var(--gris);background:rgba(255,255,255,.04);padding:.1rem .4rem;border-radius:2px;}
+.sr-desc{font-size:.48rem;color:var(--gris);text-align:right;max-width:180px;}
+
+/* LIMPIEZA */
+.clean-steps{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem;}
+.cs-item{background:var(--s1);border:1px solid var(--borde);border-radius:3px;padding:.7rem 1rem;display:flex;gap:.8rem;align-items:flex-start;}
+.cs-icon{color:var(--verde);flex-shrink:0;font-size:.7rem;margin-top:.1rem;}
+.cs-code{font-size:.55rem;color:var(--verde);margin-bottom:.2rem;font-family:var(--mono);}
+.cs-desc{font-size:.52rem;color:var(--gris);}
+
+/* RELACIONES */
+.rel-diagram{background:var(--bg);border:1px solid var(--borde);border-radius:4px;padding:2rem;text-align:center;margin-top:2rem;}
+.rel-title{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);margin-bottom:1.5rem;}
+.rel-row{display:flex;justify-content:center;align-items:center;gap:1rem;flex-wrap:wrap;}
+.rel-box{background:var(--s2);border:1px solid var(--borde);border-radius:3px;padding:.6rem 1rem;font-size:.55rem;white-space:nowrap;}
+.rel-box.fact{border-color:rgba(74,222,128,.4);color:var(--verde);}
+.rel-arrow-h{font-size:.7rem;color:var(--gris);}
+
+/* CODE BLOCK */
+pre{background:#090D07;border:1px solid rgba(74,222,128,.12);border-radius:3px;padding:1.2rem;font-size:.55rem;overflow-x:auto;line-height:1.7;margin-top:1rem;}
+.kw{color:var(--azul);}
+.fn{color:var(--verde);}
+.st{color:var(--oro);}
+.cm{color:var(--gris);}
+
+/* FOOTER */
+footer{padding:2rem 3rem;border-top:1px solid var(--borde);display:flex;justify-content:space-between;align-items:center;background:var(--s1);}
+.ft-brand{font-size:.52rem;color:var(--gris);letter-spacing:.1em;}
+.ft-links{display:flex;gap:2rem;}
+.ft-links a{font-size:.5rem;color:var(--gris);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+.ft-links a:hover{color:var(--verde);}
+
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s;}
+.reveal.on{opacity:1;transform:none;}
+@media(max-width:900px){
+  nav,#hero-ds,.ds-section,footer{padding-left:1.5rem;padding-right:1.5rem;}
+  .overview,.two-col,.stats-mini{grid-template-columns:1fr;}
+  .ov-cell{border-right:none;border-bottom:1px solid var(--borde);}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AgroClima · Colombia</div>
+  <ul class="nav-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/problema">El Problema</a></li>
+    <li><a href="/datasets" class="act">Datasets</a></li>
+    <li><a href="/modelo">Modelo</a></li>
+    <li><a href="/dashboard" class="nav-pill">Dashboard →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero-ds">
+  <div class="hds-line"></div>
+  <div class="hds-content">
+    <div class="hds-eyebrow">Fuentes de datos · Justificación técnica y analítica</div>
+    <h1 class="hds-title">Los datos que<br><em>cuentan</em><br>la historia</h1>
+    <p class="hds-sub">Cinco datasets seleccionados estratégicamente para cubrir cada dimensión del problema: producción local, tendencia histórica, sensores en tiempo real, comparativa internacional y economía cafetera. Procesados con PySpark y Pandas.</p>
+  </div>
+</section>
+
+<!-- OVERVIEW BAR -->
+<div class="overview">
+  <a href="#eva" class="ov-cell act"><div class="ov-n">01</div><div class="ov-name">EVA Municipal</div><div class="ov-rows">928 registros</div></a>
+  <a href="#fao" class="ov-cell"><div class="ov-n">02</div><div class="ov-name">FAO FAOSTAT</div><div class="ov-rows">272 registros</div></a>
+  <a href="#sensores" class="ov-cell"><div class="ov-n">03</div><div class="ov-name">Smart Farming</div><div class="ov-rows">2.000 lecturas</div></a>
+  <a href="#cropyield" class="ov-cell"><div class="ov-n">04</div><div class="ov-name">CropYield</div><div class="ov-rows">1.904 registros</div></a>
+  <a href="#agronet" class="ov-cell"><div class="ov-n">05</div><div class="ov-name">AgroNET Café</div><div class="ov-rows">300 meses</div></a>
+</div>
+
+<!-- DS 01 EVA -->
+<div class="ds-section reveal" id="eva">
+  <div class="ds-header">
+    <div class="ds-title-group">
+      <div class="ds-badge-row">
+        <span class="badge bg">datos.gov.co</span>
+        <span class="badge bb">Municipal</span>
+        <span class="badge bo">2007–2022</span>
+        <span class="badge bg">Gobierno Colombia</span>
+      </div>
+      <div class="ds-main-title">Evaluaciones Agropecuarias<br>Municipales — EVA</div>
+      <div class="ds-source-line">Ministerio de Agricultura y Desarrollo Rural · MADR</div>
+    </div>
+    <div class="ds-num-big">01</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="sec-label">Por qué lo elegimos</div>
+      <div class="content-block">
+        <p>El EVA es la fuente más granular disponible de producción agrícola en Colombia. Mientras que los datos nacionales agregados muestran un solo número por cultivo, el EVA desagrega por <strong>municipio, departamento, cultivo, semestre y año</strong> — lo que permite análisis regionales que revelan dónde exactamente impacta el clima.</p>
+        <p>Sin esta granularidad, no podríamos responder preguntas como: ¿el Eje Cafetero se ve más afectado por El Niño que los Llanos Orientales? ¿Qué departamentos cafetaleros tienen mayor caída de rendimiento en sequía? El EVA hace posible ese análisis.</p>
+        <p>Contiene datos de <strong>9 cultivos clave</strong> (Café, Arroz, Maíz, Papa, Plátano, Aguacate, Yuca, Frijol, Caña de Azúcar), <strong>17 departamentos</strong> y 16 años de historia — suficiente para capturar múltiples ciclos ENSO completos.</p>
+      </div>
+      <div class="stats-mini">
+        <div class="sm-cell"><div class="sm-val">928</div><div class="sm-lbl">Registros</div></div>
+        <div class="sm-cell"><div class="sm-val">9</div><div class="sm-lbl">Cultivos</div></div>
+        <div class="sm-cell"><div class="sm-val">17</div><div class="sm-lbl">Departamentos</div></div>
+      </div>
+      <div class="sec-label" style="margin-top:1.5rem;">Limpieza aplicada con PySpark</div>
+      <div class="clean-steps">
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">dropna(subset=["Cultivo","Produccion_t"])</div><div class="cs-desc">Eliminar filas sin cultivo o producción registrada</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">filter(col("Produccion_t") > 0)</div><div class="cs-desc">Descartar producciones negativas o cero</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">filter(col("Area_Sembrada_ha") > 0)</div><div class="cs-desc">Validar área sembrada positiva y coherente</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">withColumn("Rendimiento_t_ha", col("Produccion_t")/col("Area_ha"))</div><div class="cs-desc">Calcular rendimiento derivado cuando faltaba</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-label">Esquema de columnas</div>
+      <div class="schema-box">
+        <div class="schema-header">EVA_produccion.csv — 9 columnas</div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🔑</span><span class="sr-name">Año</span></div><span class="sr-type">INT</span><span class="sr-desc">2007–2022 · dimensión temporal</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📍</span><span class="sr-name">Departamento</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">17 departamentos productores</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📍</span><span class="sr-name">Región</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">5 regiones agregadas</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌱</span><span class="sr-name">Cultivo</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">9 cultivos monitoreados</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Area_Sembrada_ha</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Hectáreas sembradas · medida</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Produccion_t</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Toneladas · medida principal</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Rendimiento_t_ha</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Eficiencia productiva · calculada</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌡</span><span class="sr-name">Fenomeno_ENSO</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">El Niño / La Niña / Normal</span></div>
+      </div>
+      <pre><span class="cm"># Análisis Spark usado en el dashboard</span>
+df.<span class="fn">groupBy</span>(<span class="st">"Año"</span>, <span class="st">"Cultivo"</span>, <span class="st">"Fenomeno_ENSO"</span>)
+  .<span class="fn">agg</span>(
+    F.<span class="fn">sum</span>(<span class="st">"Produccion_t"</span>).<span class="fn">alias</span>(<span class="st">"prod_total"</span>),
+    F.<span class="fn">avg</span>(<span class="st">"Rendimiento_t_ha"</span>).<span class="fn">alias</span>(<span class="st">"rend_prom"</span>)
+  ).<span class="fn">orderBy</span>(<span class="st">"Año"</span>)</pre>
+    </div>
+  </div>
+</div>
+
+<!-- DS 02 FAO -->
+<div class="ds-section reveal" id="fao">
+  <div class="ds-header">
+    <div class="ds-title-group">
+      <div class="ds-badge-row">
+        <span class="badge bg">Naciones Unidas</span>
+        <span class="badge bb">Nacional</span>
+        <span class="badge bo">1990–2023</span>
+        <span class="badge bg">fao.org</span>
+      </div>
+      <div class="ds-main-title">FAO FAOSTAT — Producción<br>Agrícola Colombia</div>
+      <div class="ds-source-line">Food and Agriculture Organization · Naciones Unidas</div>
+    </div>
+    <div class="ds-num-big">02</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="sec-label">Por qué lo elegimos</div>
+      <div class="content-block">
+        <p>El EVA solo cubre desde 2007. Para ver el impacto completo del ENSO necesitamos la <strong>perspectiva histórica larga</strong>: los episodios de El Niño de 1997–1998 y 2002–2003, y las Niñas de 1999–2001, que definieron décadas de producción agrícola.</p>
+        <p>La FAO proporciona datos desde 1990 con <strong>metodología estandarizada internacionalmente</strong>, lo que garantiza comparabilidad entre años y cultivos. Su variable de rendimiento (t/ha) es la más confiable para identificar tendencias de largo plazo.</p>
+        <p>También permite calcular el <strong>área cultivada</strong> por cultivo — esencial para entender si la caída de producción es por menor rendimiento (impacto climático) o por menor área sembrada (decisión económica del agricultor).</p>
+      </div>
+      <div class="stats-mini">
+        <div class="sm-cell"><div class="sm-val">272</div><div class="sm-lbl">Registros</div></div>
+        <div class="sm-cell"><div class="sm-val">8</div><div class="sm-lbl">Cultivos</div></div>
+        <div class="sm-cell"><div class="sm-val">34</div><div class="sm-lbl">Años</div></div>
+      </div>
+      <div class="sec-label" style="margin-top:1.5rem;">Limpieza aplicada</div>
+      <div class="clean-steps">
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">dropna()</div><div class="cs-desc">Eliminación de registros incompletos</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">filter(col("Value_t") > 0)</div><div class="cs-desc">Validar producción mayor a cero</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">withColumn("Yield_t_ha", col("Value_t")/col("Area_ha"))</div><div class="cs-desc">Calcular rendimiento desde producción y área</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-label">Esquema de columnas</div>
+      <div class="schema-box">
+        <div class="schema-header">FAO_faostat.csv — 7 columnas</div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌱</span><span class="sr-name">Item</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">Nombre FAO del cultivo (en inglés)</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🔑</span><span class="sr-name">Year</span></div><span class="sr-type">INT</span><span class="sr-desc">1990–2023</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Value_t</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Producción en toneladas métricas</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Area_ha</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Hectáreas cultivadas</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Yield_t_ha</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Rendimiento calculado · clave EDA</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌡</span><span class="sr-name">Fenomeno_ENSO</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">Categoría ENSO del año</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DS 03 SENSORES -->
+<div class="ds-section reveal" id="sensores">
+  <div class="ds-header">
+    <div class="ds-title-group">
+      <div class="ds-badge-row">
+        <span class="badge br">Kaggle</span>
+        <span class="badge bb">IoT · Sensores</span>
+        <span class="badge bo">2023–2024</span>
+        <span class="badge bl">datasetengineer</span>
+      </div>
+      <div class="ds-main-title">Smart Farming Sensor<br>Data 2024 — SF24</div>
+      <div class="ds-source-line">Kaggle · datasetengineer/smart-farming-data-2024-sf24</div>
+    </div>
+    <div class="ds-num-big">03</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="sec-label">Por qué lo elegimos</div>
+      <div class="content-block">
+        <p>Los datasets históricos (EVA y FAO) muestran el <em>resultado</em> del impacto climático — cuánto cayó la producción. Los sensores IoT muestran el <em>mecanismo</em> — cómo exactamente la temperatura alta y la humedad baja del suelo degradan el rendimiento cultivo por cultivo.</p>
+        <p>Con 2.000 lecturas de sensores que miden temperatura, humedad del suelo, pH y rendimiento estimado, podemos trazar <strong>correlaciones directas y causales</strong> que los datos anuales ocultan. Por ejemplo: ¿el rendimiento del café cae linearmente con la temperatura, o hay un umbral crítico? Los sensores responden.</p>
+        <p>También identifican <strong>alertas en tiempo real</strong>: lecturas con temperatura superior a 30°C (estrés térmico) o humedad del suelo inferior al 30% (estrés hídrico) — exactamente lo que ocurre en campo durante El Niño.</p>
+      </div>
+      <div class="stats-mini">
+        <div class="sm-cell"><div class="sm-val">2.000</div><div class="sm-lbl">Lecturas IoT</div></div>
+        <div class="sm-cell"><div class="sm-val">77</div><div class="sm-lbl">Alertas calor &gt;30°C</div></div>
+        <div class="sm-cell"><div class="sm-val">167</div><div class="sm-lbl">Alertas hídricas</div></div>
+      </div>
+      <div class="sec-label" style="margin-top:1.5rem;">Limpieza aplicada</div>
+      <div class="clean-steps">
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">filter(col("temperatura_c").between(5, 40))</div><div class="cs-desc">Filtrar lecturas fuera del rango físico posible</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">filter(col("humedad_suelo_pct").between(0, 100))</div><div class="cs-desc">Validar humedad en rango porcentual válido</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">withColumn("alerta_calor", when(col("temperatura_c")>30,1).otherwise(0))</div><div class="cs-desc">Crear variable binaria de alerta térmica</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">withColumn("alerta_hidrico", when(col("humedad_suelo_pct")&lt;30,1).otherwise(0))</div><div class="cs-desc">Crear variable binaria de alerta hídrica</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-label">Esquema de columnas</div>
+      <div class="schema-box">
+        <div class="schema-header">Sensores_IoT.csv — 8 columnas</div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌱</span><span class="sr-name">cultivo</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">5 cultivos monitoreados</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📍</span><span class="sr-name">region</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">Región geográfica del sensor</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌡</span><span class="sr-name">temperatura_c</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">°C · variable explicativa clave</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">💧</span><span class="sr-name">humedad_suelo_pct</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">% humedad · correlación con rendimiento</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">⚗️</span><span class="sr-name">ph_suelo</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">pH · calidad del suelo</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">rendimiento_t_ha</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Estimado por modelo del sensor</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🚨</span><span class="sr-name">alerta_calor</span></div><span class="sr-type">BIT</span><span class="sr-desc">1 si temp &gt; 30°C</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🚨</span><span class="sr-name">alerta_hidrico</span></div><span class="sr-type">BIT</span><span class="sr-desc">1 si humedad &lt; 30%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DS 04 CROPYIELD -->
+<div class="ds-section reveal" id="cropyield">
+  <div class="ds-header">
+    <div class="ds-title-group">
+      <div class="ds-badge-row">
+        <span class="badge br">Kaggle</span>
+        <span class="badge bl">ONU</span>
+        <span class="badge bo">1990–2023</span>
+        <span class="badge bb">8 países</span>
+      </div>
+      <div class="ds-main-title">Crop Yield Prediction<br>Dataset — Global</div>
+      <div class="ds-source-line">Kaggle · patelris · ONU / FAO · Comparativa regional</div>
+    </div>
+    <div class="ds-num-big">04</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="sec-label">Por qué lo elegimos</div>
+      <div class="content-block">
+        <p>Para entender si Colombia está manejando bien o mal su producción agrícola bajo estrés climático, necesitamos un punto de comparación. ¿Cae el rendimiento del café colombiano más o menos que el brasileño durante El Niño? ¿Qué países han desarrollado mayor resiliencia climática?</p>
+        <p>Este dataset proporciona datos de rendimiento para <strong>8 países de América Latina y el mundo</strong> (Colombia, Brasil, México, Perú, Ecuador, Argentina, Venezuela, Bolivia), con variables de lluvia y temperatura que permiten correlacionar el clima con la producción a nivel internacional.</p>
+        <p>El hallazgo más importante: <strong>Colombia pierde proporcionalmente más rendimiento que Brasil y Ecuador</strong> durante El Niño, lo que sugiere un problema de infraestructura de adaptación (riego, variedades resistentes) más que solo de exposición climática.</p>
+      </div>
+      <div class="stats-mini">
+        <div class="sm-cell"><div class="sm-val">1.904</div><div class="sm-lbl">Registros</div></div>
+        <div class="sm-cell"><div class="sm-val">8</div><div class="sm-lbl">Países</div></div>
+        <div class="sm-cell"><div class="sm-val">7</div><div class="sm-lbl">Cultivos</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-label">Esquema de columnas</div>
+      <div class="schema-box">
+        <div class="schema-header">CropYield_paises.csv — 7 columnas</div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌍</span><span class="sr-name">Pais</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">8 países latinoamericanos</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌱</span><span class="sr-name">Item</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">Cultivo (nomenclatura FAO)</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🔑</span><span class="sr-name">Year</span></div><span class="sr-type">INT</span><span class="sr-desc">1990–2023</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Rendimiento_t_ha</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Variable objetivo · comparativa</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌧</span><span class="sr-name">Lluvia_mm</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Precipitación anual del país</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌡</span><span class="sr-name">Temp_C</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Temperatura promedio anual</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌡</span><span class="sr-name">Fenomeno_ENSO</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">Categoría ENSO del año</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DS 05 AGRONET -->
+<div class="ds-section reveal" id="agronet">
+  <div class="ds-header">
+    <div class="ds-title-group">
+      <div class="ds-badge-row">
+        <span class="badge bg">agronet.gov.co</span>
+        <span class="badge bb">Mensual</span>
+        <span class="badge bo">2000–2024</span>
+        <span class="badge bg">Fedecafé</span>
+      </div>
+      <div class="ds-main-title">AgroNET — Estadísticas<br>Cafeteras Mensuales</div>
+      <div class="ds-source-line">Observatorio Rural · agronet.gov.co · Federación Nacional de Cafeteros</div>
+    </div>
+    <div class="ds-num-big">05</div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="sec-label">Por qué lo elegimos</div>
+      <div class="content-block">
+        <p>El café es el cultivo emblema de Colombia y el más sensible al cambio climático. El AgroNET es la única fuente que proporciona datos <strong>mensuales</strong> de producción y precio — esencial para capturar la estacionalidad y el impacto inmediato de cada episodio ENSO.</p>
+        <p>Los datos de precio (COP interno y USD en Bolsa de Nueva York) permiten conectar el impacto agronómico con el impacto económico real: cuando El Niño destruye cosechas, los precios suben — pero los caficultores que perdieron su cosecha no se benefician de ese aumento. Ese es el drama humano detrás de los datos.</p>
+        <p>La serie de <strong>300 meses consecutivos</strong> (25 años) captura múltiples episodios ENSO completos y permite análisis de estacionalidad, tendencia de largo plazo y correlación precio-producción que los datos anuales no permiten.</p>
+      </div>
+      <div class="stats-mini">
+        <div class="sm-cell"><div class="sm-val">300</div><div class="sm-lbl">Meses</div></div>
+        <div class="sm-cell"><div class="sm-val">25</div><div class="sm-lbl">Años</div></div>
+        <div class="sm-cell"><div class="sm-val">2</div><div class="sm-lbl">Precios COP/USD</div></div>
+      </div>
+      <div class="sec-label" style="margin-top:1.5rem;">Limpieza aplicada</div>
+      <div class="clean-steps">
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">dropna()</div><div class="cs-desc">Eliminar meses sin registro de producción o precio</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">filter(col("Produccion_sacos_60kg") > 0)</div><div class="cs-desc">Validar producción positiva en todos los meses</div></div></div>
+        <div class="cs-item"><span class="cs-icon">✓</span><div><div class="cs-code">parse_dates(["fecha"])</div><div class="cs-desc">Convertir columna fecha a tipo datetime</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-label">Esquema de columnas</div>
+      <div class="schema-box">
+        <div class="schema-header">AgroNET_cafe.csv — 9 columnas</div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📅</span><span class="sr-name">fecha</span></div><span class="sr-type">DATE</span><span class="sr-desc">YYYY-MM-01 · serie temporal</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🔑</span><span class="sr-name">Año / Mes</span></div><span class="sr-type">INT</span><span class="sr-desc">Componentes temporales separados</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📅</span><span class="sr-name">Mes_Nombre</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">Nombre del mes para visualización</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Produccion_sacos_60kg</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Sacos de 60kg · medida principal</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">📏</span><span class="sr-name">Exportaciones_sacos_60kg</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Sacos exportados ese mes</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">💰</span><span class="sr-name">Precio_Interno_COP</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Precio interno · COP por carga</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">💵</span><span class="sr-name">Precio_NY_USD_lb</span></div><span class="sr-type">DECIMAL</span><span class="sr-desc">Bolsa Nueva York · USD por libra</span></div>
+        <div class="schema-row"><div class="sr-left"><span class="sr-icon">🌡</span><span class="sr-name">Fenomeno_ENSO</span></div><span class="sr-type">VARCHAR</span><span class="sr-desc">ENSO del año correspondiente</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RELACIÓN ENTRE DATASETS -->
+<div class="ds-section reveal" style="background:var(--s1)">
+  <div class="sec-label">Integración</div>
+  <h2 style="font-family:var(--serif);font-size:2rem;font-weight:700;margin-bottom:1rem;">Cómo se <em style="color:var(--verde);font-style:italic;">conectan</em> los cinco datasets</h2>
+  <div class="content-block" style="max-width:700px;margin-bottom:2rem;">
+    <p>El análisis más potente surge de cruzar los datasets. La variable <strong>Fenomeno_ENSO</strong> actúa como llave de integración: permite comparar el año climático de AgroNET (precio) con el mismo año en EVA (producción local) y FAO (tendencia nacional).</p>
+  </div>
+  <div class="rel-diagram">
+    <div class="rel-title">Modelo de integración — variable ENSO como eje transversal</div>
+    <div class="rel-row">
+      <div class="rel-box">EVA Municipal<br><span style="font-size:.45rem;color:var(--gris);">producción local</span></div>
+      <div class="rel-arrow-h">→</div>
+      <div class="rel-box fact">Fenomeno_ENSO<br><span style="font-size:.45rem;">eje integrador</span></div>
+      <div class="rel-arrow-h">←</div>
+      <div class="rel-box">FAO FAOSTAT<br><span style="font-size:.45rem;color:var(--gris);">tendencia 1990–2023</span></div>
+    </div>
+    <div style="margin:1rem 0;font-size:1.5rem;color:var(--gris);">↕</div>
+    <div class="rel-row">
+      <div class="rel-box">AgroNET Café<br><span style="font-size:.45rem;color:var(--gris);">precio mensual</span></div>
+      <div class="rel-arrow-h">↔</div>
+      <div class="rel-box">CropYield Países<br><span style="font-size:.45rem;color:var(--gris);">comparativa global</span></div>
+      <div class="rel-arrow-h">↔</div>
+      <div class="rel-box">Sensores IoT<br><span style="font-size:.45rem;color:var(--gris);">mecanismo causal</span></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-brand">AgroClima Colombia · 5 Datasets · PySpark + Pandas · Dash + Flask · 2024</div>
+  <div class="ft-links">
+    <a href="/">Inicio</a>
+    <a href="/problema">El Problema</a>
+    <a href="/modelo">Modelo</a>
+    <a href="/dashboard">Dashboard</a>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// Highlight active nav on scroll
+const secs=['eva','fao','sensores','cropyield','agronet'];
+const cells=document.querySelectorAll('.ov-cell');
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){
+    const id=e.target.id;
+    cells.forEach(c=>{c.classList.remove('act');if(c.getAttribute('href')==='#'+id)c.classList.add('act');});
+  }});
+},{threshold:0.4});
+secs.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
+</script>
+</body>
+</html>

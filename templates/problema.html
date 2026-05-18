@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Problema · AgroClima Colombia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,700;0,900;1,300;1,700;1,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0F08;--s1:#101510;--s2:#182015;--s3:#1E2A1A;
+  --verde:#4ADE80;--verde-dim:#22C55E;
+  --rojo:#F97316;--azul:#38BDF8;--oro:#D4A820;--lavanda:#A78BFA;
+  --paper:#E8EDE5;--gris:#5A6355;--gris2:#3D4A38;
+  --borde:rgba(74,222,128,0.13);
+  --serif:'Playfair Display',Georgia,serif;
+  --mono:'Space Mono','Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--paper);font-family:var(--serif);overflow-x:hidden;line-height:1;}
+
+/* TEXTURE */
+body::after{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.6;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem 3rem;
+  background:rgba(11,15,8,.9);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--borde);
+}
+.nav-logo{font-family:var(--mono);font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--verde);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:var(--mono);font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,237,229,.4);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.act{color:var(--paper);}
+.nav-pill{background:rgba(74,222,128,.1)!important;border:1px solid var(--verde)!important;color:var(--verde)!important;padding:.3rem .9rem;border-radius:2px;}
+
+/* HERO PROBLEMA */
+#hero-prob{
+  min-height:100vh;display:flex;align-items:flex-end;
+  padding:0 3rem 5rem;position:relative;overflow:hidden;
+}
+.hero-bg-prob{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 100% 0%,rgba(193,68,14,.18) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 70% at 0% 100%,rgba(45,106,79,.15) 0%,transparent 50%),
+    linear-gradient(160deg,var(--bg) 0%,#0D1209 50%,#080C05 100%);
+}
+.hero-grid-prob{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(74,222,128,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(74,222,128,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+/* Big background number */
+.hero-bg-num{
+  position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
+  font-family:var(--serif);font-size:clamp(12rem,22vw,22rem);font-weight:900;
+  color:rgba(74,222,128,.04);line-height:1;pointer-events:none;
+  font-style:italic;letter-spacing:-.05em;user-select:none;
+}
+.hero-prob-content{position:relative;z-index:2;max-width:820px;}
+.hp-eyebrow{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--rojo);margin-bottom:1.5rem;
+  opacity:0;animation:up .7s .1s both;
+}
+.hp-title{
+  font-size:clamp(3rem,7vw,6.5rem);font-weight:900;line-height:.9;
+  letter-spacing:-.025em;margin-bottom:2rem;
+  opacity:0;animation:up .7s .3s both;
+}
+.hp-title em{font-style:italic;color:var(--rojo);}
+.hp-subtitle{
+  font-family:var(--mono);font-size:.72rem;line-height:1.85;
+  color:rgba(232,237,229,.6);max-width:620px;
+  opacity:0;animation:up .7s .5s both;
+}
+.hp-scroll{
+  position:absolute;bottom:2rem;right:3rem;z-index:2;
+  font-family:var(--mono);font-size:.45rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gris);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  animation:up 1s 1.2s both;
+}
+.hp-scroll-bar{width:1px;height:40px;background:linear-gradient(to bottom,var(--verde),transparent);animation:pulse 2s infinite;}
+
+/* STAT ROW */
+#stat-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--s1);border-top:1px solid var(--borde);
+}
+.stat-cell{
+  padding:2rem 2rem;border-right:1px solid var(--borde);
+  position:relative;overflow:hidden;
+}
+.stat-cell:last-child{border-right:none;}
+.stat-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--ac,var(--verde));}
+.sc-num{font-size:2.8rem;font-weight:900;line-height:1;color:var(--ac,var(--verde));margin-bottom:.4rem;}
+.sc-label{font-family:var(--mono);font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);line-height:1.5;}
+
+/* SECTIONS */
+section.blk{padding:6rem 3rem;}
+section.blk-alt{padding:6rem 3rem;background:var(--s1);}
+
+.sec-tag{font-family:var(--mono);font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--verde);margin-bottom:1rem;}
+.sec-h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.05;margin-bottom:1.5rem;}
+.sec-h2 em{font-style:italic;color:var(--verde);}
+.sec-body{font-family:var(--mono);font-size:.65rem;line-height:1.95;color:rgba(232,237,229,.62);max-width:720px;}
+.sec-body p+p{margin-top:1rem;}
+.sep{width:36px;height:1.5px;background:var(--verde);margin:1.5rem 0;}
+
+/* 2 COL LAYOUT */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;}
+
+/* PROBLEMA CARDS */
+.prob-card{
+  border-top:2px solid var(--ac,var(--rojo));
+  padding-top:1.4rem;
+}
+.pc-icon{font-size:2rem;margin-bottom:.8rem;display:block;}
+.pc-title{font-size:1.1rem;font-weight:700;margin-bottom:.6rem;}
+.pc-body{font-family:var(--mono);font-size:.55rem;line-height:1.8;color:rgba(232,237,229,.55);}
+.pc-stat{font-size:2rem;font-weight:900;color:var(--ac,var(--rojo));margin-top:.8rem;}
+.pc-stat-label{font-family:var(--mono);font-size:.45rem;color:var(--gris);margin-top:.2rem;letter-spacing:.1em;text-transform:uppercase;}
+
+/* TIMELINE */
+.timeline{position:relative;margin-top:3rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(74,222,128,.2);}
+.tl-item{padding:0 0 2.5rem 2.2rem;position:relative;}
+.tl-dot{position:absolute;left:-5px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--ac,var(--verde));border:2px solid var(--bg);}
+.tl-year{font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;color:var(--verde);text-transform:uppercase;margin-bottom:.4rem;}
+.tl-title{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;}
+.tl-body{font-family:var(--mono);font-size:.55rem;line-height:1.8;color:rgba(232,237,229,.55);max-width:580px;}
+
+/* DATASETS */
+.ds-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--borde);margin-top:3rem;border:1px solid var(--borde);}
+.ds-card{background:var(--bg);padding:2rem;transition:background .2s;}
+.ds-card:hover{background:var(--s2);}
+.ds-num{font-family:var(--mono);font-size:.5rem;letter-spacing:.2em;color:var(--gris);margin-bottom:.6rem;}
+.ds-name{font-size:1.15rem;font-weight:700;margin-bottom:.3rem;}
+.ds-source{font-family:var(--mono);font-size:.5rem;color:var(--verde);margin-bottom:.8rem;letter-spacing:.1em;}
+.ds-why{font-family:var(--mono);font-size:.57rem;line-height:1.8;color:rgba(232,237,229,.55);margin-bottom:1rem;}
+.ds-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.ds-tag{font-family:var(--mono);font-size:.42rem;padding:.18rem .55rem;border-radius:2px;letter-spacing:.06em;text-transform:uppercase;}
+.tag-g{background:rgba(74,222,128,.12);color:var(--verde);}
+.tag-r{background:rgba(249,115,22,.12);color:var(--rojo);}
+.tag-b{background:rgba(56,189,248,.12);color:var(--azul);}
+.tag-o{background:rgba(212,168,32,.12);color:var(--oro);}
+.ds-meta{display:flex;gap:1.5rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--borde);}
+.dm-item{font-family:var(--mono);}
+.dm-val{font-size:.85rem;font-weight:700;color:var(--paper);}
+.dm-lbl{font-size:.42rem;color:var(--gris);letter-spacing:.1em;text-transform:uppercase;}
+
+/* ENSO EXPLAINER */
+.enso-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2rem;}
+.enso-card{background:var(--bg);border:1px solid var(--borde);border-radius:4px;padding:1.5rem;}
+.enso-icon{font-size:2.5rem;margin-bottom:.8rem;}
+.enso-title{font-size:1rem;font-weight:700;margin-bottom:.4rem;}
+.enso-body{font-family:var(--mono);font-size:.55rem;line-height:1.8;color:rgba(232,237,229,.55);}
+.enso-badge{display:inline-block;font-family:var(--mono);font-size:.42rem;padding:.2rem .6rem;border-radius:2px;margin-top:.8rem;letter-spacing:.08em;text-transform:uppercase;}
+
+/* ALERT BOX */
+.alert-box{
+  background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);
+  border-radius:4px;padding:1.2rem 1.5rem;
+  display:flex;gap:1rem;align-items:flex-start;
+  margin-top:2rem;
+}
+.ab-icon{font-size:1.4rem;flex-shrink:0;}
+.ab-text{font-family:var(--mono);font-size:.6rem;line-height:1.75;color:rgba(232,237,229,.72);}
+.ab-text strong{color:var(--rojo);}
+
+/* FOOTER */
+footer{
+  padding:2rem 3rem;border-top:1px solid var(--borde);
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--s1);
+}
+.ft-brand{font-family:var(--mono);font-size:.52rem;color:var(--gris);letter-spacing:.1em;}
+.ft-links{display:flex;gap:2rem;}
+.ft-links a{font-family:var(--mono);font-size:.5rem;color:var(--gris);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;}
+.ft-links a:hover{color:var(--verde);}
+
+/* ANIMATIONS */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+.reveal.on{opacity:1;transform:none;}
+
+@media(max-width:900px){
+  nav,section.blk,section.blk-alt,footer{padding-left:1.5rem;padding-right:1.5rem;}
+  #hero-prob{padding-left:1.5rem;padding-right:1.5rem;}
+  #stat-row,.two-col,.three-col,.ds-grid,.enso-grid{grid-template-columns:1fr;}
+  .stat-cell{border-right:none;border-bottom:1px solid var(--borde);}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AgroClima · Colombia</div>
+  <ul class="nav-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/problema" class="act">El Problema</a></li>
+    <li><a href="/datasets">Datasets</a></li>
+    <li><a href="/modelo">Modelo</a></li>
+    <li><a href="/dashboard" class="nav-pill">Dashboard →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero-prob">
+  <div class="hero-bg-prob"></div>
+  <div class="hero-grid-prob"></div>
+  <div class="hero-bg-num">23k</div>
+  <div class="hero-prob-content">
+    <div class="hp-eyebrow">Contexto · Problemática central del proyecto</div>
+    <h1 class="hp-title">Colombia:<br>un campo en<br><em>estado de crisis</em></h1>
+    <p class="hp-subtitle">El cambio climático no es una amenaza futura para la agricultura colombiana — ya está destruyendo cosechas, desplazando familias y alterando los ciclos productivos de uno de los países más biodiversos del planeta. Este proyecto analiza, con datos reales y herramientas de Big Data, el alcance de esa crisis.</p>
+  </div>
+  <div class="hp-scroll"><div class="hp-scroll-bar"></div><span>leer</span></div>
+</section>
+
+<!-- STATS -->
+<div id="stat-row">
+  <div class="stat-cell" style="--ac:var(--rojo)">
+    <div class="sc-num">23.986</div>
+    <div class="sc-label">Hectáreas destruidas<br>en solo 3 meses · 2024</div>
+  </div>
+  <div class="stat-cell" style="--ac:var(--oro)">
+    <div class="sc-num">−29%</div>
+    <div class="sc-label">Caída producción café<br>en años El Niño</div>
+  </div>
+  <div class="stat-cell" style="--ac:var(--azul)">
+    <div class="sc-num">2.9M</div>
+    <div class="sc-label">Personas en riesgo alto<br>por variabilidad climática</div>
+  </div>
+  <div class="stat-cell" style="--ac:var(--verde)">
+    <div class="sc-num">+1.68°C</div>
+    <div class="sc-label">Anomalía térmica<br>en años El Niño</div>
+  </div>
+</div>
+
+<!-- EL PROBLEMA -->
+<section class="blk" id="problema">
+  <div class="two-col">
+    <div>
+      <div class="sec-tag reveal">01 · La problemática</div>
+      <h2 class="sec-h2 reveal">Por qué el clima<br><em>importa</em> tanto<br>en Colombia</h2>
+      <div class="sep reveal"></div>
+      <div class="sec-body reveal">
+        <p>Colombia es el tercer productor de café del mundo, el segundo exportador de flores, y uno de los mayores proveedores globales de aguacate, banano y caña de azúcar. Sin embargo, su sector agrícola enfrenta una vulnerabilidad estructural crítica: <strong style="color:var(--paper)">más del 90% de los cultivos del país dependen exclusivamente del agua lluvia</strong>, sin sistemas de riego tecnificados.</p>
+        <p>Cuando el clima falla — y con el cambio climático falla cada vez con más frecuencia e intensidad — el campo colombiano no tiene red de protección. Los fenómenos de El Niño y La Niña, amplificados por el calentamiento global, alternan entre sequías devastadoras e inundaciones catastróficas que ningún agricultor puede predecir ni controlar.</p>
+        <p>Este proyecto utiliza análisis exploratorio de datos (EDA) con Apache Spark y Pandas para cuantificar ese impacto: ¿cuánto cae el rendimiento del café en un año de El Niño? ¿Qué región es más vulnerable? ¿Cómo se correlacionan la temperatura y la producción? Los datos responden.</p>
+      </div>
+    </div>
+    <div>
+      <div class="three-col reveal" style="gap:1rem;">
+        <div class="prob-card" style="--ac:var(--rojo)">
+          <span class="pc-icon">☕</span>
+          <div class="pc-title">Café</div>
+          <div class="pc-body">El cultivo emblema de Colombia enfrenta calor extremo que supera su umbral crítico de 30°C.</div>
+          <div class="pc-stat">−38%</div>
+          <div class="pc-stat-label">producción · El Niño 2010</div>
+        </div>
+        <div class="prob-card" style="--ac:var(--oro)">
+          <span class="pc-icon">🌾</span>
+          <div class="pc-title">Arroz</div>
+          <div class="pc-body">La segunda cosecha (ago–nov), que representa el 40% de la producción anual, es la más vulnerable.</div>
+          <div class="pc-stat">40%</div>
+          <div class="pc-stat-label">cosecha anual en riesgo</div>
+        </div>
+        <div class="prob-card" style="--ac:var(--azul)">
+          <span class="pc-icon">🌽</span>
+          <div class="pc-title">Maíz</div>
+          <div class="pc-body">Las zonas bajas del Caribe y la Orinoquia perderán aptitud de cultivo antes de 2035.</div>
+          <div class="pc-stat">Alta</div>
+          <div class="pc-stat-label">exposición a sequías</div>
+        </div>
+        <div class="prob-card" style="--ac:var(--verde)">
+          <span class="pc-icon">🥑</span>
+          <div class="pc-title">Aguacate</div>
+          <div class="pc-body">El calentamiento fuerza la migración de cultivos a mayor altitud. Las montañas tienen un límite.</div>
+          <div class="pc-stat">$300M</div>
+          <div class="pc-stat-label">exportaciones en riesgo</div>
+        </div>
+        <div class="prob-card" style="--ac:var(--lavanda)">
+          <span class="pc-icon">🥔</span>
+          <div class="pc-title">Papa</div>
+          <div class="pc-body">Las heladas atípicas en zonas andinas destruyen cosechas enteras. Umbral crítico: 18°C.</div>
+          <div class="pc-stat">2.800m</div>
+          <div class="pc-stat-label">altitud óptima en riesgo</div>
+        </div>
+        <div class="prob-card" style="--ac:var(--rojo)">
+          <span class="pc-icon">🍌</span>
+          <div class="pc-title">Plátano</div>
+          <div class="pc-body">Las inundaciones de La Niña afectan especialmente las zonas productoras de Urabá y el Eje Cafetero.</div>
+          <div class="pc-stat">La Niña</div>
+          <div class="pc-stat-label">amenaza principal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENSO EXPLAINER -->
+<section class="blk-alt" id="enso">
+  <div class="sec-tag reveal">02 · El fenómeno climático</div>
+  <h2 class="sec-h2 reveal">ENSO: el interruptor<br><em>del campo</em> colombiano</h2>
+  <div class="sep reveal"></div>
+  <div class="sec-body reveal">
+    <p>El fenómeno ENSO (El Niño-Oscilación del Sur) es el ciclo climático más determinante para la agricultura colombiana. Es la razón por la que los datos de este proyecto están siempre segmentados por fenómeno: Normal, El Niño, y La Niña. Las diferencias no son marginales — son devastadoras.</p>
+  </div>
+  <div class="enso-grid reveal">
+    <div class="enso-card" style="border-left:2px solid var(--rojo)">
+      <div class="enso-icon">🔥</div>
+      <div class="enso-title">El Niño</div>
+      <div class="enso-body">Calentamiento anómalo del Pacífico que genera sequías extremas, calor por encima de los umbrales críticos de los cultivos y reducción severa de caudales. El episodio de 2023–2024 duró 12 meses consecutivos y afectó más de 23.000 hectáreas en solo el primer trimestre.</div>
+      <span class="enso-badge" style="background:rgba(249,115,22,.15);color:var(--rojo)">Sequía · Calor extremo · Incendios</span>
+    </div>
+    <div class="enso-card" style="border-left:2px solid var(--azul)">
+      <div class="enso-icon">🌊</div>
+      <div class="enso-title">La Niña</div>
+      <div class="enso-body">Enfriamiento del Pacífico que genera lluvias por encima de lo normal, inundaciones y deslizamientos. El episodio doble de 2021–2022 afectó más de un millón de hectáreas y mantuvo la Costa Caribe parcialmente inundada durante meses.</div>
+      <span class="enso-badge" style="background:rgba(56,189,248,.12);color:var(--azul)">Inundaciones · Heladas · Deslizamientos</span>
+    </div>
+    <div class="enso-card" style="border-left:2px solid var(--verde)">
+      <div class="enso-icon">🌿</div>
+      <div class="enso-title">Año Normal</div>
+      <div class="enso-body">La línea base de comparación. Con el cambio climático, los "años normales" son cada vez más escasos y, cuando ocurren, su precipitación y temperatura ya difieren del promedio histórico del siglo XX. El campo colombiano está perdiendo su referencia climática.</div>
+      <span class="enso-badge" style="background:rgba(74,222,128,.12);color:var(--verde)">Precipitación regular · Referencia histórica</span>
+    </div>
+  </div>
+  <div class="alert-box reveal">
+    <span class="ab-icon">⚠</span>
+    <div class="ab-text">
+      <strong>Alerta 2026:</strong> El IDEAM proyecta una probabilidad del 50% de que El Niño regrese entre julio y septiembre de 2026 — apenas dos años después del episodio devastador de 2024. Los agricultores colombianos no han terminado de recuperarse.
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="blk" id="historia">
+  <div class="two-col">
+    <div>
+      <div class="sec-tag reveal">03 · Cronología</div>
+      <h2 class="sec-h2 reveal">Una crisis que<br><em>se acumula</em></h2>
+      <div class="sep reveal"></div>
+      <div class="sec-body reveal">
+        <p>El impacto del cambio climático en la agricultura colombiana no es un evento único — es una acumulación de crisis que se repiten con mayor frecuencia e intensidad. Cada episodio deja a los agricultores más vulnerables al siguiente.</p>
+      </div>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--rojo)"></div>
+        <div class="tl-year">2009–2010 · El Niño</div>
+        <div class="tl-title">Café colombiano pierde el 38%</div>
+        <div class="tl-body">El peor episodio cafetero en décadas. Colombia pierde su posición como segundo productor mundial. La combinación de calor extremo y la enfermedad de la roya devasta el Eje Cafetero.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--azul)"></div>
+        <div class="tl-year">2011–2012 · La Niña</div>
+        <div class="tl-title">Inundaciones masivas en los Llanos</div>
+        <div class="tl-body">Las lluvias extremas inundan la Orinoquia. Arroz y maíz perdidos en plena cosecha. Más de 400.000 familias afectadas en la región más productiva de cereales del país.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--rojo)"></div>
+        <div class="tl-year">2015–2016 · El Niño</div>
+        <div class="tl-title">El más severo del siglo XXI</div>
+        <div class="tl-body">El episodio más fuerte en décadas. Racionamiento de agua en múltiples ciudades. Pérdidas agropecuarias estimadas en billones de pesos. Los ríos del Valle del Cauca caen un 40%.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--azul)"></div>
+        <div class="tl-year">2021–2022 · Doble La Niña</div>
+        <div class="tl-title">Un millón de hectáreas bajo el agua</div>
+        <div class="tl-body">La segunda La Niña consecutiva genera inundaciones sin precedentes. La Costa Caribe permanece parcialmente inundada durante meses. Más de 15.000 animales muertos.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--rojo)"></div>
+        <div class="tl-year">2023–2024 · El Niño</div>
+        <div class="tl-title">23.986 hectáreas en 3 meses</div>
+        <div class="tl-body">El episodio dura 12 meses. A pesar de ser un 30% menos intenso en el océano que 2015–2016, genera temperaturas del aire casi idénticas: el suelo ya está más caliente que antes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ ESTOS DATASETS -->
+<section class="blk-alt" id="por-que">
+  <div class="sec-tag reveal">04 · Justificación de datos</div>
+  <h2 class="sec-h2 reveal">Por qué elegimos<br><em>estos datasets</em></h2>
+  <div class="sep reveal"></div>
+  <div class="sec-body reveal">
+    <p>La elección de los datasets no fue aleatoria. Cada fuente fue seleccionada para cubrir una dimensión diferente del problema: producción local detallada, tendencia histórica global, impacto en tiempo real, comparativa internacional y economía cafetera. Juntos forman un análisis multidimensional que ninguna fuente sola podría ofrecer.</p>
+  </div>
+  <div class="ds-grid reveal">
+    <div class="ds-card">
+      <div class="ds-num">01 · Producción nacional detallada</div>
+      <div class="ds-name">EVA — Evaluaciones Agropecuarias Municipales</div>
+      <div class="ds-source">datos.gov.co · Ministerio de Agricultura · MADR</div>
+      <div class="ds-why">Elegido porque es la fuente más granular disponible de producción agrícola en Colombia. Contiene datos por municipio, cultivo y año — lo que permite análisis regionales precisos que los datos nacionales agregados ocultan. Es la única fuente que permite ver qué departamentos son más vulnerables al ENSO.</div>
+      <div class="ds-tags">
+        <span class="ds-tag tag-g">Gobierno Colombia</span>
+        <span class="ds-tag tag-b">Municipal</span>
+        <span class="ds-tag tag-o">2007–2022</span>
+      </div>
+      <div class="ds-meta">
+        <div class="dm-item"><div class="dm-val">928</div><div class="dm-lbl">Registros</div></div>
+        <div class="dm-item"><div class="dm-val">9</div><div class="dm-lbl">Cultivos</div></div>
+        <div class="dm-item"><div class="dm-val">17</div><div class="dm-lbl">Departamentos</div></div>
+      </div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-num">02 · Tendencia histórica global</div>
+      <div class="ds-name">FAO FAOSTAT — Producción Agrícola Colombia</div>
+      <div class="ds-source">fao.org · Organización de las Naciones Unidas</div>
+      <div class="ds-why">Elegido para proporcionar la perspectiva histórica larga (desde 1990) que el EVA no ofrece. Permite ver la tendencia de producción y área cultivada durante más de 30 años, incluyendo todos los grandes episodios ENSO del período. Es la fuente de referencia internacional para comparar Colombia con otros países.</div>
+      <div class="ds-tags">
+        <span class="ds-tag tag-g">Naciones Unidas</span>
+        <span class="ds-tag tag-b">Nacional</span>
+        <span class="ds-tag tag-o">1990–2023</span>
+      </div>
+      <div class="ds-meta">
+        <div class="dm-item"><div class="dm-val">272</div><div class="dm-lbl">Registros</div></div>
+        <div class="dm-item"><div class="dm-val">8</div><div class="dm-lbl">Cultivos</div></div>
+        <div class="dm-item"><div class="dm-val">34</div><div class="dm-lbl">Años</div></div>
+      </div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-num">03 · Impacto en tiempo real</div>
+      <div class="ds-name">Smart Farming Sensor Data 2024</div>
+      <div class="ds-source">Kaggle · datasetengineer · Sensores IoT</div>
+      <div class="ds-why">Elegido porque aporta la dimensión de datos en tiempo real que los registros estadísticos no tienen. Los 2.000 registros de sensores IoT permiten correlacionar directamente temperatura, humedad del suelo y pH con el rendimiento estimado por cultivo — una relación causal que las estadísticas anuales no pueden capturar.</div>
+      <div class="ds-tags">
+        <span class="ds-tag tag-r">Kaggle</span>
+        <span class="ds-tag tag-b">IoT · Sensores</span>
+        <span class="ds-tag tag-o">2023–2024</span>
+      </div>
+      <div class="ds-meta">
+        <div class="dm-item"><div class="dm-val">2.000</div><div class="dm-lbl">Lecturas</div></div>
+        <div class="dm-item"><div class="dm-val">5</div><div class="dm-lbl">Cultivos</div></div>
+        <div class="dm-item"><div class="dm-val">50</div><div class="dm-lbl">Sensores</div></div>
+      </div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-num">04 · Comparativa internacional</div>
+      <div class="ds-name">Crop Yield Prediction Dataset</div>
+      <div class="ds-source">Kaggle / ONU · patelris · Global</div>
+      <div class="ds-why">Elegido para responder una pregunta clave: ¿está Colombia perdiendo posición competitiva frente a otros países productores? Al comparar el rendimiento de café de Colombia con Brasil, México, Perú y Ecuador bajo las mismas condiciones ENSO, se puede determinar si el problema es climático, tecnológico o estructural.</div>
+      <div class="ds-tags">
+        <span class="ds-tag tag-r">Kaggle</span>
+        <span class="ds-tag tag-b">8 países</span>
+        <span class="ds-tag tag-o">1990–2023</span>
+      </div>
+      <div class="ds-meta">
+        <div class="dm-item"><div class="dm-val">1.904</div><div class="dm-lbl">Registros</div></div>
+        <div class="dm-item"><div class="dm-val">7</div><div class="dm-lbl">Cultivos</div></div>
+        <div class="dm-item"><div class="dm-val">8</div><div class="dm-lbl">Países</div></div>
+      </div>
+    </div>
+    <div class="ds-card">
+      <div class="ds-num">05 · Economía cafetera</div>
+      <div class="ds-name">AgroNET — Estadísticas Cafeteras Mensuales</div>
+      <div class="ds-source">agronet.gov.co · Federación Nacional de Cafeteros</div>
+      <div class="ds-why">Elegido porque conecta el impacto climático con el impacto económico real. Los precios internos en COP y la cotización en la Bolsa de Nueva York en USD permiten ver cómo los episodios ENSO se traducen en pérdidas económicas concretas para los caficultores. Es el puente entre el dato agronómico y el impacto en el bolsillo.</div>
+      <div class="ds-tags">
+        <span class="ds-tag tag-g">Gobierno Colombia</span>
+        <span class="ds-tag tag-b">Mensual</span>
+        <span class="ds-tag tag-o">2000–2024</span>
+      </div>
+      <div class="ds-meta">
+        <div class="dm-item"><div class="dm-val">300</div><div class="dm-lbl">Meses</div></div>
+        <div class="dm-item"><div class="dm-val">25</div><div class="dm-lbl">Años</div></div>
+        <div class="dm-item"><div class="dm-val">2</div><div class="dm-lbl">Precios (COP/USD)</div></div>
+      </div>
+    </div>
+    <div class="ds-card" style="background:var(--s2);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:3rem;">
+      <div style="font-size:3rem;margin-bottom:1rem;">📊</div>
+      <div style="font-size:1.1rem;font-weight:700;margin-bottom:.6rem;">5.404 registros totales</div>
+      <div style="font-family:var(--mono);font-size:.55rem;color:var(--gris);line-height:1.8;">Procesados con Apache Spark + Pandas<br>en un motor híbrido de análisis.<br>Completitud &gt;99% tras limpieza.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-brand">AgroClima Colombia · EDA · Flask + PySpark + Dash · 2024</div>
+  <div class="ft-links">
+    <a href="/">Inicio</a>
+    <a href="/modelo">Modelo</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/datasets">Datasets</a>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
