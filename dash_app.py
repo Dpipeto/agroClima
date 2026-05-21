@@ -83,6 +83,14 @@ def create_dash_app(server):
                 "● AgroNET · Café", ROJO,
             )
 
+        if path.endswith("mineria"):
+            from pages.page_mineria import layout
+            return layout(), topbar(
+                "Cambio Climático & Agricultura — Colombia",
+                "Minería de Datos · K-Means · Apriori · Random Forest · 5 Datasets",
+                "◆ Minería · ML", LAVANDA,
+            )
+
         # Default → EVA
         from pages.page_eva import layout
         return layout(), topbar(

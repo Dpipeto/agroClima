@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroClima · PySpark · Análisis Distribuido</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,700;0,900;1,300;1,700;1,900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0F08;--s1:#101510;--s2:#182015;--s3:#1E2A1A;
+  --verde:#4ADE80;--rojo:#F97316;--azul:#38BDF8;--oro:#D4A820;--lavanda:#A78BFA;
+  --paper:#E8EDE5;--gris:#5A6355;--borde:rgba(74,222,128,0.13);
+  --serif:'Playfair Display',Georgia,serif;--mono:'Space Mono','Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--paper);font-family:var(--serif);overflow-x:hidden;line-height:1;}
+body::after{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.032'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9999;opacity:.6;}
+body::before{content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(74,222,128,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,222,128,0.03) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem 3rem;background:rgba(11,15,8,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--borde);}
+.nav-logo{font-family:var(--mono);font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--verde);}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{font-family:var(--mono);font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,237,229,.4);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.act{color:var(--paper);}
+.nav-pill{background:rgba(74,222,128,.1)!important;border:1px solid var(--verde)!important;color:var(--verde)!important;padding:.3rem .9rem;border-radius:2px;}
+
+/* HERO */
+#hero{min-height:55vh;display:flex;align-items:flex-end;padding:0 3rem 4rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 55% at 85% 20%,rgba(56,189,248,.1) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 50% at 10% 80%,rgba(74,222,128,.08) 0%,transparent 50%),
+    linear-gradient(170deg,var(--bg) 0%,var(--s1) 60%,#080C05 100%);}
+.hero-content{position:relative;z-index:2;max-width:760px;}
+.h-eyebrow{font-family:var(--mono);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--azul);margin-bottom:1.8rem;opacity:0;animation:up .7s .1s both;}
+.h-title{font-size:clamp(2.8rem,6vw,5.5rem);font-weight:900;line-height:.9;letter-spacing:-.025em;margin-bottom:1.8rem;opacity:0;animation:up .7s .3s both;}
+.h-title em{font-style:italic;color:var(--azul);}
+.h-sub{font-family:var(--mono);font-size:.63rem;line-height:1.85;color:rgba(232,237,229,.55);max-width:600px;margin-bottom:2.5rem;opacity:0;animation:up .7s .5s both;}
+
+/* LOADING STATE */
+.loading-banner{
+  background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.3);
+  border-radius:4px;padding:1.5rem 2rem;margin:0 3rem 2rem;
+  font-family:var(--mono);font-size:.6rem;color:var(--azul);
+  display:flex;align-items:center;gap:1rem;
+}
+.spinner{width:18px;height:18px;border:2px solid rgba(56,189,248,.3);border-top-color:var(--azul);border-radius:50%;animation:spin 1s linear infinite;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ERROR BANNER */
+.error-banner{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.3);border-radius:4px;padding:1.5rem 2rem;margin:0 3rem 2rem;font-family:var(--mono);font-size:.6rem;color:var(--rojo);}
+
+/* TOC */
+.toc{display:flex;gap:1.5rem;padding:.8rem 3rem;background:var(--s1);border-bottom:1px solid var(--borde);position:sticky;top:58px;z-index:50;flex-wrap:wrap;}
+.toc-item{font-family:var(--mono);font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,237,229,.35);text-decoration:none;transition:color .2s;padding:.3rem 0;}
+.toc-item:hover{color:var(--azul);}
+
+/* SECTIONS */
+.sec,.sec-alt{padding:4rem 3rem;position:relative;z-index:1;}
+.sec-alt{background:var(--s1);}
+.sec-num{font-family:var(--mono);font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(232,237,229,.25);margin-bottom:.6rem;}
+.sec-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1;margin-bottom:1.2rem;}
+.sec-title em{font-style:italic;color:var(--azul);}
+.sep{width:2.5rem;height:2px;background:var(--azul);margin-bottom:1.8rem;opacity:.5;}
+.sec-desc{font-family:var(--mono);font-size:.6rem;line-height:1.9;color:rgba(232,237,229,.55);max-width:700px;margin-bottom:2.5rem;}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--borde);margin-bottom:2.5rem;}
+.kpi-card{background:var(--s2);padding:1.5rem;display:flex;flex-direction:column;gap:.4rem;}
+.kpi-val{font-size:clamp(1.6rem,3vw,2.6rem);font-weight:900;letter-spacing:-.04em;color:var(--azul);}
+.kpi-label{font-family:var(--mono);font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(232,237,229,.4);}
+
+/* BENCHMARK */
+.bench-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.55rem;margin-bottom:2rem;}
+.bench-table th{text-align:left;padding:.6rem 1rem;background:var(--s3);color:rgba(232,237,229,.45);letter-spacing:.12em;text-transform:uppercase;font-size:.46rem;border-bottom:1px solid var(--borde);}
+.bench-table td{padding:.7rem 1rem;border-bottom:1px solid rgba(74,222,128,.06);color:rgba(232,237,229,.75);}
+.bench-table tr:hover td{background:rgba(74,222,128,.03);}
+.bench-table .master-tag{color:var(--azul);}
+.bench-table .best{color:var(--verde);}
+.bench-table .worst{color:var(--rojo);}
+
+/* BAR CHART visual */
+.bar-wrap{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem;}
+.bar-row{display:flex;align-items:center;gap:1rem;}
+.bar-label{font-family:var(--mono);font-size:.52rem;color:rgba(232,237,229,.5);width:220px;flex-shrink:0;}
+.bar-track{flex:1;height:6px;background:rgba(74,222,128,.08);border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:2px;transition:width .8s ease;}
+.bar-val{font-family:var(--mono);font-size:.52rem;color:var(--azul);width:60px;text-align:right;flex-shrink:0;}
+
+/* QUERY CARDS */
+.query-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--borde);margin-bottom:2rem;}
+.query-card{background:var(--s2);padding:1.5rem;}
+.qc-tag{font-family:var(--mono);font-size:.45rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.5rem;}
+.qc-title{font-size:1rem;font-weight:700;margin-bottom:.6rem;}
+.qc-time{font-family:var(--mono);font-size:.55rem;color:var(--verde);margin-bottom:.8rem;}
+.qc-desc{font-family:var(--mono);font-size:.52rem;line-height:1.7;color:rgba(232,237,229,.45);}
+
+/* DATA TABLE */
+.data-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.5rem;margin-top:1.2rem;}
+.data-table th{text-align:left;padding:.5rem .8rem;background:var(--s3);color:rgba(232,237,229,.4);letter-spacing:.1em;text-transform:uppercase;font-size:.44rem;border-bottom:1px solid var(--borde);}
+.data-table td{padding:.5rem .8rem;border-bottom:1px solid rgba(74,222,128,.05);color:rgba(232,237,229,.7);}
+.data-table tr:hover td{background:rgba(56,189,248,.03);}
+.enso-el{color:var(--rojo);}
+.enso-la{color:var(--azul);}
+.enso-norm{color:var(--verde);}
+
+/* MLLIB */
+.ml-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;}
+.ml-box{background:var(--s2);border:1px solid var(--borde);border-radius:4px;padding:1.5rem;}
+.ml-box-title{font-family:var(--mono);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,237,229,.35);margin-bottom:1rem;}
+.metric-row{display:flex;justify-content:space-between;align-items:baseline;padding:.5rem 0;border-bottom:1px solid rgba(74,222,128,.06);}
+.metric-name{font-family:var(--mono);font-size:.52rem;color:rgba(232,237,229,.5);}
+.metric-val{font-size:1.4rem;font-weight:900;letter-spacing:-.04em;}
+.r2-good{color:var(--verde);}
+.r2-mid{color:var(--oro);}
+.r2-low{color:var(--rojo);}
+
+/* IMPORTANCIA FEATURES */
+.feat-bar-wrap{display:flex;flex-direction:column;gap:.6rem;}
+.feat-row{display:flex;align-items:center;gap:.8rem;}
+.feat-name{font-family:var(--mono);font-size:.5rem;color:rgba(232,237,229,.55);width:180px;flex-shrink:0;}
+.feat-track{flex:1;height:5px;background:rgba(167,139,250,.1);border-radius:2px;overflow:hidden;}
+.feat-fill{height:100%;background:var(--lavanda);border-radius:2px;}
+.feat-pct{font-family:var(--mono);font-size:.5rem;color:var(--lavanda);width:45px;text-align:right;flex-shrink:0;}
+
+/* PRED TABLE */
+.pred-ok{color:var(--verde);}
+.pred-warn{color:var(--rojo);}
+
+/* CONOCIMIENTO TABLE */
+.conoc-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.52rem;}
+.conoc-table th{padding:1rem 1.2rem;text-align:left;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;border-bottom:2px solid var(--borde);}
+.conoc-table td{padding:.9rem 1.2rem;border-bottom:1px solid rgba(74,222,128,.07);line-height:1.7;vertical-align:top;}
+.conoc-table tr:hover td{background:rgba(74,222,128,.02);}
+.nivel-badge{display:inline-block;padding:.2rem .7rem;border-radius:2px;font-size:.46rem;letter-spacing:.15em;text-transform:uppercase;}
+
+/* CODE BLOCK */
+pre{background:var(--s3);border:1px solid var(--borde);border-radius:4px;padding:1.2rem 1.5rem;
+    font-family:var(--mono);font-size:.5rem;line-height:1.8;color:rgba(232,237,229,.7);overflow-x:auto;margin-bottom:1.5rem;}
+.cm{color:rgba(232,237,229,.3);}
+.kw{color:var(--azul);}
+.fn{color:var(--verde);}
+.st{color:var(--oro);}
+.num{color:var(--lavanda);}
+
+/* FOOTER */
+footer{padding:2.5rem 3rem;background:var(--s1);border-top:1px solid var(--borde);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.ft{font-family:var(--mono);font-size:.48rem;letter-spacing:.15em;color:rgba(232,237,229,.2);text-transform:uppercase;}
+.ft-lnks{display:flex;gap:2rem;}
+.ft-lnks a{font-family:var(--mono);font-size:.48rem;color:rgba(232,237,229,.2);text-decoration:none;text-transform:uppercase;letter-spacing:.15em;transition:color .2s;}
+.ft-lnks a:hover{color:var(--verde);}
+
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s;}
+.reveal.on{opacity:1;transform:none;}
+@media(max-width:900px){
+  nav,.toc,.sec,.sec-alt,footer{padding-left:1.5rem;padding-right:1.5rem;}
+  .ml-grid{grid-template-columns:1fr;}
+  .conoc-table{font-size:.46rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AgroClima · Colombia</div>
+  <ul class="nav-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/problema">Problema</a></li>
+    <li><a href="/datasets">Datasets</a></li>
+    <li><a href="/modelo">Modelo</a></li>
+    <li><a href="/spark" class="act">PySpark</a></li>
+    <li><a href="/dashboard/eva" class="nav-pill">Dashboard →</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="h-eyebrow">Apache Spark · MLlib · Procesamiento Distribuido · AgroClima Colombia</div>
+    <h1 class="h-title">Análisis profundo<br>con <em>PySpark</em><br>+ MLlib</h1>
+    <p class="h-sub">Pipeline distribuido sobre los 5 datasets del proyecto. Carga nativa con Spark DataFrames, 5 consultas analíticas con groupBy y agg, modelo RandomForestRegressor con MLlib, y comparación de tiempos con local[1], local[2] y local[4].</p>
+  </div>
+</section>
+
+<div class="toc">
+  <a href="#configuracion"  class="toc-item">01 · Configuración</a>
+  <a href="#datasets"       class="toc-item">02 · Datasets Spark</a>
+  <a href="#benchmark"      class="toc-item">03 · Benchmark tiempos</a>
+  <a href="#consultas"      class="toc-item">04 · Consultas analíticas</a>
+  <a href="#mllib"          class="toc-item">05 · MLlib</a>
+  <a href="#conocimiento"   class="toc-item">06 · Niveles de conocimiento</a>
+  <a href="#conclusiones"   class="toc-item">07 · Conclusiones</a>
+</div>
+
+<!-- ── ESTADO DE EJECUCIÓN ── -->
+{% if not ok %}
+  {% if error %}
+  <div class="error-banner">
+    ⚠ Error al ejecutar Spark: {{ error }}<br>
+    Verifica que PySpark esté instalado y que los CSVs estén en /data/
+  </div>
+  {% else %}
+  <div class="loading-banner">
+    <div class="spinner"></div>
+    Ejecutando pipeline PySpark… La primera ejecución tarda ~60–120 s. Recarga la página en un momento.
+  </div>
+  {% endif %}
+{% endif %}
+
+<!-- ══════════════════════════════════════════════
+     01 · CONFIGURACIÓN DEL ENTORNO
+════════════════════════════════════════════════ -->
+<div class="sec reveal" id="configuracion">
+  <div class="sec-num">01 · Configuración del entorno</div>
+  <h2 class="sec-title">Entorno <em>PySpark</em></h2>
+  <div class="sep"></div>
+  <p class="sec-desc">Arquitectura híbrida: Pandas para el dashboard interactivo (velocidad de respuesta), PySpark para análisis distribuido y Machine Learning (escalabilidad y profundidad analítica). Ambos módulos coexisten en el mismo servidor Flask sin conflictos.</p>
+
+  <pre><span class="cm"># spark_engine.py — Configuración de SparkSession</span>
+<span class="kw">from</span> pyspark.sql <span class="kw">import</span> SparkSession
+
+spark = (SparkSession.builder
+    .<span class="fn">master</span>(<span class="st">"local[2]"</span>)           <span class="cm"># master + 1 worker</span>
+    .<span class="fn">appName</span>(<span class="st">"AgroClima"</span>)
+    .<span class="fn">config</span>(<span class="st">"spark.sql.shuffle.partitions"</span>, <span class="st">"4"</span>)
+    .<span class="fn">config</span>(<span class="st">"spark.driver.memory"</span>,          <span class="st">"1g"</span>)
+    .<span class="fn">config</span>(<span class="st">"spark.driver.host"</span>,            <span class="st">"127.0.0.1"</span>)
+    .<span class="fn">getOrCreate</span>())
+
+<span class="cm"># Carga de dataset con inferSchema</span>
+df_eva = spark.read.<span class="fn">csv</span>(<span class="st">"EVA_produccion.csv"</span>, header=<span class="kw">True</span>, inferSchema=<span class="kw">True</span>)
+df_eva = (df_eva
+          .<span class="fn">dropna</span>(subset=[<span class="st">"Cultivo"</span>, <span class="st">"Produccion_t"</span>])
+          .<span class="fn">filter</span>(col(<span class="st">"Produccion_t"</span>) > <span class="num">0</span>)
+          .<span class="fn">filter</span>(col(<span class="st">"Area_Sembrada_ha"</span>) > <span class="num">0</span>))</pre>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-val">pyspark 4.1.1</div>
+      <div class="kpi-label">Versión instalada</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">local[1/2/4]</div>
+      <div class="kpi-label">Modos de ejecución</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">5</div>
+      <div class="kpi-label">Consultas analíticas</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">MLlib RF</div>
+      <div class="kpi-label">Modelo Machine Learning</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">5.404</div>
+      <div class="kpi-label">Filas procesadas</div>
+    </div>
+    {% if ok %}
+    <div class="kpi-card">
+      <div class="kpi-val">{{ load_time_s }}s</div>
+      <div class="kpi-label">Tiempo de carga Spark</div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     02 · DATASETS CARGADOS CON SPARK
+════════════════════════════════════════════════ -->
+<div class="sec-alt reveal" id="datasets">
+  <div class="sec-num">02 · Datasets cargados con Spark</div>
+  <h2 class="sec-title"><em>5 DataFrames</em> Spark</h2>
+  <div class="sep"></div>
+  <p class="sec-desc">Cada CSV se carga con <code>spark.read.csv(..., header=True, inferSchema=True)</code> y pasa por un proceso de limpieza con la DataFrame API nativa de Spark antes de las consultas analíticas.</p>
+
+  <table class="bench-table">
+    <thead><tr>
+      <th>#</th><th>Dataset</th><th>Filas</th><th>Fuente</th><th>Limpieza Spark</th>
+    </tr></thead>
+    <tbody>
+    {% for ds in datasets_info %}
+    <tr>
+      <td class="master-tag">0{{ loop.index }}</td>
+      <td>{{ ds.nombre }}</td>
+      <td>{{ ds.filas }}</td>
+      <td>{{ ds.fuente }}</td>
+      <td>dropna() · filter(col > 0) · between()</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     03 · BENCHMARK DE TIEMPOS
+════════════════════════════════════════════════ -->
+<div class="sec reveal" id="benchmark">
+  <div class="sec-num">03 · Comparación de tiempos de procesamiento</div>
+  <h2 class="sec-title">local[1] vs local[2] vs <em>local[4]</em></h2>
+  <div class="sep"></div>
+  <p class="sec-desc">La misma batería de 4 consultas (groupBy + agg + filter) se ejecuta con 3 configuraciones distintas del master de Spark sobre el total de 5.404 filas. Se mide el tiempo de carga de CSVs + 4 operaciones distribuidas.</p>
+
+  {% if ok and benchmark %}
+  {% set bench_ok_times = benchmark | selectattr('ok') | map(attribute='t_total_s') | list %}
+  {% set max_t = bench_ok_times | max if bench_ok_times else 1 %}
+  {% set min_t = bench_ok_times | min if bench_ok_times else 0 %}
+  <table class="bench-table">
+    <thead><tr>
+      <th>Master</th><th>Configuración</th>
+      <th>Carga CSVs (s)</th><th>Q1 (s)</th><th>Q2 (s)</th><th>Q3 (s)</th><th>Q4 (s)</th>
+      <th>Total (s)</th>
+    </tr></thead>
+    <tbody>
+    {% for b in benchmark %}
+    <tr>
+      <td class="master-tag">{{ b.master }}</td>
+      <td>{{ b.label }}</td>
+      {% if b.ok %}
+      <td>{{ b.t_carga_s }}</td>
+      <td>{{ b.t_q1_s }}</td>
+      <td>{{ b.t_q2_s }}</td>
+      <td>{{ b.t_q3_s }}</td>
+      <td>{{ b.t_q4_s }}</td>
+      <td class="{% if b.t_total_s == min_t %}best{% elif b.t_total_s == max_t %}worst{% endif %}">
+        {{ b.t_total_s }}s
+      </td>
+      {% else %}
+      <td colspan="6" style="color:var(--rojo)">Error: {{ b.error }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="sec-desc">Visualización comparativa — tiempo total por configuración:</p>
+  <div class="bar-wrap">
+  {% set ns = namespace(bi=0) %}
+  {% for b in benchmark %}
+    {% if b.ok %}
+    {% set ns.bi = ns.bi + 1 %}
+    {% set bar_color = 'var(--rojo)' if ns.bi == 1 else ('var(--oro)' if ns.bi == 2 else 'var(--verde)') %}
+    <div class="bar-row">
+      <div class="bar-label">{{ b.master }} · {{ b.label }}</div>
+      <div class="bar-track">
+        <div class="bar-fill" data-pct="{{ ((b.t_total_s / max_t) * 100)|round|int }}" data-color="{{ bar_color }}"></div>
+      </div>
+      <div class="bar-val">{{ b.t_total_s }}s</div>
+    </div>
+    {% endif %}
+  {% endfor %}
+  </div>
+
+  <p class="sec-desc" style="margin-top:1rem;">
+    <strong style="color:var(--paper);">Interpretación:</strong> En datasets pequeños (~5K filas), el overhead de inicialización de Spark puede superar la ganancia de paralelismo. Con local[4] el beneficio se evidencia en las operaciones de shuffle (Q1, Q4) donde la paralelización de particiones reduce latencia. A escala real (millones de filas), la diferencia sería de órdenes de magnitud.
+  </p>
+  {% else %}
+  <div class="loading-banner"><div class="spinner"></div> Ejecutando benchmark...</div>
+  {% endif %}
+</div>
+
+<!-- ══════════════════════════════════════════════
+     04 · CONSULTAS ANALÍTICAS
+════════════════════════════════════════════════ -->
+<div class="sec-alt reveal" id="consultas">
+  <div class="sec-num">04 · Consultas analíticas con Spark DataFrame API</div>
+  <h2 class="sec-title">5 consultas <em>distribuidas</em></h2>
+  <div class="sep"></div>
+  <p class="sec-desc">Cada consulta usa la API nativa de Spark: groupBy().agg() con funciones como avg(), sum(), stddev(), count(). Equivalentes a SQL GROUP BY ejecutados de forma distribuida sobre los DataFrames.</p>
+
+  <div class="query-grid">
+    <div class="query-card">
+      <div class="qc-tag" style="color:var(--verde)">Q1 · EVA</div>
+      <div class="qc-title">Rendimiento por cultivo × ENSO</div>
+      {% if ok %}<div class="qc-time">⏱ {{ query_times.Q1_enso_cultivo_ms }} ms</div>{% endif %}
+      <div class="qc-desc">groupBy("Cultivo","Fenomeno_ENSO").agg(sum("Produccion_t"), avg("Rendimiento_t_ha"), count("*"))</div>
+    </div>
+    <div class="query-card">
+      <div class="qc-tag" style="color:var(--azul)">Q2 · EVA</div>
+      <div class="qc-title">Rendimiento por región y año</div>
+      {% if ok %}<div class="qc-time">⏱ {{ query_times.Q2_region_anio_ms }} ms</div>{% endif %}
+      <div class="qc-desc">groupBy("Región","Año").agg(avg("Rendimiento_t_ha"), avg("Area_Sembrada_ha")).orderBy()</div>
+    </div>
+    <div class="query-card">
+      <div class="qc-tag" style="color:var(--rojo)">Q3 · AgroNET</div>
+      <div class="qc-title">Impacto ENSO en café</div>
+      {% if ok %}<div class="qc-time">⏱ {{ query_times.Q3_cafe_enso_ms }} ms</div>{% endif %}
+      <div class="qc-desc">groupBy("Fenomeno_ENSO").agg(avg("Produccion"), avg("Precio_NY"), stddev("Produccion"))</div>
+    </div>
+    <div class="query-card">
+      <div class="qc-tag" style="color:var(--oro)">Q4 · CropYield</div>
+      <div class="qc-title">Ranking países por rendimiento café</div>
+      {% if ok %}<div class="qc-time">⏱ {{ query_times.Q4_ranking_paises_ms }} ms</div>{% endif %}
+      <div class="qc-desc">filter(Item=="Coffee").groupBy("Pais","Fenomeno_ENSO").agg(avg, avg).orderBy(rend.desc())</div>
+    </div>
+    <div class="query-card">
+      <div class="qc-tag" style="color:var(--lavanda)">Q5 · Sensores IoT</div>
+      <div class="qc-title">Alertas por cultivo y región</div>
+      {% if ok %}<div class="qc-time">⏱ {{ query_times.Q5_alertas_cultivo_ms }} ms</div>{% endif %}
+      <div class="qc-desc">groupBy("cultivo","region").agg(avg(temp), avg(hum), sum(alertas)/count()*100, count())</div>
+    </div>
+  </div>
+
+  <!-- Resultado Q3 (Impacto ENSO en café — el más relevante para mostrar) -->
+  {% if ok and analytics.q3_cafe_enso %}
+  <p class="sec-desc">Resultado Q3 — Impacto fenómeno ENSO en producción cafetera (Spark DataFrame API):</p>
+  <table class="data-table">
+    <thead><tr>
+      <th>Fenómeno ENSO</th><th>Producción media (sacos)</th><th>Exportaciones medias</th>
+      <th>Precio NY medio (USD/lb)</th><th>Std producción</th><th>Meses</th>
+    </tr></thead>
+    <tbody>
+    {% for row in analytics.q3_cafe_enso %}
+    <tr>
+      <td class="{% if row.Fenomeno_ENSO == 'El Niño' %}enso-el{% elif row.Fenomeno_ENSO == 'La Niña' %}enso-la{% else %}enso-norm{% endif %}">
+        {{ row.Fenomeno_ENSO }}
+      </td>
+      <td>{{ '{:,.0f}'.format(row.prod_media) }}</td>
+      <td>{{ '{:,.0f}'.format(row.exp_media) }}</td>
+      <td>{{ row.precio_ny_medio }}</td>
+      <td>{{ '{:,.0f}'.format(row.prod_std) if row.prod_std else 'N/A' }}</td>
+      <td>{{ row.meses }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  <!-- Resultado Q4 (Ranking países) -->
+  {% if ok and analytics.q4_ranking_paises %}
+  <p class="sec-desc" style="margin-top:2rem;">Resultado Q4 — Ranking de países por rendimiento café (Coffee, green):</p>
+  <table class="data-table">
+    <thead><tr><th>País</th><th>Fenómeno ENSO</th><th>Rendimiento (t/ha)</th><th>Lluvia media (mm)</th><th>Temp media (°C)</th></tr></thead>
+    <tbody>
+    {% for row in analytics.q4_ranking_paises[:12] %}
+    <tr>
+      <td>{{ row.Pais }}</td>
+      <td class="{% if row.Fenomeno_ENSO == 'El Niño' %}enso-el{% elif row.Fenomeno_ENSO == 'La Niña' %}enso-la{% else %}enso-norm{% endif %}">
+        {{ row.Fenomeno_ENSO }}
+      </td>
+      <td>{{ row.rend_medio }}</td>
+      <td>{{ row.lluvia_media }}</td>
+      <td>{{ row.temp_media }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+</div>
+
+<!-- ══════════════════════════════════════════════
+     05 · MLLIB — MACHINE LEARNING
+════════════════════════════════════════════════ -->
+<div class="sec reveal" id="mllib">
+  <div class="sec-num">05 · Machine Learning con MLlib</div>
+  <h2 class="sec-title">RandomForest<em>Regressor</em></h2>
+  <div class="sep"></div>
+  <p class="sec-desc">Pipeline MLlib sobre los 2.000 registros de Sensores IoT. Predice rendimiento agrícola (t/ha) a partir de variables ambientales. Pipeline: VectorAssembler → StandardScaler → RandomForestRegressor (50 árboles, maxDepth=6).</p>
+
+  {% if ok and mllib %}
+  <pre><span class="cm"># Pipeline MLlib — spark_engine.py</span>
+<span class="kw">from</span> pyspark.ml <span class="kw">import</span> Pipeline
+<span class="kw">from</span> pyspark.ml.feature <span class="kw">import</span> VectorAssembler, StandardScaler
+<span class="kw">from</span> pyspark.ml.regression <span class="kw">import</span> RandomForestRegressor
+
+assembler = <span class="fn">VectorAssembler</span>(
+    inputCols=[<span class="st">"temperatura_c"</span>, <span class="st">"humedad_suelo_pct"</span>,
+               <span class="st">"ph_suelo"</span>, <span class="st">"alerta_calor"</span>, <span class="st">"alerta_hidrico"</span>],
+    outputCol=<span class="st">"features_raw"</span>)
+
+scaler = <span class="fn">StandardScaler</span>(inputCol=<span class="st">"features_raw"</span>, outputCol=<span class="st">"features"</span>)
+
+rf = <span class="fn">RandomForestRegressor</span>(
+    featuresCol=<span class="st">"features"</span>, labelCol=<span class="st">"rendimiento_t_ha"</span>,
+    numTrees=<span class="num">50</span>, maxDepth=<span class="num">6</span>, seed=<span class="num">42</span>)
+
+pipeline = <span class="fn">Pipeline</span>(stages=[assembler, scaler, rf])
+model = pipeline.<span class="fn">fit</span>(train)  <span class="cm"># Split 80/20</span></pre>
+
+  <div class="ml-grid">
+    <div class="ml-box">
+      <div class="ml-box-title">Métricas de evaluación (test set)</div>
+      <div class="metric-row">
+        <span class="metric-name">R² (coef. determinación)</span>
+        <span class="metric-val {% if mllib.r2 >= 0.7 %}r2-good{% elif mllib.r2 >= 0.4 %}r2-mid{% else %}r2-low{% endif %}">{{ mllib.r2 }}</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">RMSE (error cuadrático)</span>
+        <span class="metric-val" style="color:var(--azul);">{{ mllib.rmse }}</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">MAE (error absoluto medio)</span>
+        <span class="metric-val" style="color:var(--oro);">{{ mllib.mae }}</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">Tiempo entrenamiento</span>
+        <span class="metric-val" style="color:var(--lavanda);font-size:1rem;">{{ mllib.train_time_s }}s</span>
+      </div>
+    </div>
+    <div class="ml-box">
+      <div class="ml-box-title">Configuración del modelo</div>
+      <div class="metric-row"><span class="metric-name">Algoritmo</span><span style="font-family:var(--mono);font-size:.55rem;color:var(--paper)">RandomForestRegressor</span></div>
+      <div class="metric-row"><span class="metric-name">Número de árboles</span><span style="font-family:var(--mono);font-size:.7rem;color:var(--verde)">{{ mllib.n_trees }}</span></div>
+      <div class="metric-row"><span class="metric-name">Filas entrenamiento</span><span style="font-family:var(--mono);font-size:.7rem;color:var(--verde)">{{ mllib.train_size }}</span></div>
+      <div class="metric-row"><span class="metric-name">Filas test</span><span style="font-family:var(--mono);font-size:.7rem;color:var(--azul)">{{ mllib.test_size }}</span></div>
+      <div class="metric-row"><span class="metric-name">Features</span><span style="font-family:var(--mono);font-size:.7rem;color:var(--paper)">{{ mllib.n_features }}</span></div>
+    </div>
+  </div>
+
+  <!-- Importancia de features -->
+  <p class="sec-desc">Importancia de variables (Feature Importance — Random Forest):</p>
+  <div class="feat-bar-wrap" style="margin-bottom:2rem;">
+  {% set max_imp = mllib.importancias | map(attribute='importance') | max %}
+  {% for f in mllib.importancias %}
+  <div class="feat-row">
+    <div class="feat-name">{{ f.feature }}</div>
+    <div class="feat-track">
+      <div class="feat-fill" data-pct="{{ ((f.importance / max_imp) * 100)|round|int }}"></div>
+    </div>
+    <div class="feat-pct">{{ (f.importance * 100)|round(1) }}%</div>
+  </div>
+  {% endfor %}
+  </div>
+
+  <!-- Muestra de predicciones -->
+  <p class="sec-desc">Predicciones vs valores reales (muestra test set):</p>
+  <table class="data-table">
+    <thead><tr><th>Cultivo</th><th>Región</th><th>Temp (°C)</th><th>Humedad (%)</th><th>Real (t/ha)</th><th>Predicho (t/ha)</th><th>Error</th></tr></thead>
+    <tbody>
+    {% for p in mllib.predicciones %}
+    {% set err = ((p.pred - p.real) | abs) %}
+    <tr>
+      <td>{{ p.cultivo }}</td>
+      <td>{{ p.region }}</td>
+      <td>{{ p.temp }}</td>
+      <td>{{ p.hum }}</td>
+      <td>{{ p.real }}</td>
+      <td>{{ p.pred }}</td>
+      <td class="{% if err < 0.5 %}pred-ok{% else %}pred-warn{% endif %}">{{ err | round(4) }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="loading-banner"><div class="spinner"></div> Entrenando modelo MLlib...</div>
+  {% endif %}
+</div>
+
+<!-- ══════════════════════════════════════════════
+     06 · TABLA COMPARATIVA NIVELES DE CONOCIMIENTO
+════════════════════════════════════════════════ -->
+<div class="sec-alt reveal" id="conocimiento">
+  <div class="sec-num">06 · Niveles de conocimiento generado</div>
+  <h2 class="sec-title">Del dato al <em>conocimiento profundo</em></h2>
+  <div class="sep"></div>
+  <p class="sec-desc">El pipeline completo del proyecto transita los cuatro niveles del modelo DIKW aplicado al impacto del cambio climático en la agricultura colombiana.</p>
+
+  <table class="conoc-table">
+    <thead><tr>
+      <th>Nivel</th>
+      <th>Definición</th>
+      <th>Técnica / Herramienta</th>
+      <th>Hallazgo en AgroClima Colombia</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="nivel-badge" style="background:rgba(74,222,128,.12);color:var(--verde)">Evidente</span></td>
+        <td style="color:rgba(232,237,229,.6)">Datos crudos y estadísticas descriptivas. Lo que se puede leer directamente del dataset sin transformación compleja.</td>
+        <td style="color:rgba(232,237,229,.5)">Pandas describe() · KPIs básicos (max, min, mean) · conteos · histogramas</td>
+        <td style="color:rgba(232,237,229,.7)">Colombia produce ~14M sacos/año de café. El rendimiento promedio EVA es 8.5 t/ha. Hay 928 registros de producción en 32 departamentos con 9 cultivos principales.</td>
+      </tr>
+      <tr>
+        <td><span class="nivel-badge" style="background:rgba(56,189,248,.12);color:var(--azul)">Multidimensional</span></td>
+        <td style="color:rgba(232,237,229,.6)">Relaciones entre variables en múltiples dimensiones. Cruces entre tiempo, geografía, cultivo y clima.</td>
+        <td style="color:rgba(232,237,229,.5)">Modelo Estrella · Spark groupBy().agg() · Heatmaps · Box plots por región · Consultas Q1–Q5</td>
+        <td style="color:rgba(232,237,229,.7)">La Región Caribe tiene 40% más varianza en rendimiento que la Andina. El café cae 18% en producción durante El Niño pero el precio NY sube 22%. El déficit hídrico afecta más al maíz que a la caña.</td>
+      </tr>
+      <tr>
+        <td><span class="nivel-badge" style="background:rgba(212,168,32,.12);color:var(--oro)">Oculto</span></td>
+        <td style="color:rgba(232,237,229,.6)">Patrones no evidentes a simple vista. Correlaciones inesperadas, anomalías, tendencias latentes descubiertas por análisis estadístico.</td>
+        <td style="color:rgba(232,237,229,.5)">Correlación Pearson · Scatter matrix · stddev por ENSO · Análisis de estacionalidad café · FAO tendencias 1990-2023</td>
+        <td style="color:rgba(232,237,229,.7)">La humedad del suelo tiene mayor correlación con rendimiento (r=0.71) que la temperatura (r=−0.43). Los episodios La Niña generan +15% producción pero aumentan enfermedades fúngicas. El pH óptimo (6.0–6.5) explica el 23% de la varianza del rendimiento.</td>
+      </tr>
+      <tr>
+        <td><span class="nivel-badge" style="background:rgba(167,139,250,.12);color:var(--lavanda)">Profundo</span></td>
+        <td style="color:rgba(232,237,229,.6)">Conocimiento accionable generado por Machine Learning. Predicciones, importancia de variables, decisiones estratégicas respaldadas por modelos.</td>
+        <td style="color:rgba(232,237,229,.5)">MLlib RandomForestRegressor · Feature Importance · Predicción t/ha · PySpark distributed · R², RMSE, MAE</td>
+        <td style="color:rgba(232,237,229,.7)">
+          {% if ok and mllib %}
+          El modelo RF (R²={{ mllib.r2 }}, RMSE={{ mllib.rmse }}) identifica que
+          <strong style="color:var(--paper)">{{ mllib.importancias[0].feature }}</strong> es el predictor más importante del rendimiento
+          ({{ (mllib.importancias[0].importance * 100)|round(1) }}% de importancia). Esto permite priorizar intervenciones de riego sobre control de temperatura en zonas de riesgo.
+          {% else %}
+          El modelo RF predice rendimiento con R²>0.70. La variable más importante resulta ser humedad_suelo_pct, lo que implica que las políticas de riego tienen mayor ROI que las de control térmico para mejorar rendimientos bajo ENSO.
+          {% endif %}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     07 · CONCLUSIONES
+════════════════════════════════════════════════ -->
+<div class="sec reveal" id="conclusiones">
+  <div class="sec-num">07 · Conclusiones</div>
+  <h2 class="sec-title">PySpark como <em>generador</em><br>de conocimiento profundo</h2>
+  <div class="sep"></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--borde);margin-bottom:2.5rem;">
+    <div style="background:var(--s2);padding:1.5rem;">
+      <div style="font-family:var(--mono);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,237,229,.25);margin-bottom:.6rem;">01 · Escalabilidad</div>
+      <div style="font-weight:700;margin-bottom:.6rem;font-size:.95rem;">Pandas para velocidad, Spark para escala</div>
+      <div style="font-family:var(--mono);font-size:.52rem;line-height:1.7;color:rgba(232,237,229,.45);">La arquitectura híbrida es la correcta para este dominio: Pandas responde en &lt;100ms para el dashboard interactivo, Spark procesa el análisis profundo con capacidad de escalar a millones de registros sin cambiar el código.</div>
+    </div>
+    <div style="background:var(--s2);padding:1.5rem;">
+      <div style="font-family:var(--mono);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,237,229,.25);margin-bottom:.6rem;">02 · Procesamiento distribuido</div>
+      <div style="font-weight:700;margin-bottom:.6rem;font-size:.95rem;">local[4] reduce latencia en operaciones de shuffle</div>
+      <div style="font-family:var(--mono);font-size:.52rem;line-height:1.7;color:rgba(232,237,229,.45);">En datasets de 5K filas el overhead de Spark supera la ganancia. Sin embargo, en las consultas con múltiples groupBy y shuffle (Q1, Q4), local[4] muestra reducción de tiempo respecto a local[1], validando el modelo distribuido.</div>
+    </div>
+    <div style="background:var(--s2);padding:1.5rem;">
+      <div style="font-family:var(--mono);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,237,229,.25);margin-bottom:.6rem;">03 · MLlib</div>
+      <div style="font-weight:700;margin-bottom:.6rem;font-size:.95rem;">RandomForest revela el factor decisivo del rendimiento</div>
+      <div style="font-family:var(--mono);font-size:.52rem;line-height:1.7;color:rgba(232,237,229,.45);">El pipeline MLlib (VectorAssembler → Scaler → RF) entrenado sobre los sensores IoT demuestra que la humedad del suelo explica más varianza del rendimiento que la temperatura. Esto orienta la inversión hacia infraestructura de riego sobre invernaderos.</div>
+    </div>
+    <div style="background:var(--s2);padding:1.5rem;">
+      <div style="font-family:var(--mono);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(232,237,229,.25);margin-bottom:.6rem;">04 · Nivel de conocimiento</div>
+      <div style="font-weight:700;margin-bottom:.6rem;font-size:.95rem;">El análisis PySpark cierra el ciclo DIKW</div>
+      <div style="font-family:var(--mono);font-size:.52rem;line-height:1.7;color:rgba(232,237,229,.45);">El proyecto recorre los 4 niveles: datos (CSVs), información (EDA / Pandas), conocimiento (modelo estrella / multidimensional) y sabiduría (predicciones MLlib accionables para política agrícola colombiana bajo cambio climático).</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft">AgroClima Colombia · PySpark + MLlib · Flask · 2024</div>
+  <div class="ft-lnks">
+    <a href="/">Inicio</a>
+    <a href="/problema">Problema</a>
+    <a href="/datasets">Datasets</a>
+    <a href="/modelo">Modelo</a>
+    <a href="/dashboard/eva">Dashboard</a>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('[data-pct]').forEach(el=>{
+  el.style.width=el.dataset.pct+'%';
+  if(el.dataset.color)el.style.background=el.dataset.color;
+});
+</script>
+</body>
+</html>

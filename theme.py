@@ -49,14 +49,10 @@ LEGEND = dict(bgcolor="rgba(0,0,0,0)", font=dict(size=10))
 
 # ── Plotly template base ────────────────────────────────────────
 def ptpl():
-    """Layout base Plotly SIN legend/xaxis/yaxis.
-    Agregar esas claves directamente en update_layout() de cada figura.
-    """
     return dict(
         paper_bgcolor = S1,
         plot_bgcolor  = S2,
         font          = dict(family=MONO, color=PAPER, size=11),
-        margin        = dict(t=50, b=40, l=50, r=20),
     )
 
 # ── Componentes Dash ───────────────────────────────────────────
@@ -121,6 +117,8 @@ def sidebar():
                    href="/dashboard/cropyield", id="nav-cyp",      style=navstyle()),
             html.A([html.Span("☕ "), "AgroNET · Café"],
                    href="/dashboard/cafe",      id="nav-cafe",     style=navstyle()),
+            html.A([html.Span("🔬 "), "Minería de Datos"],
+                   href="/dashboard/mineria",   id="nav-mineria",  style=navstyle()),
         ], style={"padding":"10px 0","flex":"1"}),
         html.Div([
             html.Div([
