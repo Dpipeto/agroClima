@@ -1,15 +1,3 @@
-"""
-spark_engine.py — Análisis distribuido con PySpark + MLlib
-──────────────────────────────────────────────────────────
-Módulo INDEPENDIENTE del engine.py principal (que usa Pandas).
-Propósito: demostrar procesamiento distribuido real con Spark,
-consultas analíticas avanzadas, MLlib y comparación de tiempos.
-
-Jerarquía de ejecución simulada:
-  local[1]  → master solo        (1 thread)
-  local[2]  → master + 1 worker  (2 threads)
-  local[4]  → master + 2 workers (4 threads)
-"""
 
 import os, sys, time, warnings
 import pandas as pd
@@ -29,7 +17,6 @@ _results_cache = None
 #  SPARK SESSION FACTORY
 # ══════════════════════════════════════════════════════════════════
 def _make_spark(master: str, app_name: str = "AgroClima-Spark"):
-    """Crea una SparkSession con el master indicado."""
     import pyspark
     os.environ.setdefault("PYSPARK_PYTHON",        sys.executable)
     os.environ.setdefault("PYSPARK_DRIVER_PYTHON", sys.executable)
@@ -302,8 +289,8 @@ def _benchmark_masters():
     """
     configs = [
         ("local[1]", "Solo master (1 thread)"),
-        ("local[2]", "Master + 1 worker (2 threads)"),
-        ("local[4]", "Master + 2 workers (4 threads)"),
+        ("local[2]", "Master + 1 worker"),
+        ("local[3]", "Master + 2 workers"),
     ]
     benchmark = []
 
@@ -392,19 +379,7 @@ def _benchmark_masters():
 #  5. FUNCIÓN PRINCIPAL — llamada desde app.py
 # ══════════════════════════════════════════════════════════════════
 def run_spark_analysis(force: bool = False) -> dict:
-    """
-    Punto de entrada único. Ejecuta TODO el pipeline Spark:
-      1. Benchmark de tiempos (local[1/2/4])
-      2. Carga + limpieza con Spark
-      3. 5 consultas analíticas
-      4. Modelo RandomForest MLlib
-    Cachea el resultado para requests posteriores.
-
-    Args:
-        force: si True, ignora el caché y re-ejecuta.
-    Returns:
-        dict con todas las secciones listas para el template.
-    """
+    
     global _results_cache
     if _results_cache is not None and not force:
         return _results_cache
@@ -432,7 +407,7 @@ def run_spark_analysis(force: bool = False) -> dict:
         out["benchmark"] = _benchmark_masters()
 
         # ── Paso 2 & 3: Análisis principal con local[2] ────────
-        spark = _make_spark("local[2]", "AgroClima-Analysis")
+        spark = _make_spark("local[1]", "AgroClima-Analysis")
         dfs, load_time = _load_and_clean(spark)
         out["load_time_s"] = load_time
 
@@ -453,6 +428,40 @@ def run_spark_analysis(force: bool = False) -> dict:
                 spark.stop()
             except Exception:
                 pass
+
+            # ── DEBUG / TIEMPOS ───────────────────────────────────────
+    print("\n══════════ TIEMPOS SPARK ══════════")
+    print(f"Tiempo carga datasets: {out['load_time_s']} s")
+
+    print("\n--- Benchmark Masters ---")
+    for b in out["benchmark"]:
+        if b["ok"]:
+            print(
+                f"{b['master']} | "
+                f"Carga={b['t_carga_s']}s | "
+                f"Q1={b['t_q1_s']}s | "
+                f"Q2={b['t_q2_s']}s | "
+                f"Q3={b['t_q3_s']}s | "
+                f"Q4={b['t_q4_s']}s | "
+                f"TOTAL={b['t_total_s']}s"
+            )
+        else:
+            print(f"{b['master']} ERROR: {b['error']}")
+
+    print("\n--- Consultas Analíticas ---")
+    for q, t in out["query_times"].items():
+        print(f"{q}: {t} ms")
+
+    print("\n--- MLlib ---")
+    if out["mllib"]:
+        print(f"Train time: {out['mllib']['train_time_s']} s")
+        print(f"Total ML time: {out['mllib']['total_time_s']} s")
+        print(f"R²: {out['mllib']['r2']}")
+        print(f"RMSE: {out['mllib']['rmse']}")
+        print(f"MAE: {out['mllib']['mae']}")
+
+    print("════════════════════════════════════\n")
+
 
     _results_cache = out
     return out
