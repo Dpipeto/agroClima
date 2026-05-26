@@ -1,21 +1,24 @@
 """
 dash_app.py
 ───────────
-Registro del Dash app, layout base y callback de routing.
-NO contiene figuras ni lógica de visualización.
-Esas viven en pages/page_*.py
+FIX PRODUCCION:
+  · Imports de páginas corregidos: 'from page_xxx' (sin prefijo 'pages.')
+    Los archivos page_*.py están en la raíz del proyecto, no en /pages/
+  · Cada import envuelto en try/except para diagnosticar errores en producción
+  · topbar con color dinámico corregido para todos los colores
 """
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html, Input, Output
 
-from theme import BG, S1, MONO, BORDE, VERDE, ROJO, ORO, LAVANDA
+from theme import BG, S1, MONO, BORDE, VERDE, ROJO, ORO, LAVANDA, PAPER, GRIS
 from theme import sidebar, topbar
 
 
 def create_dash_app(server):
-    """Crea y devuelve el Dash app montado sobre el Flask server."""
-
     app = dash.Dash(
         __name__,
         server=server,
@@ -28,75 +31,93 @@ def create_dash_app(server):
     )
     app.title = "AgroClima Colombia · Dashboard"
 
-    # ── Layout base ────────────────────────────────────────────
     app.layout = html.Div([
         dcc.Location(id="url"),
         sidebar(),
         html.Div([
             html.Div(id="topbar-content"),
-            html.Div(id="page-content",
-                     style={"padding": "16px 20px"}),
-        ], style={"marginLeft": "210px", "minHeight": "100vh",
-                  "background": BG}),
-    ], style={"background": BG, "minHeight": "100vh",
-              "fontFamily": MONO})
+            html.Div(id="page-content", style={"padding": "16px 20px"}),
+        ], style={"marginLeft": "210px", "minHeight": "100vh", "background": BG}),
+    ], style={"background": BG, "minHeight": "100vh", "fontFamily": MONO})
 
-    # ── Callback router ────────────────────────────────────────
+    # ── Página de error reutilizable ──────────────────────────
+    def error_page(msg):
+        return html.Div([
+            html.P("⚠ Error cargando página", style={"fontFamily": MONO,
+                   "fontSize": "0.8rem", "color": ROJO, "marginBottom": "8px"}),
+            html.Pre(str(msg), style={"fontFamily": MONO, "fontSize": "0.65rem",
+                     "color": GRIS, "background": S1, "padding": "12px",
+                     "border": f"1px solid {BORDE}", "borderRadius": "4px",
+                     "whiteSpace": "pre-wrap", "wordBreak": "break-all"}),
+        ])
+
     @app.callback(
-        Output("page-content",    "children"),
-        Output("topbar-content",  "children"),
+        Output("page-content",   "children"),
+        Output("topbar-content", "children"),
         Input("url", "pathname"),
     )
     def render_page(path):
         path = path or "/dashboard/"
 
-        # Importación diferida para no bloquear el arranque
+        # ── FIX: imports sin prefijo 'pages.' ─────────────────
         if path.endswith("fao"):
-            from pages.page_fao       import layout
-            return layout(), topbar(
-                "Cambio Climático & Agricultura — Colombia",
-                "FAO FAOSTAT · Producción Agrícola Colombia · 1990-2023 · FAO.ORG",
-                "● FAO · FAOSTAT", VERDE,
-            )
+            try:
+                from pages.page_fao import layout
+                return layout(), topbar(
+                    "Cambio Climático & Agricultura — Colombia",
+                    "FAO FAOSTAT · Producción Agrícola Colombia · 1990-2023 · FAO.ORG",
+                    "● FAO · FAOSTAT", VERDE)
+            except Exception as ex:
+                return error_page(ex), topbar("Error", "page_fao", "● FAO", ROJO)
 
         if path.endswith("sensores"):
-            from pages.page_sensores  import layout
-            return layout(), topbar(
-                "Cambio Climático & Agricultura — Colombia",
-                "Smart Farming Sensor Data 2024 · Kaggle · 2,000 Lecturas · Sensores IoT Agrícolas",
-                "▶ Kaggle · SF24", ORO,
-            )
+            try:
+                from pages.page_sensores import layout
+                return layout(), topbar(
+                    "Cambio Climático & Agricultura — Colombia",
+                    "Smart Farming Sensor Data 2024 · Kaggle · 2,000 Lecturas · Sensores IoT Agrícolas",
+                    "▶ Kaggle · SF24", ORO)
+            except Exception as ex:
+                return error_page(ex), topbar("Error", "page_sensores", "▶ Sensores", ROJO)
 
         if path.endswith("cropyield"):
-            from pages.page_cropyield import layout
-            return layout(), topbar(
-                "Cambio Climático & Agricultura — Colombia",
-                "CropYield Prediction · Kaggle / ONU · 8 Países · 1990-2023",
-                "● Kaggle · ONU", LAVANDA,
-            )
+            try:
+                from pages.page_cropyield import layout
+                return layout(), topbar(
+                    "Cambio Climático & Agricultura — Colombia",
+                    "CropYield Prediction · Kaggle / ONU · 8 Países · 1990-2023",
+                    "● Kaggle · ONU", LAVANDA)
+            except Exception as ex:
+                return error_page(ex), topbar("Error", "page_cropyield", "● CropYield", ROJO)
 
         if path.endswith("cafe"):
-            from pages.page_cafe      import layout
-            return layout(), topbar(
-                "Cambio Climático & Agricultura — Colombia",
-                "AgroNET · Estadísticas Cafeteras Mensuales · agronet.gov.co · 2000-2024 · 289 Meses",
-                "● AgroNET · Café", ROJO,
-            )
+            try:
+                from pages.page_cafe import layout
+                return layout(), topbar(
+                    "Cambio Climático & Agricultura — Colombia",
+                    "AgroNET · Estadísticas Cafeteras Mensuales · agronet.gov.co · 2000-2024",
+                    "● AgroNET · Café", ROJO)
+            except Exception as ex:
+                return error_page(ex), topbar("Error", "page_cafe", "● Café", ROJO)
 
         if path.endswith("mineria"):
-            from pages.page_mineria import layout
-            return layout(), topbar(
-                "Cambio Climático & Agricultura — Colombia",
-                "Minería de Datos · K-Means · Apriori · Random Forest · 5 Datasets",
-                "◆ Minería · ML", LAVANDA,
-            )
+            try:
+                from pages.page_mineria import layout
+                return layout(), topbar(
+                    "Cambio Climático & Agricultura — Colombia",
+                    "Minería de Datos · K-Means · Apriori · Random Forest · 5 Datasets",
+                    "◆ Minería · ML", LAVANDA)
+            except Exception as ex:
+                return error_page(ex), topbar("Error", "page_mineria", "◆ Minería", ROJO)
 
         # Default → EVA
-        from pages.page_eva import layout
-        return layout(), topbar(
-            "Cambio Climático & Agricultura — Colombia",
-            "EVA · Evaluaciones Agropecuarias Municipales · datos.gov.co · MADR · 2007-2022",
-            "● datos.gov.co", VERDE,
-        )
+        try:
+            from pages.page_eva import layout
+            return layout(), topbar(
+                "Cambio Climático & Agricultura — Colombia",
+                "EVA · Evaluaciones Agropecuarias Municipales · datos.gov.co · MADR · 2007-2022",
+                "● datos.gov.co", VERDE)
+        except Exception as ex:
+            return error_page(ex), topbar("Error", "page_eva", "● EVA", ROJO)
 
     return app
